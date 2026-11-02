@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D Portfolio & Architectural Visualization | Art Homes Interior Studio</title>
+  <meta name="description" content="Explore photorealistic 3D interior renders, heritage Chettinad living spaces, modular kitchens, luxury wardrobes, and architectural conservation projects by Art Homes in Bengaluru and Hosur.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      background: var(--bg-cream);
+      border: 1px solid var(--line);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .filter-btn.active {
+      background: var(--forest);
+      color: #fff;
+      border-color: var(--forest);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .project-card {
+      background: #fff;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .project-media {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+      background: #111;
+      cursor: pointer;
+    }
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .project-card:hover .project-media img {
+      transform: scale(1.05);
+    }
+    .project-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(20, 27, 23, 0.85);
+      color: var(--gold-light);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .project-body {
+      padding: 22px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-cat {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gold-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .project-title {
+      font-size: 18px;
+      color: var(--forest-dark);
+      margin-bottom: 8px;
+    }
+    .project-desc {
+      font-size: 13.5px;
+      color: var(--ink-soft);
+      line-height: 1.55;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .btn-zoom {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--forest);
+      background: transparent;
+      padding: 0;
+    }
+    .btn-wa-inquire {
+      font-size: 12px;
+      font-weight: 700;
+      color: #0b8043;
+    }
+
+    /* Esplanade Box */
+    .spotlight-box {
+      background: var(--forest-dark);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      border: 1px solid var(--line-dark);
+    }
+    .spotlight-media {
+      background: #000;
+      min-height: 380px;
+      cursor: pointer;
+    }
+    .spotlight-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .spotlight-content {
+      padding: 44px 38px;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .spotlight-content h3 {
+      font-size: clamp(24px, 2.5vw, 34px);
+      margin-bottom: 14px;
+      color: #fff;
+    }
+    .spotlight-content p {
+      font-size: 14.5px;
+      color: #ccd5cf;
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    /* Brochure Catalog Grid */
+    .brochure-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+    .brochure-item {
+      background: #fff;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .brochure-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+    .brochure-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .brochure-item figcaption {
+      padding: 11px 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--forest-dark);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @media (max-width: 1080px) {
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .brochure-grid { grid-template-columns: repeat(3, 1fr); }
+      .spotlight-box { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .brochure-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .brochure-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <aside class="topbar">
+    <div class="container topbar-inner">
+      <div class="topbar-info">
+        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
+        <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
+      </div>
+      <div class="topbar-info">
+        <span>📞 <a href="tel:+919791272166" class="topbar-highlight">+91 97912 72166</a></span>
+        <span>✉️ <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Navbar -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand" aria-label="Art Homes Interior Studio">
+        <img src="assets/logo-light.png" alt="Art Homes Interior Studio" class="brand-logo">
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">3D Portfolio</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="referral.html">Offers & Refer</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="contact.html" class="btn btn-primary">Free Consultation ↗</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header Banner -->
+  <section class="page-header-banner">
+    <div class="container">
+      <span class="page-eyebrow">Studio Archive</span>
+      <h1 class="page-title">Architectural 3D Portfolio</h1>
+      <p class="page-subtitle">High-resolution photorealistic spatial renders and finished interiors for residences and landmark heritage structures.</p>
+    </div>
+  </section>
+
+  <!-- Filter & Portfolio Grid -->
+  <main class="section">
+    <div class="container">
+
+      <!-- Category Filter Buttons -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects('all', this)">All Works</button>
+        <button class="filter-btn" onclick="filterProjects('living', this)">Living & Heritage</button>
+        <button class="filter-btn" onclick="filterProjects('kitchen', this)">Kitchen & Dining</button>
+        <button class="filter-btn" onclick="filterProjects('bedroom', this)">Bedrooms & Wardrobes</button>
+        <button class="filter-btn" onclick="filterProjects('partition', this)">Partitions & Media</button>
+        <button class="filter-btn" onclick="filterProjects('conservation', this)">Architectural Conservation</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="portfolio-grid" id="portfolioContainer">
+
+        <!-- 1: Indo-Modern Heritage Living -->
+        <article class="project-card" data-cat="living">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p58-1.png', 'The Indo-Modern Heritage Living Panorama', 'Living & Heritage', 'Solid antique Chettinad timber pillars, iconic Pierre Jeanneret style hand-woven cane armchairs, terracotta linen sofa, brass floor lamps, and authentic Athangudi patterned floor tiles.')">
+            <img src="assets/portfolio/3d-project-p58-1.png" alt="Indo-Modern Living Room Render" loading="lazy">
+            <span class="project-badge">Living & Heritage</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Living Room · Heritage</span>
+            <h3 class="project-title">The Indo-Modern Heritage Panorama</h3>
+            <p class="project-desc">Hand-carved Chettinad timber pillars, Pierre Jeanneret cane armchairs, and authentic Athangudi patterned floor tiles.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p58-1.png', 'The Indo-Modern Heritage Living Panorama', 'Living & Heritage', 'Solid antique Chettinad timber pillars, Pierre Jeanneret cane armchairs, and Athangudi tiles.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20love%20the%20Indo-Modern%20Heritage%20Living%20design." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2: Esplanade Mansion -->
+        <article class="project-card" data-cat="conservation">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p54-1.png', 'Esplanade Mansion Urban Conservation', 'Architectural Conservation', 'Major urban architectural conservation study and structural timber roof extension for Mumbai\'s historic Esplanade Mansion (Watson\'s Hotel, est. 1867). Incorporates parametric louvers, computational airflow modeling, and cast-iron frame restoration.')">
+            <img src="assets/portfolio/3d-project-p54-1.png" alt="Esplanade Mansion Mumbai Render" loading="lazy">
+            <span class="project-badge">Conservation</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Urban Architecture · Conservation</span>
+            <h3 class="project-title">Esplanade Mansion Conservation</h3>
+            <p class="project-desc">Structural rehabilitation, axonometric timber workflows, and modern environmental louver extension for Watson's Hotel (est. 1867).</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p54-1.png', 'Esplanade Mansion Urban Conservation', 'Architectural Conservation', 'Major urban architectural conservation study for Watson\'s Hotel (est. 1867).')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20tell%20me%20about%20your%20Architectural%20Conservation%20work." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3: Emerald Kitchen -->
+        <article class="project-card" data-cat="kitchen">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p28-1.png', 'The Emerald Jewel Modular Kitchen', 'Kitchens & Dining', 'Contemporary high-gloss modular kitchen with emerald lower cabinetry, satin dove grey upper units, seamless quartz splashback, warm cove LEDs, and herringbone oak flooring.')">
+            <img src="assets/portfolio/3d-project-p28-1.png" alt="Emerald Modular Kitchen Render" loading="lazy">
+            <span class="project-badge">Kitchen</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Modular Kitchen · Luxury</span>
+            <h3 class="project-title">Emerald Jewel Modular Kitchen</h3>
+            <p class="project-desc">High-gloss emerald acrylic cabinets, seamless quartz splashback, Blum soft-close drawers, and herringbone oak flooring.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p28-1.png', 'The Emerald Jewel Modular Kitchen', 'Kitchens & Dining', 'High-gloss emerald acrylic cabinets, seamless quartz splashback, and herringbone flooring.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20want%20the%20Emerald%20Modular%20Kitchen." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4: Champagne Wardrobe -->
+        <article class="project-card" data-cat="bedroom">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p42-1.png', 'Champagne Glass Wardrobe & Vanity', 'Bedrooms & Wardrobes', 'Floor-to-ceiling champagne aluminum profile wardrobe with tinted glass fronts, interior vertical LED channel lighting, cantilevered walnut vanity shelf, and dressing stool.')">
+            <img src="assets/portfolio/3d-project-p42-1.png" alt="Champagne Glass Wardrobe Render" loading="lazy">
+            <span class="project-badge">Wardrobe</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Wardrobes · Master Bedroom</span>
+            <h3 class="project-title">Champagne Glass Wardrobe Suite</h3>
+            <p class="project-desc">Floor-to-ceiling champagne aluminum profiles, backlit vanity mirrors, and floating walnut dressing counter.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p42-1.png', 'Champagne Glass Wardrobe & Vanity', 'Bedrooms & Wardrobes', 'Champagne aluminum profiles, tinted glass, and floating walnut dressing counter.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Champagne%20Glass%20Wardrobe." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 5: CNC Divider -->
+        <article class="project-card" data-cat="partition">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p46-1.png', 'Geometric CNC Screen & Media Wall', 'Partitions & Media', 'Matte charcoal laser-cut geometric acoustic screen creating a semi-private entrance foyer, paired with matching floating walnut media console.')">
+            <img src="assets/portfolio/3d-project-p46-1.png" alt="CNC Divider and Media Console" loading="lazy">
+            <span class="project-badge">Partition</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Partitions · Media Unit</span>
+            <h3 class="project-title">Geometric CNC Screen & Media Wall</h3>
+            <p class="project-desc">Matte charcoal laser-cut acoustic lattice partition creating semi-private entrance foyer and walnut TV console.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p46-1.png', 'Geometric CNC Screen & Media Wall', 'Partitions & Media', 'Laser-cut acoustic lattice partition and low-profile floating walnut console.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20living%20room%20CNC%20partition." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 6: Sheesham & Cane Bed -->
+        <article class="project-card" data-cat="bedroom">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p14-1.png', 'Solid Sheesham & Woven Cane Bed', 'Bedrooms', 'Custom solid Sheesham wood bedstead with woven natural rattan backboard, floating bedside drawer modules, fluted glass lighting, and Athangudi flooring.')">
+            <img src="assets/portfolio/3d-project-p14-1.png" alt="Solid Sheesham and Cane Bed Render" loading="lazy">
+            <span class="project-badge">Bedroom</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Bedrooms · Handcrafted</span>
+            <h3 class="project-title">The Sheesham & Woven Cane Bed</h3>
+            <p class="project-desc">Custom solid Sheesham wood bedstead with woven natural rattan backboard and floating bedside drawer modules.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p14-1.png', 'Solid Sheesham & Woven Cane Bed', 'Bedrooms', 'Solid Sheesham wood bedstead with woven natural rattan backboard.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20tell%20me%20about%20the%20Sheesham%20Cane%20Bed." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 7: Nordic Sage Dining -->
+        <article class="project-card" data-cat="kitchen">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p62-1.png', 'Nordic Sage Dining & Arched Niche', 'Kitchen & Dining', 'Minimalist dining room with an architectural recessed arch alcove in olive sage, solid ash dining table, linen pendant, and natural jute flatweave rug.')">
+            <img src="assets/portfolio/3d-project-p62-1.png" alt="Nordic Sage Dining Room Render" loading="lazy">
+            <span class="project-badge">Dining</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Dining · Contemporary</span>
+            <h3 class="project-title">Nordic Sage Dining & Arched Niche</h3>
+            <p class="project-desc">Architectural recessed wall alcove in sage olive, solid ash dining table, and warm atmospheric sconce lighting.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p62-1.png', 'Nordic Sage Dining & Arched Niche', 'Kitchen & Dining', 'Architectural recessed wall alcove in sage olive with solid ash dining suite.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20love%20the%20Nordic%20Sage%20Dining%20suite." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 8: Terracotta Lounge -->
+        <article class="project-card" data-cat="living">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p50-1.png', 'Scandinavian Terracotta Lounge', 'Living & Heritage', 'Warm Scandinavian living room design with blonde oak cabinetry, warm terracotta accent wall, perimeter cove uplighting, and modular bouclé seating.')">
+            <img src="assets/portfolio/3d-project-p50-1.png" alt="Scandinavian Terracotta Living Room Render" loading="lazy">
+            <span class="project-badge">Living</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Living Room · Scandinavian</span>
+            <h3 class="project-title">Scandinavian Terracotta Lounge</h3>
+            <p class="project-desc">Warm terracotta accent wall with soft cove illumination, natural blonde oak cabinetry, and cozy modular seating.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p50-1.png', 'Scandinavian Terracotta Lounge', 'Living & Heritage', 'Warm terracotta accent wall with cove illumination and blonde oak cabinetry.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20want%20a%20living%20room%20like%20the%20Terracotta%20Lounge." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 9: Media Wall -->
+        <article class="project-card" data-cat="partition">
+          <div class="project-media" onclick="openLightbox('assets/portfolio/3d-project-p34-1.png', 'Architectural Media & Bookshelf Suite', 'Partitions & Media', 'Multi-tiered display niches with integrated warm LED lighting, Italian stone composite veneer, acoustic wooden fluting, and hidden wire management.')">
+            <img src="assets/portfolio/3d-project-p34-1.png" alt="Architectural Media Console Render" loading="lazy">
+            <span class="project-badge">Media Unit</span>
+          </div>
+          <div class="project-body">
+            <span class="project-cat">Living Room · Entertainment</span>
+            <h3 class="project-title">Architectural Media & Bookshelf Suite</h3>
+            <p class="project-desc">Integrated LED display niches, acoustic slatted fluting, Italian stone veneer, and concealed AV equipment conduits.</p>
+            <div class="project-footer">
+              <button class="btn-zoom" onclick="openLightbox('assets/portfolio/3d-project-p34-1.png', 'Architectural Media & Bookshelf Suite', 'Partitions & Media', 'Integrated LED display niches with stone veneer and acoustic fluting.')">View Enlarged ↗</button>
+              <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20an%20architectural%20media%20wall." class="btn-wa-inquire" target="_blank" rel="noopener">Inquire WhatsApp ↗</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Landmark Conservation Spotlight -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="spotlight-box">
+        <div class="spotlight-media" onclick="openLightbox('assets/portfolio/3d-project-p54-1.png', 'Esplanade Mansion / Watsons Hotel (1867) Urban Heritage Conservation', 'Architectural Conservation', 'Landmark architectural conservation study and structural mass-timber roof extension for Watson\'s Hotel / Esplanade Mansion, Mumbai—India\'s oldest surviving multi-story cast-iron structure.')">
+          <img src="assets/portfolio/3d-project-p54-1.png" alt="Esplanade Mansion Mumbai Conservation Render" loading="lazy">
+        </div>
+        <div class="spotlight-content">
+          <span class="eyebrow" style="color:var(--gold-light);">Conservation Case Study</span>
+          <h3>Esplanade Mansion Conservation</h3>
+          <p>
+            Art Homes provides specialized architectural heritage 3D visualization. Our conservation study of Mumbai’s historic Esplanade Mansion (est. 1867) incorporates lightweight mass-timber additions and parametric airflow louvers.
+          </p>
+          <div>
+            <button class="btn btn-gold" onclick="openLightbox('assets/portfolio/3d-project-p54-1.png', 'Esplanade Mansion Urban Heritage Conservation', 'Architectural Conservation', 'Landmark architectural conservation study and structural mass-timber roof extension.')">
+              View Architectural Study ↗
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dedicated Studio Brochure Gallery Callout -->
+  <section class="section section-cream">
+    <div class="container">
+      <div style="background: #ffffff; border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 48px 40px; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; box-shadow: var(--shadow-sm);">
+        <div style="max-width: 620px;">
+          <span class="eyebrow" style="margin-bottom: 8px;">Authentic Executions</span>
+          <h2 style="font-size: clamp(24px, 2.5vw, 34px); color: var(--forest-dark); margin-bottom: 12px;">Looking for Our Studio Brochure Catalog?</h2>
+          <p style="color: var(--ink-soft); font-size: 15px; line-height: 1.6; margin: 0;">
+            Explore real design executions and material selections across modular kitchens, luxury wardrobes, acoustic partitions, TV consoles, and pooja mandirs in our dedicated brochure gallery.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="gallery.html" class="btn btn-gold" style="white-space: nowrap;">Explore Brochure Gallery →</a>
+          <a href="contact.html" class="btn btn-outline" style="white-space: nowrap;">Book 3D Design Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand" aria-label="Art Homes Interior Studio">
+            <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
+          </a>
+          <p>
+            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">3D Portfolio</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="referral.html">Offers & Refer</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col services-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Modular Kitchens</a></li>
+            <li><a href="services.html">Designer Wardrobes</a></li>
+            <li><a href="services.html">Living Partitions</a></li>
+            <li><a href="services.html">TV Units</a></li>
+            <li><a href="services.html">Pooja Mandirs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Studio Contact</h4>
+          <div class="footer-contact-item">
+            <span>📍</span>
+            <span>CV Raman Nagar, Bengaluru 560093</span>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:+919791272166">+91 97912 72166</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>💬</span>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20my%20interior%20project." target="_blank" rel="noopener">WhatsApp Chat</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
+        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-dialog">
+      <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+      <div class="lightbox-img-pane">
+        <img src="" id="lightboxImg" alt="3D Interior Render Enlarged">
+      </div>
+      <div class="lightbox-info-pane">
+        <div>
+          <span class="lightbox-cat" id="lightboxCategory">Category</span>
+          <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
+          <p class="lightbox-desc" id="lightboxDesc">Description</p>
+        </div>
+        <a href="#" id="lightboxWa" class="btn btn-whatsapp" style="width:100%; text-align:center;" target="_blank" rel="noopener">
+          Inquire on WhatsApp ↗
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Contact Action Icons (Right Side with Float Animation) -->
+  <aside class="floating-contact-dock" aria-label="Quick Contact">
+    <a href="tel:+919791272166" class="floating-fab fab-call" aria-label="Call Art Homes Studio" title="Call +91 97912 72166">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20my%20interior%20project." class="floating-fab fab-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp Chat">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.106 8.106 0 01-1.25-4.29c0-4.5 3.66-8.15 8.16-8.15 2.18 0 4.22.85 5.76 2.39 1.54 1.54 2.39 3.58 2.39 5.76 0 4.5-3.66 8.14-8.17 8.14zm4.47-6.11c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.53.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.47-.31z"/>
+      </svg>
+    </a>
+  </aside>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    function filterProjects(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function openLightbox(src, title, cat, desc) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxCategory').textContent = cat;
+      document.getElementById('lightboxDesc').textContent = desc;
+
+      const text = encodeURIComponent(`Hi Art Homes, I saw "${title}" on your portfolio and would like a quote.`);
+      document.getElementById('lightboxWa').href = `https://wa.me/919791272166?text=${text}`;
+
+      document.getElementById('lightboxModal').classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+    }
+
+    document.getElementById('lightboxModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightboxModal')) closeLightbox();
+    });
+  </script>
+  <script src="animations.js"></script>
+</body>
+</html>

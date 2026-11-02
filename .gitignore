@@ -1,0 +1,5 @@
+.vercel
+.env*
+*.bak
+*step*.html
+test_logo_display.html
