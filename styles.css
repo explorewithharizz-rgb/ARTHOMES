@@ -5201,3 +5201,156 @@ html, body {
     padding: 65px 0 55px;
   }
 }
+
+/* ========================================================
+   OFFERS & REFERRAL PAGE HERO BANNER WITH CUSTOM 3D BACKGROUND
+   ======================================================== */
+.referral-header-banner {
+  position: relative;
+  min-height: 520px;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 105px 0 95px;
+  text-align: center;
+  overflow: hidden;
+  color: #ffffff;
+  background: #0e1410;
+}
+
+.referral-header-banner::before,
+.referral-header-banner::after {
+  display: none !important;
+}
+
+.referral-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(14, 20, 16, 0.52) 0%,
+    rgba(14, 20, 16, 0.35) 45%,
+    rgba(14, 20, 16, 0.68) 100%
+  ), url('/assets/referral-hero.jpg?v=2');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+
+.referral-header-banner:hover .referral-hero-bg {
+  transform: scale(1.06);
+}
+
+.referral-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 880px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.referral-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 20, 16, 0.72);
+  border: 1px solid rgba(223, 186, 115, 0.45);
+  color: #dfba73;
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: aboutHeroFadeDown 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.referral-hero-badge .badge-dot {
+  width: 8px;
+  height: 8px;
+  background: #dfba73;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #dfba73;
+  animation: dotPulse 2s infinite ease-in-out;
+}
+
+.referral-hero-content .page-title,
+.referral-hero-content .anim-hero-title {
+  color: #faeed2 !important;
+  font-family: var(--font-pocity, 'Pocity', 'Barlow Condensed', 'Bebas Neue', 'Anton', 'Oswald', 'Impact', sans-serif) !important;
+  font-size: clamp(38px, 5.2vw, 66px) !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1.15 !important;
+  margin-bottom: 18px !important;
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.85);
+  animation: aboutTitleMotion 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.referral-hero-content .hero-amp {
+  font-family: 'Barlow Condensed', 'Anton', 'Oswald', sans-serif !important;
+  font-weight: 800 !important;
+  color: #dfba73 !important;
+  margin: 0 8px;
+  display: inline-block;
+  vertical-align: baseline;
+  text-shadow: 0 2px 14px rgba(223, 186, 115, 0.45);
+}
+
+.referral-hero-content .page-subtitle,
+.referral-hero-content .anim-hero-subtitle {
+  color: #f1ede4 !important;
+  font-size: clamp(15px, 1.6vw, 18.5px);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+  animation: aboutSubtitleMotion 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.42s both;
+}
+
+.referral-hero-actions {
+  display: inline-flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 26px;
+  animation: aboutSubtitleMotion 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+@media (max-width: 768px) {
+  .referral-header-banner {
+    min-height: 420px;
+    padding: 75px 16px 65px;
+  }
+  .referral-hero-content .page-title {
+    font-size: 34px !important;
+    letter-spacing: 1.5px !important;
+  }
+  .referral-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 320px;
+  }
+  .referral-hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
