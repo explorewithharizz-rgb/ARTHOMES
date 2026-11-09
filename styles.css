@@ -5369,31 +5369,34 @@ html, body {
    ======================================================== */
 .referral-showcase-hero {
   position: relative;
-  background: #fbf9f5;
+  background: linear-gradient(180deg, #f7f3ea 0%, #ffffff 100%);
   width: 100%;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  padding: 24px 16px 20px;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 
 .referral-visual-container {
   position: relative;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
+  max-width: 920px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(14, 20, 16, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+  background: #ffffff;
 }
 
 .referral-visual-img {
   width: 100%;
   height: auto;
-  max-height: none;
+  max-height: 440px;
   display: block;
   object-fit: cover;
+  object-position: center top;
   transform: none !important;
   transition: none !important;
 }
