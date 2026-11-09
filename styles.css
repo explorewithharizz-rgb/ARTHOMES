@@ -5371,14 +5371,18 @@ html, body {
   position: relative;
   background: #fbf9f5;
   width: 100%;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
 
 .referral-visual-container {
   position: relative;
-  max-width: 1240px;
-  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -5387,10 +5391,9 @@ html, body {
 .referral-visual-img {
   width: 100%;
   height: auto;
-  max-height: 560px;
-  object-fit: contain;
+  max-height: none;
   display: block;
-  margin: 0 auto;
+  object-fit: cover;
   transform: none !important;
   transition: none !important;
 }
