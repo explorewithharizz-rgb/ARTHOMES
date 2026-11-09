@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>3D Portfolio & Architectural Visualization | Art Homes Interior Studio</title>
-  <meta name="description" content="Explore photorealistic 3D interior renders, heritage Chettinad living spaces, modular kitchens, luxury wardrobes, and architectural conservation projects by Art Homes in Bengaluru and Hosur.">
+  <title>Design Portfolio & Architectural Visualization | Art Homes Interior Studio</title>
+  <meta name="description" content="Explore photorealistic interior renders, heritage Chettinad living spaces, modular kitchens, luxury wardrobes, and architectural conservation projects by Art Homes in Bengaluru and Hosur.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -220,7 +220,6 @@
   <aside class="topbar">
     <div class="container topbar-inner">
       <div class="topbar-info">
-        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
         <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
       </div>
       <div class="topbar-info">
@@ -240,7 +239,6 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html" class="active">3D Portfolio</a>
         <a href="gallery.html">Gallery</a>
         <a href="referral.html">Offers & Refer</a>
         <a href="about.html">About</a>
@@ -258,7 +256,7 @@
   <section class="page-header-banner">
     <div class="container">
       <span class="page-eyebrow">Studio Archive</span>
-      <h1 class="page-title">Architectural 3D Portfolio</h1>
+      <h1 class="page-title">Architectural Portfolio</h1>
       <p class="page-subtitle">High-resolution photorealistic spatial renders and finished interiors for residences and landmark heritage structures.</p>
     </div>
   </section>
@@ -449,7 +447,7 @@
           <span class="eyebrow" style="color:var(--gold-light);">Conservation Case Study</span>
           <h3>Esplanade Mansion Conservation</h3>
           <p>
-            Art Homes provides specialized architectural heritage 3D visualization. Our conservation study of Mumbai’s historic Esplanade Mansion (est. 1867) incorporates lightweight mass-timber additions and parametric airflow louvers.
+            Art Homes provides specialized architectural heritage visualization. Our conservation study of Mumbai’s historic Esplanade Mansion (est. 1867) incorporates lightweight mass-timber additions and parametric airflow louvers.
           </p>
           <div>
             <button class="btn btn-gold" onclick="openLightbox('assets/portfolio/3d-project-p54-1.png', 'Esplanade Mansion Urban Heritage Conservation', 'Architectural Conservation', 'Landmark architectural conservation study and structural mass-timber roof extension.')">
@@ -474,7 +472,7 @@
         </div>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
           <a href="gallery.html" class="btn btn-gold" style="white-space: nowrap;">Explore Brochure Gallery →</a>
-          <a href="contact.html" class="btn btn-outline" style="white-space: nowrap;">Book 3D Design Session</a>
+          <a href="contact.html" class="btn btn-outline" style="white-space: nowrap;">Book Design Session</a>
         </div>
       </div>
     </div>
@@ -489,7 +487,7 @@
             <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
           </a>
           <p>
-            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+            Luxury residential interiors and bespoke craftsmanship in Bengaluru and Hosur.
           </p>
         </div>
 
@@ -498,7 +496,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">3D Portfolio</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="referral.html">Offers & Refer</a></li>
             <li><a href="about.html">About</a></li>
@@ -540,27 +537,43 @@
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
-        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+        <span>Bengaluru & Hosur | Founder: Gopinathan K</span>
       </div>
     </div>
   </footer>
 
-  <!-- Lightbox Modal -->
+  <!-- Full View Lightbox Modal -->
   <div class="lightbox-modal" id="lightboxModal">
-    <div class="lightbox-dialog">
-      <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <div class="lightbox-dialog" id="lightboxDialog">
+      <div class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)">✕</div>
+      
+      <!-- Full View Image Pane -->
       <div class="lightbox-img-pane">
-        <img src="" id="lightboxImg" alt="3D Interior Render Enlarged">
+        <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="prevLightbox(event)" title="Previous project (←)" aria-label="Previous project">‹</button>
+        <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="nextLightbox(event)" title="Next project (→)" aria-label="Next project">›</button>
+        <button type="button" class="lightbox-expand-pill" onclick="toggleLightboxFullscreen(event)" title="Toggle 100% Full View">
+          <span id="expandIcon">⛶</span> <span id="expandText">Full View</span>
+        </button>
+        <img src="" id="lightboxImg" alt="Interior Render Enlarged" onclick="toggleLightboxFullscreen(event)" title="Click to toggle Full View">
       </div>
+
+      <!-- Info Sidebar -->
       <div class="lightbox-info-pane">
         <div>
           <span class="lightbox-cat" id="lightboxCategory">Category</span>
           <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
           <p class="lightbox-desc" id="lightboxDesc">Description</p>
+          <span class="lightbox-counter-badge" id="lightboxCounter">Project 1 of 10</span>
         </div>
-        <a href="#" id="lightboxWa" class="btn btn-whatsapp" style="width:100%; text-align:center;" target="_blank" rel="noopener">
-          Inquire on WhatsApp ↗
-        </a>
+        
+        <div class="lightbox-actions-wrap">
+          <button type="button" class="btn btn-outline" onclick="toggleLightboxFullscreen(event)" style="width:100%; justify-content:center; padding:10px 16px; font-size:12.5px; margin-bottom:8px;">
+            ⛶ Toggle Full View
+          </button>
+          <a href="#" id="lightboxWa" class="btn btn-whatsapp" style="width:100%; text-align:center; justify-content:center;" target="_blank" rel="noopener">
+            Inquire on WhatsApp ↗
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -600,24 +613,112 @@
       });
     }
 
+    // Full View Lightbox Modal Suite for Portfolio
+    let portfolioItems = [];
+    let currentLightboxIdx = 0;
+
+    function buildPortfolioIndex() {
+      portfolioItems = Array.from(document.querySelectorAll('.project-card')).filter(card => {
+        return window.getComputedStyle(card).display !== 'none';
+      });
+      if (!portfolioItems.length) {
+        portfolioItems = Array.from(document.querySelectorAll('.project-card'));
+      }
+    }
+
     function openLightbox(src, title, cat, desc) {
+      buildPortfolioIndex();
+      
+      const foundIdx = portfolioItems.findIndex(card => {
+        const img = card.querySelector('img');
+        return img && (img.getAttribute('src') === src || img.src === src);
+      });
+      currentLightboxIdx = foundIdx >= 0 ? foundIdx : 0;
+
+      updateLightboxDisplay(src, title, cat, desc);
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightboxDisplay(src, title, cat, desc) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxTitle').textContent = title;
       document.getElementById('lightboxCategory').textContent = cat;
       document.getElementById('lightboxDesc').textContent = desc;
+      const counterEl = document.getElementById('lightboxCounter');
+      if (counterEl) {
+        counterEl.textContent = 'Project ' + (currentLightboxIdx + 1) + ' of ' + (portfolioItems.length || 10);
+      }
+      const text = encodeURIComponent('Hi Art Homes, I saw "' + title + '" on your portfolio and would like a quote.');
+      document.getElementById('lightboxWa').href = 'https://wa.me/919791272166?text=' + text;
+    }
 
-      const text = encodeURIComponent(`Hi Art Homes, I saw "${title}" on your portfolio and would like a quote.`);
-      document.getElementById('lightboxWa').href = `https://wa.me/919791272166?text=${text}`;
+    function showLightboxIndex(idx) {
+      if (!portfolioItems.length) buildPortfolioIndex();
+      if (idx < 0) idx = portfolioItems.length - 1;
+      if (idx >= portfolioItems.length) idx = 0;
+      currentLightboxIdx = idx;
 
-      document.getElementById('lightboxModal').classList.add('active');
+      const card = portfolioItems[currentLightboxIdx];
+      if (!card) return;
+
+      const media = card.querySelector('.project-media');
+      const onclickAttr = media ? (media.getAttribute('onclick') || '') : '';
+      const match = onclickAttr.match(/openLightbox\((['"])(.*?)\1,\s*(['"])(.*?)\3,\s*(['"])(.*?)\5,\s*(['"])(.*?)\7\)/);
+      if (match) {
+        updateLightboxDisplay(match[2], match[4], match[6], match[8]);
+      } else {
+        const img = card.querySelector('img');
+        const titleEl = card.querySelector('h3');
+        const catEl = card.querySelector('.project-tag');
+        const descEl = card.querySelector('p');
+        const title = titleEl ? titleEl.textContent : 'Portfolio Project';
+        const cat = catEl ? catEl.textContent : 'Design';
+        const desc = descEl ? descEl.textContent : '';
+        if (img) updateLightboxDisplay(img.src, title, cat, desc);
+      }
+    }
+
+    function prevLightbox(e) {
+      if (e) e.stopPropagation();
+      showLightboxIndex(currentLightboxIdx - 1);
+    }
+
+    function nextLightbox(e) {
+      if (e) e.stopPropagation();
+      showLightboxIndex(currentLightboxIdx + 1);
+    }
+
+    function toggleLightboxFullscreen(e) {
+      if (e) e.stopPropagation();
+      const dlg = document.getElementById('lightboxDialog');
+      const isFull = dlg.classList.toggle('is-fullscreen');
+      const expandText = document.getElementById('expandText');
+      if (expandText) {
+        expandText.textContent = isFull ? 'Split View' : 'Full View';
+      }
     }
 
     function closeLightbox() {
       document.getElementById('lightboxModal').classList.remove('active');
+      const dlg = document.getElementById('lightboxDialog');
+      if (dlg) dlg.classList.remove('is-fullscreen');
+      const expandText = document.getElementById('expandText');
+      if (expandText) expandText.textContent = 'Full View';
+      document.body.style.overflow = '';
     }
 
     document.getElementById('lightboxModal').addEventListener('click', (e) => {
       if (e.target === document.getElementById('lightboxModal')) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox(e);
+      if (e.key === 'ArrowRight') nextLightbox(e);
+      if (e.key === 'f' || e.key === 'F') toggleLightboxFullscreen(e);
     });
   </script>
   <script src="animations.js"></script>

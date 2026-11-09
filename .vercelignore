@@ -2,7 +2,14 @@
 *.bak
 *step*.html
 test_logo_display.html
+test_font.html
 server.js
+*.zip
+*.mp4
+art-homes-wordpress-build-kit/
+art-homes-elementor-templates/
+assets/projects/
+assets/portfolio/
 assets/referral-hero.jpg
 assets/referral-hero.png
 assets/referral-tribe-hero.png

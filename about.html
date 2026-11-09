@@ -3,137 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>About Us & Leadership | Art Homes Interior Studio | Bengaluru & Hosur</title>
-  <meta name="description" content="Learn about Art Homes Interior Studio, led by Gopinathan K (B.E., MBA.) and 3D visualizer Moneesh Kumar Krishnan. Engineering precision, heritage craft, and 10-year warranties.">
+  <title>About Us & Studio Leadership | Art Homes Interior Studio | Bengaluru & Hosur</title>
+  <meta name="description" content="Discover the story and engineering discipline behind Art Homes Interior Studio, led by Gopinathan K. Turnkey residential interiors, 45-day guaranteed delivery, and 10-year warranty.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@700;800;900&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .about-lead-grid {
+    .about-split-grid {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 48px;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 40px;
       align-items: center;
+      margin-bottom: 50px;
     }
-    .card-frame {
-      background: #fff;
-      border-radius: var(--radius-md);
-      padding: 16px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-md);
-    }
-    .card-frame img {
-      border-radius: var(--radius-sm);
-      width: 100%;
-      border: 1px solid var(--line);
-    }
-    .about-lead-text h2 {
-      font-size: clamp(28px, 3vw, 40px);
+    .about-story-text h2 {
+      font-size: clamp(28px, 3.2vw, 42px);
       color: var(--forest-dark);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
+      line-height: 1.22;
     }
-    .about-lead-text p {
+    .about-story-text p {
       font-size: 15px;
       color: var(--ink-soft);
-      line-height: 1.7;
-      margin-bottom: 18px;
+      line-height: 1.75;
+      margin-bottom: 20px;
     }
-
-    /* 5 Steps */
-    .timeline-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 18px;
+    .founder-card {
+      background: var(--charcoal-deep);
+      color: #ffffff;
+      padding: 38px 34px;
+      border-radius: var(--radius-lg);
+      border: 1.5px solid rgba(197, 160, 89, 0.4);
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.2);
     }
-    .time-step {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-top: 3px solid var(--gold);
-      border-radius: var(--radius-sm);
-      padding: 24px 18px;
-    }
-    .step-number {
-      font-family: var(--font-serif);
-      font-size: 26px;
+    .founder-badge {
+      display: inline-block;
+      background: rgba(210, 105, 71, 0.2);
+      color: var(--gold-light);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 11px;
       font-weight: 700;
-      color: var(--gold-dark);
-      display: block;
-      margin-bottom: 10px;
-    }
-    .time-step h3 {
-      font-size: 15px;
-      color: var(--forest-dark);
-      margin-bottom: 6px;
-    }
-    .time-step p {
-      font-size: 12.5px;
-      color: var(--ink-muted);
-      line-height: 1.55;
-    }
-
-    /* Standards Grid */
-    .standards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-    .standard-box {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-    }
-    .standard-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--bg-sand);
-      color: var(--forest-dark);
-      display: grid;
-      place-items: center;
-      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       margin-bottom: 14px;
     }
-    .standard-box h3 {
-      font-size: 16px;
-      color: var(--forest-dark);
+    .founder-card h3 {
+      font-family: var(--font-heading, 'Playfair Display', serif);
+      font-size: 28px;
+      color: #ffffff;
       margin-bottom: 6px;
     }
-    .standard-box p {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.55;
+    .founder-card .founder-role {
+      font-size: 13.5px;
+      color: #dfba73;
+      font-weight: 600;
+      margin-bottom: 18px;
+      display: block;
     }
-
+    .founder-quote {
+      font-size: 14px;
+      color: #d1ded6;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 24px;
+      border-left: 3px solid var(--terracotta);
+      padding-left: 16px;
+    }
+    .founder-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
     @media (max-width: 900px) {
-      .about-lead-grid { grid-template-columns: 1fr; gap: 32px; }
-      .timeline-grid { grid-template-columns: repeat(2, 1fr); }
-      .standards-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 600px) {
-      .timeline-grid { grid-template-columns: 1fr; }
-      .standards-grid { grid-template-columns: 1fr; }
+      .about-split-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <aside class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-info">
-        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
-        <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
-      </div>
-      <div class="topbar-info">
-        <span>📞 <a href="tel:+919791272166" class="topbar-highlight">+91 97912 72166</a></span>
-        <span>✉️ <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a></span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -145,7 +95,6 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html">3D Portfolio</a>
         <a href="gallery.html">Gallery</a>
         <a href="referral.html">Offers & Refer</a>
         <a href="about.html" class="active">About</a>
@@ -159,134 +108,180 @@
     </div>
   </header>
 
-  <!-- Page Header Banner -->
-  <section class="page-header-banner">
-    <div class="container">
-      <span class="page-eyebrow">Studio Leadership & Philosophy</span>
-      <h1 class="page-title">Engineering Discipline. Artistic Vision.</h1>
-      <p class="page-subtitle">Founded in Bengaluru with active operations in Hosur, Art Homes combines structured project management with master woodcraft.</p>
+  <!-- Page Header Banner with Custom Luxury Interior Background -->
+  <section class="page-header-banner about-header-banner">
+    <div class="about-hero-bg"></div>
+    <div class="container about-hero-content">
+      <div class="about-hero-badge">
+        <span class="badge-dot"></span> About Us
+      </div>
+      <h1 class="page-title anim-hero-title">Engineering Discipline <span class="hero-amp">&amp;</span><br>Master Craftsmanship</h1>
+      <p class="page-subtitle anim-hero-subtitle">
+        Bridging imaginative architectural design and rigorous factory execution across Bengaluru and Hosur.
+      </p>
     </div>
   </section>
 
-  <!-- Leadership Section -->
-  <main class="section">
-    <div class="container">
-      <div class="about-lead-grid">
-        <div class="card-frame">
-          <img src="assets/founder-card.png?v=2" alt="Gopinathan K Founder Art Homes Interior Studio" loading="eager">
+  <!-- Main Content -->
+  <main>
+    <!-- Editorial "We Design - We Manufacture - We Execute" Section -->
+    <section class="editorial-about-section" id="about-editorial">
+      <div class="container">
+        <div class="editorial-about-grid">
+          <div class="editorial-about-text">
+            <div class="editorial-watermark" aria-hidden="true">About</div>
+            <span class="editorial-eyebrow">WHO WE ARE</span>
+            <h2>We Design - We<br>Manufacture - We Execute</h2>
+            <p>
+              Every project begins with understanding the client's vision and lifestyle. We design spaces that reflect personality, comfort, and purpose—whether it's a modern apartment, luxury villa, retail store, corporate office, or hospitality project.
+            </p>
+            <p>
+              What sets us apart is our blend of creativity and practicality. Our designers and craftsmen work together to deliver spaces that are not only visually appealing but also built to last.
+            </p>
+            <a href="tel:+919791272166" class="btn-call-today">Call Us Today</a>
+          </div>
+
+          <div class="editorial-composition">
+            <div class="editorial-comp-left anim-fade-down">
+              <img src="assets/about-living.jpg" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" loading="lazy">
+            </div>
+            <div class="editorial-comp-right anim-fade-left">
+              <img src="assets/about-tv.jpg" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container" style="padding-top: 20px;">
+      <!-- Split Story & Founder Section -->
+      <div class="about-split-grid">
+        <div class="about-story-text reveal-left">
+          <span class="eyebrow" style="color: var(--terracotta);">Our Story & Purpose</span>
+          <h2>Where Indian Heritage Meets German Precision.</h2>
+          <p>
+            Art Homes Interior Studio was created with a clear singular mission: eliminate the unpredictability, hidden cost escalations, and delayed timelines that plague traditional residential carpentry.
+          </p>
+          <p>
+            By combining state-of-the-art virtual walkthroughs with an in-house 6,000 sq.ft modular manufacturing facility and European hardware, we ensure that every millimeter of your home is pre-verified before on-site installation begins.
+          </p>
+          <p>
+            We operate on a strict single-point accountability model. From civil adaptations and electrical false ceilings to solid Teak wood turning and quartz countertop fitting, our team manages everything under one roof.
+          </p>
+          <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px;">
+            <a href="gallery.html" class="btn btn-terracotta">Explore Our Executed Works ↗</a>
+            <a href="services.html" class="btn btn-outline">View Services →</a>
+          </div>
         </div>
 
-        <div class="about-lead-text">
-          <span class="eyebrow">Studio Leadership</span>
-          <h2>Gopinathan K (B.E., MBA.)</h2>
-          <p>
-            With an engineering and business management foundation, Gopinathan K established Art Homes Interior Studio to bring structured reliability, transparent Bill of Quantities (BOQ), and disciplined on-time delivery to residential interior design.
+        <div class="founder-card reveal-scale">
+          <span class="founder-badge">Studio Leadership</span>
+          <h3>Gopinathan K</h3>
+          <span class="founder-role">Founder & Managing Director</span>
+          <p class="founder-quote">
+            “A home is your most personal sanctuary. Our commitment is simple: absolute transparency in our Bill of Quantities, uncompromised structural materials, and handover in guaranteed 45 working days.”
           </p>
-          <p>
-            Under his leadership, Art Homes operates on a strict single-point accountability model: our team coordinates design, material sourcing, factory cutting, civil adaptations, and finishing so homeowners enjoy an effortless experience.
-          </p>
-          <p>
-            Partnering with spatial architect & 3D visualizer <strong>Moneesh Kumar Krishnan</strong>, our studio creates realistic virtual walkthroughs ensuring every millimeter of your space is verified before on-site carpentry begins.
-          </p>
-
-          <div style="margin-top: 24px;">
-            <a href="https://wa.me/919791272166?text=Hello%20Gopinathan%2C%20I%20would%20like%20to%20discuss%20an%20interior%20project." class="btn btn-primary" target="_blank" rel="noopener">
-              Speak with Founder on WhatsApp ↗
+          <div class="founder-actions">
+            <a href="https://wa.me/919791272166?text=Hello%20Gopinathan%2C%20I%20would%20like%20to%20discuss%20an%20interior%20project." class="btn btn-whatsapp" target="_blank" rel="noopener">
+              Direct WhatsApp ↗
+            </a>
+            <a href="tel:+919791272166" class="btn btn-gold">
+              Call Founder 📞
             </a>
           </div>
         </div>
       </div>
+
+      <!-- Floating Stat Strip -->
+      <div class="floating-metrics-box anim-fade-down" style="margin: 40px 0 60px;">
+        <div class="floating-metric-item">
+          <strong class="counter-number" data-target="100" data-suffix="+">100+</strong>
+          <span>Homes Delivered</span>
+        </div>
+        <div class="floating-metric-item">
+          <strong class="counter-number" data-target="45" data-suffix="-Day">45-Day</strong>
+          <span>Guaranteed Handover</span>
+        </div>
+        <div class="floating-metric-item">
+          <strong class="counter-number" data-target="10" data-suffix="-Year">10-Year</strong>
+          <span>Material Warranty</span>
+        </div>
+        <div class="floating-metric-item">
+          <strong class="counter-number" data-target="100" data-suffix="%">100%</strong>
+          <span>Transparent BOQ</span>
+        </div>
+      </div>
+
+      <!-- 45-Day Milestone Process Roadmap (Elementor Timeline Widget) -->
+      <section style="margin: 60px 0;">
+        <div class="section-header center">
+          <span class="eyebrow" style="color: var(--terracotta);">Our Execution Blueprint</span>
+          <h2 class="section-title">The 45-Day Turnkey Journey</h2>
+          <p class="section-subtitle">A disciplined milestone roadmap from initial laser measurement to final turnkey handover.</p>
+        </div>
+
+        <div class="process-roadmap-grid stagger-cards">
+          <!-- Step 1 -->
+          <div class="process-step-card reveal-up">
+            <span class="process-step-num">01</span>
+            <span class="process-step-duration">Days 1 – 7</span>
+            <h3>Site Laser Audit & Virtual Walkthrough</h3>
+            <p>Millimeter-accurate laser room scanning, space layout optimization, and high-resolution virtual walkthrough of every room.</p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-step-card reveal-up">
+            <span class="process-step-num">02</span>
+            <span class="process-step-duration">Days 8 – 14</span>
+            <h3>Material Curation & Itemized BOQ</h3>
+            <p>Hands-on swatch selection of acrylics, laminates, quartz, and hardware, followed by a transparent, unalterable BOQ contract.</p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-step-card reveal-up">
+            <span class="process-step-num">03</span>
+            <span class="process-step-duration">Days 15 – 28</span>
+            <h3>Factory Modular CNC Production</h3>
+            <p>In-house German automated edge banding and panel cutting while civil, electrical conduits, and gypsum ceilings progress on-site.</p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-step-card reveal-up">
+            <span class="process-step-num">04</span>
+            <span class="process-step-duration">Days 29 – 40</span>
+            <h3>Precision On-Site Assembly</h3>
+            <p>Master carpenter assembly of modular carcasses, soft-close Blum hardware, acrylic shutters, quartz counters, and LED cove strips.</p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-step-card reveal-up">
+            <span class="process-step-num">05</span>
+            <span class="process-step-duration">Days 41 – 45</span>
+            <h3>140-Point Audit & Final Handover</h3>
+            <p>Deep cleaning, drawer alignment tests, handover ceremony, and issuance of your official 10-Year Warranty Certificate.</p>
+          </div>
+        </div>
+      </section>
+
     </div>
+
+    <!-- Edge-to-Edge Studio Experience Banner (Full Width Right to Left) -->
+    <section class="about-studio-fullwidth reveal-up" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background: linear-gradient(rgba(14, 16, 15, 0.45), rgba(14, 16, 15, 0.55)), url('assets/about-studio-bg.jpg?v=3') center/cover no-repeat; padding: 100px 24px; text-align: center; margin-top: 60px; box-sizing: border-box; border-radius: 0;">
+      <div style="max-width: 820px; margin: 0 auto;">
+        <span class="eyebrow" style="color: var(--terracotta); margin-bottom: 12px; display: inline-block; letter-spacing: 2px; font-weight: 700; font-size: 13px;">STUDIO EXPERIENCE</span>
+        <h2 style="font-family: var(--font-serif, 'Playfair Display', serif); font-size: clamp(28px, 3.6vw, 42px); color: #ffffff; margin-bottom: 14px; font-weight: 700; line-height: 1.25;">
+          Visit Our Studio in CV Raman Nagar
+        </h2>
+        <p style="font-size: 16px; color: #d6ded8; max-width: 660px; margin: 0 auto 28px; line-height: 1.6;">
+          Meet our designers, explore full-scale modular kitchen displays, touch material finishes, and discuss your home floor plan over coffee.
+        </p>
+        <div style="display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+          <a href="contact.html" class="btn btn-terracotta" style="padding: 13px 28px; font-weight: 700; letter-spacing: 0.5px;">SCHEDULE STUDIO VISIT ↗</a>
+          <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20visit%20your%20studio%20for%20a%20consultation." class="btn btn-whatsapp" target="_blank" rel="noopener" style="padding: 13px 28px; font-weight: 700;">Chat on WhatsApp ↗</a>
+        </div>
+      </div>
+    </section>
   </main>
-
-  <!-- 5-Step Process -->
-  <section class="section section-cream">
-    <div class="container">
-      <div class="section-header center">
-        <span class="eyebrow">Methodology</span>
-        <h2 class="section-title">Our 5-Step Execution Workflow</h2>
-        <p class="section-subtitle">From initial site laser audit to final 140-point quality handover.</p>
-      </div>
-
-      <div class="timeline-grid">
-        <div class="time-step">
-          <span class="step-number">01</span>
-          <h3>Site Laser Audit</h3>
-          <p>We visit your site, discuss layout ideas, and measure every wall and conduit with precision lasers.</p>
-        </div>
-        <div class="time-step">
-          <span class="step-number">02</span>
-          <h3>8K 3D Walkthrough</h3>
-          <p>We create full 3D models with true-to-life lighting and material textures so you can preview the finish.</p>
-        </div>
-        <div class="time-step">
-          <span class="step-number">03</span>
-          <h3>Itemized BOQ</h3>
-          <p>Transparent pricing with zero hidden surprises. Every brand and hardware spec is listed in detail.</p>
-        </div>
-        <div class="time-step">
-          <span class="step-number">04</span>
-          <h3>Factory Precision</h3>
-          <p>Panels are machine-cut on automated edge banders, followed by clean on-site assembly by master carpenters.</p>
-        </div>
-        <div class="time-step">
-          <span class="step-number">05</span>
-          <h3>Quality Handover</h3>
-          <p>140-point quality audit, deep cleaning, smooth drawer testing, and issuance of your 10-Year Warranty.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quality Standards -->
-  <section class="section section-sand">
-    <div class="container">
-      <div class="section-header center">
-        <span class="eyebrow">Certified Materials</span>
-        <h2 class="section-title">Uncompromising Quality Standards</h2>
-        <p class="section-subtitle">Every home we build uses authentic certified materials from trusted European and Indian suppliers.</p>
-      </div>
-
-      <div class="standards-grid">
-        <div class="standard-box">
-          <div class="standard-icon">🛡️</div>
-          <h3>10-Year Warranty</h3>
-          <p>All core woodwork is backed by our official 10-year warranty against manufacturing defects.</p>
-        </div>
-        <div class="standard-box">
-          <div class="standard-icon">💧</div>
-          <h3>710 BWP Marine Plywood</h3>
-          <p>Boiling water-proof marine grade plywood engineered to resist moisture, warping, and swelling.</p>
-        </div>
-        <div class="standard-box">
-          <div class="standard-icon">🐜</div>
-          <h3>100% Anti-Termite</h3>
-          <p>Treated core layers providing lifetime protection against termites, borers, and micro-pests.</p>
-        </div>
-        <div class="standard-box">
-          <div class="standard-icon">⚙️</div>
-          <h3>Blum & Hettich Hardware</h3>
-          <p>German soft-close hinges, tandem drawers, and hydraulic lift-ups rated for 200,000+ open-close cycles.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bottom CTA Banner -->
-  <section class="section">
-    <div class="container">
-      <div class="cta-banner" style="background:var(--forest-dark); border-radius:var(--radius-lg); padding:48px 40px; color:#fff; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap;">
-        <div>
-          <h2 style="font-size:30px; margin-bottom:8px; color:#fff;">Meet us at our CV Raman Nagar studio</h2>
-          <p style="color:#cfd8d1; font-size:14.5px;">Schedule a free in-person consultation or site visit in Bengaluru & Hosur.</p>
-        </div>
-        <div style="display:flex; gap:12px; flex-wrap:wrap;">
-          <a href="contact.html" class="btn btn-gold">Contact Studio ↗</a>
-          <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20visit%20your%20studio." class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Us ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Site Footer -->
   <footer class="site-footer">
@@ -297,7 +292,7 @@
             <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
           </a>
           <p>
-            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+            Luxury residential interiors, modular kitchens, and turnkey interior design in Bengaluru and Hosur.
           </p>
         </div>
 
@@ -306,7 +301,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">3D Portfolio</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="referral.html">Offers & Refer</a></li>
             <li><a href="about.html">About</a></li>
@@ -348,12 +342,12 @@
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
-        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+        <span>Bengaluru & Hosur | Founder: Gopinathan K</span>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Contact Action Icons (Right Side with Float Animation) -->
+  <!-- Floating Contact Action Icons -->
   <aside class="floating-contact-dock" aria-label="Quick Contact">
     <a href="tel:+919791272166" class="floating-fab fab-call" aria-label="Call Art Homes Studio" title="Call +91 97912 72166">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -372,7 +366,8 @@
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      const open = navLinks.classList.toggle('open');
+      menuToggle.textContent = open ? '✕' : '☰';
     });
   </script>
   <script src="animations.js"></script>

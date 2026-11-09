@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Art Homes Interior Studio | Luxury Interiors & Architectural 3D | Bengaluru & Hosur</title>
-  <meta name="description" content="Art Homes Interior Studio crafts bespoke residential interiors, factory-finished modular kitchens, designer wardrobes, living partitions, and photorealistic architectural 3D visualizations in Bengaluru and Hosur.">
+  <title>Art Homes Interior Studio | Luxury Residential Interiors | Bengaluru & Hosur</title>
+  <meta name="description" content="Art Homes Interior Studio crafts bespoke residential interiors, factory-finished modular kitchens, designer wardrobes, living partitions, and turnkey interior designs in Bengaluru and Hosur.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +12,13 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Hero Section */
+    /* Hero Section Override for Reference Image Layout */
     .hero {
       position: relative;
       background: var(--forest-dark);
       color: #fff;
       overflow: hidden;
-      min-height: 82vh;
+      min-height: 86vh;
       display: flex;
       align-items: center;
     }
@@ -26,81 +26,59 @@
       position: absolute;
       inset: 0;
       background-image: linear-gradient(
-        to bottom,
-        rgba(15, 36, 29, 0.70) 0%,
-        rgba(15, 36, 29, 0.48) 45%,
-        rgba(15, 36, 29, 0.82) 100%
-      ), url('assets/hero-kitchen-mobile.jpg');
-      background-size: cover;
-      background-position: center top;
-    }
-
-    /* Video Background (PC / Desktop Only - Seamless Crossfade) */
-    .hero-video-wrapper {
-      display: none;
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 1;
-      pointer-events: none;
-    }
-    .hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      opacity: 0.80;
-      transition: opacity 1.4s ease-in-out;
-      will-change: opacity;
-    }
-    .hero-video-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-      background: linear-gradient(
         to right,
-        rgba(15, 36, 29, 0.64) 0%,
-        rgba(15, 36, 29, 0.44) 50%,
-        rgba(15, 36, 29, 0.25) 100%
-      );
+        rgba(14, 20, 16, 0.88) 0%,
+        rgba(14, 20, 16, 0.62) 50%,
+        rgba(14, 20, 16, 0.25) 100%
+      ), url('assets/hero-home.jpg?v=2');
+      background-size: cover;
+      background-position: center center;
+      display: block;
     }
-
-    /* ONLY PLAY ON PC / DESKTOP (Screens > 768px) */
-    @media (min-width: 769px) {
-      .hero-video-wrapper {
-        display: block;
-      }
-      .hero-bg {
-        display: none;
-      }
-    }
-
-    /* ON MOBILE (<= 768px): Strictly hidden, static portrait image background only */
     @media (max-width: 768px) {
-      .hero-video-wrapper {
-        display: none !important;
-      }
       .hero-bg {
-        display: block !important;
         background-image: linear-gradient(
           to bottom,
-          rgba(15, 36, 29, 0.70) 0%,
-          rgba(15, 36, 29, 0.48) 45%,
-          rgba(15, 36, 29, 0.82) 100%
-        ), url('assets/hero-kitchen-mobile.jpg') !important;
-        background-size: cover !important;
-        background-position: center top !important;
+          rgba(14, 20, 16, 0.85) 0%,
+          rgba(14, 20, 16, 0.60) 50%,
+          rgba(14, 20, 16, 0.90) 100%
+        ), url('assets/hero-home.jpg?v=2') !important;
+        background-position: center center !important;
       }
     }
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: 80px 0 90px;
-      max-width: 720px;
+      padding: 85px 0 95px;
+      max-width: 760px;
     }
+    /* Keyframe Animations for Hero Entrance */
+    @keyframes heroFadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes heroFadeRight {
+      0% {
+        opacity: 0;
+        transform: translateX(-40px);
+        filter: blur(4px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+      }
+    }
+
     .badge-tag {
       display: inline-flex;
       align-items: center;
@@ -115,8 +93,15 @@
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+      animation: heroFadeRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both !important;
+    }
+    .hero-price-pill:nth-child(1) {
+      animation: heroFadeRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.32s both !important;
+    }
+    .hero-price-pill:nth-child(2) {
+      animation: heroFadeRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both !important;
     }
     .hero h1 {
       font-family: var(--font-heading, 'Playfair Display', serif);
@@ -127,6 +112,7 @@
       color: #ffffff;
       margin-bottom: 20px;
       text-shadow: 0 3px 20px rgba(0, 0, 0, 0.8);
+      animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.62s both !important;
     }
     .hero h1 em {
       font-style: italic;
@@ -140,380 +126,30 @@
       font-size: 16.5px;
       line-height: 1.7;
       color: #f1f5f2;
-      margin-bottom: 36px;
-      max-width: 600px;
+      margin-bottom: 32px;
+      max-width: 620px;
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+      animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.78s both !important;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 48px;
-    }
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(197, 160, 89, 0.35);
-    }
-    .metric-item strong {
-      font-family: var(--font-heading, 'Playfair Display', serif);
-      background: linear-gradient(135deg, #dfba73 0%, #f7e2b2 40%, #c5a059 75%, #9b7633 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: block;
-      font-size: 30px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 4px;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
-      font-variant-numeric: tabular-nums;
-    }
-    .metric-item span {
-      font-size: 11.5px;
-      color: #cad8ce;
-      line-height: 1.35;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
-      letter-spacing: 0.02em;
-    }
-
-    /* Pillars Section */
-    .pillars-marquee-wrap {
-      width: 100%;
-      position: relative;
-    }
-    .pillars-track {
-      width: 100%;
-    }
-    .pillars-group {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-    .pillars-group-clone {
-      display: none !important;
-    }
-    .pillar-card {
-      background: #fff;
-      padding: 32px 24px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--line);
-      transition: var(--transition);
-      box-shadow: 0 4px 16px rgba(15, 36, 29, 0.04);
-    }
-    .pillar-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold);
-    }
-    .pillar-num {
-      font-family: var(--font-serif);
-      font-size: 28px;
-      color: var(--gold);
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 14px;
-    }
-    .pillar-card h3 {
-      font-size: 17px;
-      color: var(--forest-dark);
-      margin-bottom: 8px;
-    }
-    .pillar-card p {
-      font-size: 13.5px;
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    @keyframes pillarsScrollRightToLeft {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-100% - 12px));
-      }
-    }
-
-    /* Featured Portfolio Preview */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .feature-card {
-      background: #fff;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-    }
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-    .feature-media {
-      aspect-ratio: 16/10;
-      overflow: hidden;
-      background: #000;
-    }
-    .feature-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-    .feature-card:hover .feature-media img {
-      transform: scale(1.05);
-    }
-    .feature-body {
-      padding: 20px;
-    }
-    .feature-body span {
-      font-size: 11px;
-      color: var(--gold-dark);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      display: block;
-      margin-bottom: 6px;
-    }
-    .feature-body h3 {
-      font-size: 18px;
-      color: var(--forest-dark);
-      margin-bottom: 8px;
-    }
-    .feature-body p {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.55;
-      margin-bottom: 14px;
-    }
-
-    /* Reviews Section */
-    .reviews-marquee-wrap {
-      width: 100%;
-      position: relative;
-    }
-    .reviews-track {
-      width: 100%;
-    }
-    .reviews-group {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .reviews-group-clone {
-      display: none !important;
-    }
-    .review-card {
-      background: #fff;
-      padding: 28px 24px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--line);
-      box-shadow: 0 4px 16px rgba(15, 36, 29, 0.04);
-    }
-    .review-stars {
-      color: #dfba73;
-      font-size: 15px;
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
-    .review-text {
-      font-size: 14px;
-      color: var(--ink-soft);
-      line-height: 1.65;
-      font-style: italic;
-      margin-bottom: 18px;
-    }
-    .reviewer strong {
-      display: block;
-      font-size: 13.5px;
-      color: var(--forest-dark);
-    }
-    .reviewer span {
-      font-size: 12px;
-      color: var(--ink-muted);
-    }
-
-    @keyframes reviewsScrollRightToLeft {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-100% - 12px));
-      }
-    }
-
-    /* CTA Section */
-    .cta-banner {
-      background: var(--forest-dark);
-      color: #fff;
-      border-radius: var(--radius-lg);
-      padding: 56px 48px;
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      border: 1px solid rgba(191, 161, 104, 0.25);
+      animation: heroFadeUp 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.92s both !important;
     }
-    .cta-banner h2 {
-      font-size: clamp(26px, 2.8vw, 38px);
-      margin-bottom: 8px;
-      color: #fff;
+    .hero-actions a:nth-child(1) {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.92s both !important;
     }
-    .cta-banner p {
-      color: #ccd5cf;
-      font-size: 15px;
+    .hero-actions a:nth-child(2) {
+      animation: heroFadeUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.05s both !important;
     }
-
-    @media (max-width: 1080px) {
-      .featured-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 768px) {
-      .hero-metrics { grid-template-columns: repeat(2, 1fr); }
-      .featured-grid { grid-template-columns: 1fr; }
-      .cta-banner { flex-direction: column; text-align: center; padding: 36px 24px; }
-      .hero-actions .btn { width: 100%; }
-
-      /* Mobile Continuous Right-to-Left Auto Pillars Marquee */
-      .pillars-marquee-wrap {
-        overflow: hidden;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        padding: 6px 0 10px;
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-      }
-      .pillars-track {
-        display: flex !important;
-        gap: 12px !important;
-        width: max-content !important;
-      }
-      .pillars-track:hover .pillars-group,
-      .pillars-track:active .pillars-group {
-        animation-play-state: paused;
-      }
-      .pillars-group {
-        display: flex !important;
-        gap: 12px !important;
-        flex-shrink: 0 !important;
-        animation: pillarsScrollRightToLeft 20s linear infinite !important;
-        will-change: transform;
-      }
-      .pillars-group-clone {
-        display: flex !important;
-      }
-      .pillars-marquee-wrap .pillar-card {
-        flex: 0 0 250px !important;
-        width: 250px !important;
-        padding: 18px 16px !important;
-        border-radius: 14px !important;
-        background: #ffffff !important;
-        border: 1px solid rgba(197, 160, 89, 0.45) !important;
-        box-shadow: 0 4px 14px rgba(15, 36, 29, 0.05) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-start !important;
-        opacity: 1 !important;
-        transform: none !important;
-        filter: none !important;
-        transition: none !important;
-      }
-      .pillar-num {
-        font-size: 22px !important;
-        margin-bottom: 8px !important;
-        color: #dfba73 !important;
-      }
-      .pillar-card h3 {
-        font-size: 14.5px !important;
-        margin-bottom: 6px !important;
-        line-height: 1.3 !important;
-      }
-      .pillar-card p {
-        font-size: 12px !important;
-        line-height: 1.5 !important;
-      }
-
-      /* Mobile Continuous Right-to-Left Auto Testimonial Marquee */
-      .reviews-marquee-wrap {
-        overflow: hidden;
-        width: 100vw;
-        margin-left: calc(-50vw + 50%);
-        padding: 6px 0 10px;
-        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-      }
-      .reviews-track {
-        display: flex !important;
-        gap: 12px !important;
-        width: max-content !important;
-      }
-      .reviews-track:hover .reviews-group,
-      .reviews-track:active .reviews-group {
-        animation-play-state: paused;
-      }
-      .reviews-group {
-        display: flex !important;
-        gap: 12px !important;
-        flex-shrink: 0 !important;
-        animation: reviewsScrollRightToLeft 18s linear infinite !important;
-        will-change: transform;
-      }
-      .reviews-group-clone {
-        display: flex !important;
-      }
-      .review-card {
-        flex: 0 0 250px !important;
-        width: 250px !important;
-        padding: 16px 14px !important;
-        border-radius: 14px !important;
-        background: #ffffff !important;
-        border: 1px solid rgba(197, 160, 89, 0.45) !important;
-        box-shadow: 0 4px 14px rgba(15, 36, 29, 0.05) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-      }
-      .review-stars {
-        font-size: 13px !important;
-        margin-bottom: 8px !important;
-        color: #dfba73 !important;
-        letter-spacing: 2px !important;
-      }
-      .review-text {
-        font-size: 12px !important;
-        line-height: 1.5 !important;
-        margin-bottom: 12px !important;
-        color: var(--ink-soft) !important;
-      }
-      .reviewer strong {
-        font-size: 12.5px !important;
-        line-height: 1.25 !important;
-      }
-      .reviewer span {
-        font-size: 11px !important;
-        line-height: 1.2 !important;
-      }
+    .hero-actions a:nth-child(3) {
+      animation: heroFadeRight 0.85s cubic-bezier(0.16, 1, 0.3, 1) 1.18s both !important;
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <aside class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-info">
-        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
-        <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
-      </div>
-      <div class="topbar-info">
-        <span>📞 <a href="tel:+919791272166" class="topbar-highlight">+91 97912 72166</a></span>
-        <span>✉️ <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a></span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -525,7 +161,6 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html" class="active">Home</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html">3D Portfolio</a>
         <a href="gallery.html">Gallery</a>
         <a href="referral.html">Offers & Refer</a>
         <a href="about.html">About</a>
@@ -533,7 +168,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary">Free Consultation ↗</a>
+        <a href="#lead-form" class="btn btn-primary">Free Consultation ↗</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
       </div>
     </div>
@@ -541,274 +176,412 @@
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section -->
-    <section class="hero">
-      <!-- Mobile Fallback / Static Background -->
-      <div class="hero-bg"></div>
 
-      <!-- PC Background Video (Desktop Only - Seamless Crossfade Loop) -->
-      <div class="hero-video-wrapper" aria-hidden="true">
-        <video 
-          class="hero-video" 
-          id="heroVideo1"
-          autoplay 
-          muted 
-          playsinline 
-          preload="auto"
-          poster="assets/portfolio/3d-project-p58-1.png"
-          style="opacity: 1; z-index: 1;">
-          <source src="Art_Homes_20s_Images_Only.mp4" type="video/mp4">
-        </video>
-        <video 
-          class="hero-video" 
-          id="heroVideo2"
-          muted 
-          playsinline 
-          preload="auto"
-          poster="assets/portfolio/3d-project-p58-1.png"
-          style="opacity: 0; z-index: 1;">
-          <source src="Art_Homes_20s_Images_Only.mp4" type="video/mp4">
-        </video>
-        <div class="hero-video-overlay"></div>
-      </div>
+    <!-- SECTION 1: HERO SECTION -->
+    <section class="hero">
+      <div class="hero-bg"></div>
 
       <div class="container">
         <div class="hero-content">
-          <div class="badge-tag">Bespoke Interiors & 3D Visualization</div>
-          <h1>Crafting Timeless Spaces.<br><em>Visualized in 8K</em> Before We Build.</h1>
+          <div class="hero-price-pills">
+            <div class="hero-price-pill">
+              <span>🏷️ 2BHK Starting @ ₹2.5 Lac*</span>
+            </div>
+            <div class="hero-price-pill pill-alt">
+              <span>✨ 3BHK Starting @ ₹3.5 Lac*</span>
+            </div>
+          </div>
+
+          <h1>Crafting Homes That <em>Reflect You.</em></h1>
           <p class="hero-desc">
-            Where traditional Indian heritage craftsmanship meets German modular precision. Turnkey home interiors, modular kitchens, and photorealistic 3D visualization in Bengaluru and Hosur.
+            Where traditional Indian craftsmanship meets German modular factory precision. Bespoke turnkey residential interiors, parallel modular kitchens, and custom woodwork tailored to your lifestyle.
           </p>
 
           <div class="hero-actions">
-            <a href="referral.html" class="btn btn-gold">Offers & Referrals →</a>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20a%20free%20interior%20quote." class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <a href="#lead-form" class="btn btn-terracotta">Get Free Estimate ↗</a>
+            <a href="gallery.html" class="btn btn-gold">View Projects →</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20a%20free%20interior%20estimate." class="btn btn-whatsapp" target="_blank" rel="noopener">
               WhatsApp Quick Quote ↗
             </a>
-            <a href="services.html" class="btn btn-outline">Our Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: WE DESIGN - WE MANUFACTURE - WE EXECUTE (Editorial Layout) -->
+    <section class="editorial-about-section" id="about-us">
+      <div class="container">
+        <div class="editorial-about-grid">
+          <div class="editorial-about-text">
+            <div class="editorial-watermark" aria-hidden="true">About</div>
+            <span class="editorial-eyebrow">WHO WE ARE</span>
+            <h2>We Design - We<br>Manufacture - We Execute</h2>
+            <p>
+              Every project begins with understanding the client's vision and lifestyle. We design spaces that reflect personality, comfort, and purpose—whether it's a modern apartment, luxury villa, retail store, corporate office, or hospitality project.
+            </p>
+            <p>
+              What sets us apart is our blend of creativity and practicality. Our designers and craftsmen work together to deliver spaces that are not only visually appealing but also built to last.
+            </p>
+            <a href="tel:+919791272166" class="btn-call-today">Call Us Today</a>
           </div>
 
-          <div class="hero-metrics">
-            <div class="metric-item">
-              <strong class="counter-number" data-target="100" data-suffix="+">100+</strong>
-              <span>Turnkey Homes Delivered</span>
+          <div class="editorial-composition">
+            <div class="editorial-comp-left anim-fade-down">
+              <img src="assets/about-living.jpg" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" loading="lazy">
             </div>
-            <div class="metric-item">
-              <strong class="counter-number" data-target="10" data-suffix="-Year">10-Year</strong>
-              <span>Material Warranty</span>
-            </div>
-            <div class="metric-item">
-              <strong class="counter-number" data-target="45" data-suffix="-Day">45-Day</strong>
-              <span>Guaranteed Handover</span>
-            </div>
-            <div class="metric-item">
-              <strong class="counter-number" data-target="100" data-suffix="%">100%</strong>
-              <span>Photorealistic 3D Previews</span>
+            <div class="editorial-comp-right anim-fade-left">
+              <img src="assets/about-tv.jpg" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" loading="lazy">
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Studio Pillars -->
-    <section class="section section-cream">
+
+    <!-- SECTION 3: DARK INSPIRATION QUOTE BANNER -->
+    <section class="quote-banner-section reveal-quote">
       <div class="container">
-        <div class="section-header center">
-          <span class="eyebrow">The Art Homes Difference</span>
-          <h2 class="section-title">Why Homeowners Trust Art Homes</h2>
-          <p class="section-subtitle">Bridging imaginative conceptual design and disciplined structural execution.</p>
+        <div class="quote-mark-icon">“</div>
+        <h2 class="quote-banner-text">
+          “Get inspired by the fresh approach to crafting a home that's uniquely yours.”
+        </h2>
+        <p class="quote-banner-sub">
+          Transparent itemized BOQ, factory modular accuracy, and zero cost escalations after site confirmation.
+        </p>
+        <a href="#lead-form" class="btn btn-terracotta">Book Free Consultation ↗</a>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FLOATING METRICS STRIP -->
+    <div class="container">
+      <div class="floating-metrics-wrap anim-fade-down">
+        <div class="floating-metrics-box">
+          <div class="floating-metric-item">
+            <strong class="counter-number" data-target="100" data-suffix="+">100+</strong>
+            <span>Homes Delivered</span>
+          </div>
+          <div class="floating-metric-item">
+            <strong class="counter-number" data-target="45" data-suffix="-Day">45-Day</strong>
+            <span>Guaranteed Handover</span>
+          </div>
+          <div class="floating-metric-item">
+            <strong class="counter-number" data-target="10" data-suffix="-Year">10-Year</strong>
+            <span>Material Warranty</span>
+          </div>
+          <div class="floating-metric-item">
+            <strong class="counter-number" data-target="100" data-suffix="%">100%</strong>
+            <span>Transparent BOQ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: CURATED SPACES / DISCOVER THE HARMONY -->
+    <section class="spaces-section">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="eyebrow">Curated Living Spaces</span>
+          <h2 class="section-title">Discover the harmony of colors, textures, and patterns.</h2>
+          <p class="section-subtitle">
+            Every room thoughtfully engineered to balance ergonomic storage, natural daylight, and bespoke luxury finishes.
+          </p>
         </div>
 
-        <div class="pillars-marquee-wrap">
-          <div class="pillars-track">
-            <div class="pillars-group">
-              <div class="pillar-card">
-                <div class="pillar-num">01</div>
-                <h3>Photorealistic 3D Walkthrough</h3>
-                <p>Walk through your finished home in high-resolution 3D before execution begins. Zero guesswork on colors and lighting.</p>
-              </div>
-              <div class="pillar-card">
-                <div class="pillar-num">02</div>
-                <h3>Indo-Modern Heritage Craft</h3>
-                <p>Solid Sheesham and Teak wood, hand-woven cane rattan, Chettinad turned pillars, and Athangudi patterned floor tiles.</p>
-              </div>
-              <div class="pillar-card">
-                <div class="pillar-num">03</div>
-                <h3>Factory Modular Precision</h3>
-                <p>German automated edge banding, BWP boiling waterproof ply, and European Blum / Hettich soft-close hardware.</p>
-              </div>
-              <div class="pillar-card">
-                <div class="pillar-num">04</div>
-                <h3>Turnkey Responsibility</h3>
-                <p>Single-point accountability from space planning and electricals to handover within guaranteed 45 working days.</p>
-              </div>
+        <div class="spaces-grid stagger-cards">
+          <!-- Space 1: Modular Kitchens -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/karur/karur-kitchen-01.jpg" alt="Modern Modular Kitchen by Art Homes" loading="lazy">
             </div>
+            <div class="space-body">
+              <div>
+                <h3>Modular Kitchens</h3>
+                <p>Parallel, L-shaped, and island kitchens crafted with boiling waterproof ply, anti-scratch acrylic shutters, and soft-close pullouts.</p>
+              </div>
+              <a href="gallery.html?room=kitchen" class="space-link">Explore Kitchens →</a>
+            </div>
+          </article>
 
-            <!-- Clone Group for Seamless Infinite Non-Stop Marquee on Mobile -->
-            <div class="pillars-group pillars-group-clone" aria-hidden="true">
-              <div class="pillar-card">
-                <div class="pillar-num">01</div>
-                <h3>Photorealistic 3D Walkthrough</h3>
-                <p>Walk through your finished home in high-resolution 3D before execution begins. Zero guesswork on colors and lighting.</p>
+          <!-- Space 2: Living & Lounges -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/bangalore/bangalore-01.jpg" alt="Luxury Living Room by Art Homes" loading="lazy">
+            </div>
+            <div class="space-body">
+              <div>
+                <h3>Living & Lounges</h3>
+                <p>Acoustic fluted wooden panels, warm ambient cove lighting, floating entertainment consoles, and spacious seating layouts.</p>
               </div>
-              <div class="pillar-card">
-                <div class="pillar-num">02</div>
-                <h3>Indo-Modern Heritage Craft</h3>
-                <p>Solid Sheesham and Teak wood, hand-woven cane rattan, Chettinad turned pillars, and Athangudi patterned floor tiles.</p>
+              <a href="gallery.html?room=living" class="space-link">Explore Living Rooms →</a>
+            </div>
+          </article>
+
+          <!-- Space 3: Designer Wardrobes -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/bangalore/bangalore-14.jpg" alt="Floor to ceiling wardrobes Art Homes" loading="lazy">
+            </div>
+            <div class="space-body">
+              <div>
+                <h3>Designer Wardrobes</h3>
+                <p>Full-height sliding and openable wardrobes with tinted fluted glass, integrated profile sensor lights, and customized dresser pullouts.</p>
               </div>
-              <div class="pillar-card">
-                <div class="pillar-num">03</div>
-                <h3>Factory Modular Precision</h3>
-                <p>German automated edge banding, BWP boiling waterproof ply, and European Blum / Hettich soft-close hardware.</p>
+              <a href="gallery.html?room=wardrobe" class="space-link">Explore Wardrobes →</a>
+            </div>
+          </article>
+
+          <!-- Space 4: Dining & Crockery -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/bangalore/bangalore-04.jpg" alt="Dining and Crockery Console Art Homes" loading="lazy">
+            </div>
+            <div class="space-body">
+              <div>
+                <h3>Dining & Crockery</h3>
+                <p>Backlit fluted crockery units, solid wood dining tables, floating breakfast bars, and architectural warm pendant lighting.</p>
               </div>
-              <div class="pillar-card">
-                <div class="pillar-num">04</div>
-                <h3>Turnkey Responsibility</h3>
-                <p>Single-point accountability from space planning and electricals to handover within guaranteed 45 working days.</p>
+              <a href="gallery.html?room=dining" class="space-link">Explore Dining Spaces →</a>
+            </div>
+          </article>
+
+          <!-- Space 5: Sacred Pooja Mandirs -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/bangalore/bangalore-05.jpg" alt="Pooja Mandir with Jaali Carving Art Homes" loading="lazy">
+            </div>
+            <div class="space-body">
+              <div>
+                <h3>Sacred Pooja Mandirs</h3>
+                <p>Traditional Chettinad-inspired teak pillars, laser-cut CNC brass jaali, and dedicated sacred storage designed to Vastu principles.</p>
               </div>
+              <a href="gallery.html?room=pooja" class="space-link">Explore Mandirs →</a>
+            </div>
+          </article>
+
+          <!-- Space 6: Foyers & Partitions -->
+          <article class="space-card reveal-up">
+            <div class="space-media">
+              <img src="assets/projects/bangalore/bangalore-02.jpg" alt="Foyer Partition and Shoe Storage Art Homes" loading="lazy">
+            </div>
+            <div class="space-body">
+              <div>
+                <h3>Foyers & Partitions</h3>
+                <p>Welcoming entrance divider screens, fluted glass partitions, seated shoe consoles, and statement acoustic entry walls.</p>
+              </div>
+              <a href="gallery.html?room=partition" class="space-link">Explore Partitions →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: SPLIT LEAD CAPTURE FORM -->
+    <section class="split-lead-section" id="lead-form">
+      <div class="container">
+        <div class="split-lead-grid reveal-up">
+          <div class="split-lead-form-wrap">
+            <h2>Create a home that defines who you are.</h2>
+            <p>
+              Get an instant itemized estimate and book a personalized design consultation for your upcoming flat or villa.
+            </p>
+
+            <form id="heroLeadForm" class="split-form">
+              <div>
+                <input type="text" id="leadName" class="split-input" placeholder="Your Full Name *" required>
+              </div>
+              <div>
+                <input type="tel" id="leadPhone" class="split-input" placeholder="Mobile / WhatsApp Number *" required>
+              </div>
+              <div>
+                <input type="text" id="leadLocation" class="split-input" placeholder="Property Location (City / Area) *" required>
+              </div>
+              <div>
+                <select id="leadBhk" class="split-select" required>
+                  <option value="" disabled selected>Select Floor Plan Configuration *</option>
+                  <option value="2 BHK (Starting @ ₹2.5 Lac*)">2 BHK Apartment (Starting @ ₹2.5 Lac*)</option>
+                  <option value="3 BHK (Starting @ ₹3.5 Lac*)">3 BHK Apartment (Starting @ ₹3.5 Lac*)</option>
+                  <option value="4 BHK / Luxury Villa">4 BHK / Luxury Villa</option>
+                  <option value="Renovation & Remodeling">Renovation & Remodeling</option>
+                  <option value="Commercial / Studio Space">Commercial / Studio Space</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-terracotta" style="width: 100%; justify-content: center; margin-top: 8px;">
+                Get Free Estimate ↗
+              </button>
+              <span style="font-size: 11.5px; color: #a4b2a8; text-align: center; display: block;">
+                🔒 Zero spam. We send quotes directly to your WhatsApp or call you.
+              </span>
+            </form>
+          </div>
+
+          <div class="split-lead-img-wrap">
+            <img src="assets/projects/bangalore/bangalore-04.jpg" alt="Art Homes Luxury Interior Handover" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: STUDIO PHILOSOPHY / VALUES -->
+    <section class="values-section">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="eyebrow">Studio Standards</span>
+          <h2 class="section-title">Inspire your space through art and design.</h2>
+          <p class="section-subtitle">
+            Bridging imaginative conceptual beauty and disciplined structural execution.
+          </p>
+        </div>
+
+        <div class="values-grid stagger-cards">
+          <div class="value-box-card reveal-up">
+            <div class="value-icon-circle">📐</div>
+            <div class="value-box-text">
+              <h3>On-Site Supervision & Single-Point Accountability</h3>
+              <p>
+                Founder-led quality audits at every key milestone. Direct liaison between master carpenters, electrical technicians, and plumbers with zero third-party subcontractors.
+              </p>
+            </div>
+          </div>
+
+          <div class="value-box-card reveal-up">
+            <div class="value-icon-circle">🏭</div>
+            <div class="value-box-text">
+              <h3>German Factory Modular Precision</h3>
+              <p>
+                German automated 0.8mm edge banding, zero-gap boring, and certified BWP boiling waterproof plywood engineered to resist humidity and sagging for over a decade.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured 3D Designs Preview -->
-    <section class="section">
+    <!-- SECTION 9: REAL PROJECTS SHOWCASE -->
+    <section class="showcase-projects-section">
       <div class="container">
-        <div class="section-header center">
-          <span class="eyebrow">Curated Showcase</span>
-          <h2 class="section-title">Featured 3D Visualizations</h2>
-          <p class="section-subtitle">A glimpse of our latest architectural renders and residential projects.</p>
+        <div class="section-header center reveal-up">
+          <span class="eyebrow">Original Executed Works</span>
+          <h2 class="section-title">We are the experts in good taste!</h2>
+          <p class="section-subtitle">
+            Explore our recently completed turnkey homes with real on-site photography in Bengaluru, Rasipuram, and Karur.
+          </p>
         </div>
 
-        <div class="featured-grid">
-          <!-- Item 1 -->
-          <article class="feature-card">
-            <div class="feature-media">
-              <img src="assets/portfolio/3d-project-p58-1.png" alt="Indo-Modern Heritage Living Room" loading="lazy">
+        <div class="showcase-projects-grid stagger-cards">
+          <!-- Item 1: Bangalore 3 BHK -->
+          <article class="showcase-project-card reveal-up">
+            <div class="showcase-media">
+              <span class="showcase-badge">28 Real Photos · Bangalore</span>
+              <img src="assets/projects/bangalore/bangalore-01.jpg" alt="3 BHK Residence Bangalore Real Execution" loading="lazy">
             </div>
-            <div class="feature-body">
-              <span>Living Room · Heritage</span>
-              <h3>The Indo-Modern Heritage Living</h3>
-              <p>Turned Chettinad timber pillars, Pierre Jeanneret style cane armchairs, and authentic Athangudi patterned floor tiles.</p>
-              <a href="portfolio.html" class="btn btn-outline" style="width: 100%;">View in 3D Portfolio ↗</a>
-            </div>
-          </article>
-
-          <!-- Item 2 -->
-          <article class="feature-card">
-            <div class="feature-media">
-              <img src="assets/portfolio/3d-project-p28-1.png" alt="Emerald Modular Kitchen" loading="lazy">
-            </div>
-            <div class="feature-body">
-              <span>Modular Kitchen · Luxury</span>
-              <h3>Emerald Jewel Modular Suite</h3>
-              <p>High-gloss emerald acrylic cabinets, seamless quartz splashback, and herringbone light oak flooring.</p>
-              <a href="portfolio.html" class="btn btn-outline" style="width: 100%;">View in 3D Portfolio ↗</a>
+            <div class="showcase-info">
+              <div>
+                <h3>3 BHK Luxury Residence, Bangalore</h3>
+                <p>Turnkey execution featuring warm LED cove false ceiling, acoustic fluted TV lounge wall, parallel modular kitchen, and full-height master wardrobes.</p>
+              </div>
+              <a href="gallery.html#bangalore" class="btn btn-terracotta" style="width: 100%; justify-content: center;">
+                View 28 Photos in Gallery ↗
+              </a>
             </div>
           </article>
 
-          <!-- Item 3 -->
-          <article class="feature-card">
-            <div class="feature-media">
-              <img src="assets/portfolio/3d-project-p42-1.png" alt="Champagne Glass Wardrobe" loading="lazy">
+          <!-- Item 2: Rasipuram 3 BHK -->
+          <article class="showcase-project-card reveal-up">
+            <div class="showcase-media">
+              <span class="showcase-badge">14 Real Photos · Rasipuram</span>
+              <img src="assets/projects/rasipuram/rasipuram-living-01.png" alt="3 BHK Residence Rasipuram Interior Works" loading="lazy">
             </div>
-            <div class="feature-body">
-              <span>Wardrobes · Bedroom</span>
-              <h3>Champagne Glass Wardrobe Suite</h3>
-              <p>Floor-to-ceiling champagne aluminum profiles, tinted glass fronts, interior sensor LED lighting, and vanity counter.</p>
-              <a href="portfolio.html" class="btn btn-outline" style="width: 100%;">View in 3D Portfolio ↗</a>
+            <div class="showcase-info">
+              <div>
+                <h3>3 BHK Modern Residence, Rasipuram</h3>
+                <p>Architectural spatial planning, custom fluted TV lounge, parallel modular kitchen with quartz island, and luxury master bedroom suite.</p>
+              </div>
+              <a href="gallery.html#rasipuram" class="btn btn-terracotta" style="width: 100%; justify-content: center;">
+                View 14 Photos in Gallery ↗
+              </a>
+            </div>
+          </article>
+
+          <!-- Item 3: Karur 3 BHK -->
+          <article class="showcase-project-card reveal-up">
+            <div class="showcase-media">
+              <span class="showcase-badge">4 Real Photos · Karur</span>
+              <img src="assets/projects/karur/karur-kitchen-01.jpg" alt="3 BHK Modular Kitchen Karur Execution" loading="lazy">
+            </div>
+            <div class="showcase-info">
+              <div>
+                <h3>3 BHK Modular Kitchen, Karur</h3>
+                <p>Dual-tone factory-finished acrylic overhead cabinets, warm wood grain base drawers, seamless quartz countertop, and soft-close hardware.</p>
+              </div>
+              <a href="gallery.html#karur" class="btn btn-terracotta" style="width: 100%; justify-content: center;">
+                View Kitchen Photos in Gallery ↗
+              </a>
             </div>
           </article>
         </div>
 
-        <div style="text-align: center; margin-top: 40px;">
-          <a href="portfolio.html" class="btn btn-primary" style="padding: 14px 32px;">
-            Explore All 3D Portfolio Renders →
+        <div style="text-align: center; margin-top: 45px;" class="reveal-up">
+          <a href="gallery.html" class="btn btn-gold" style="padding: 14px 32px;">
+            Explore All 62 Original Works & Photos in Gallery →
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Client Reviews -->
-    <section class="section section-sand">
+    <!-- SECTION 10: HOMEOWNER TESTIMONIALS -->
+    <section class="testimonials-section">
       <div class="container">
-        <div class="section-header center">
+        <div class="section-header center reveal-up">
           <span class="eyebrow">Client Feedback</span>
-          <h2 class="section-title">Homeowners Love Art Homes</h2>
-          <p class="section-subtitle">Real experiences from clients in CV Raman Nagar, Hosur, and Whitefield.</p>
+          <h2 class="section-title">What they say about us.</h2>
+          <p class="section-subtitle">Real experiences from homeowners in CV Raman Nagar, Hosur, and Whitefield.</p>
         </div>
 
-        <div class="reviews-marquee-wrap">
-          <div class="reviews-track">
-            <div class="reviews-group">
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Art Homes finished our 3 BHK in CV Raman Nagar right on schedule. The 3D render matched the finished execution perfectly. The modular kitchen and partitions are stunning!"
-                </p>
-                <div class="reviewer">
-                  <strong>Rajesh & Priya Nair</strong>
-                  <span>CV Raman Nagar, Bengaluru</span>
-                </div>
-              </div>
-
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Our solid wood cane bed and Chettinad-style living room have become the talk of all family gatherings in Hosur. Genuine craftsmanship and honest pricing."
-                </p>
-                <div class="reviewer">
-                  <strong>Senthil Murugan</strong>
-                  <span>Independent Villa, Hosur</span>
-                </div>
-              </div>
-
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Delivered in exactly 42 days! Zero cost escalations, genuine BWP plywood, and smooth Blum hinges. Gopinathan sir personally inspected the site regularly."
-                </p>
-                <div class="reviewer">
-                  <strong>Ananya & Karthik Rao</strong>
-                  <span>Whitefield, Bengaluru</span>
-                </div>
+        <div class="testimonials-grid stagger-cards">
+          <div class="testimonial-card-item reveal-up">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "Art Homes finished our 3 BHK in CV Raman Nagar right on schedule. The design proposals matched the finished execution perfectly. The modular kitchen and partitions are stunning!"
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">RN</div>
+              <div>
+                <strong>Rajesh & Priya Nair</strong>
+                <span>CV Raman Nagar, Bengaluru</span>
               </div>
             </div>
+          </div>
 
-            <!-- Clone Group for Seamless Infinite Non-Stop Marquee on Mobile -->
-            <div class="reviews-group reviews-group-clone" aria-hidden="true">
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Art Homes finished our 3 BHK in CV Raman Nagar right on schedule. The 3D render matched the finished execution perfectly. The modular kitchen and partitions are stunning!"
-                </p>
-                <div class="reviewer">
-                  <strong>Rajesh & Priya Nair</strong>
-                  <span>CV Raman Nagar, Bengaluru</span>
-                </div>
+          <div class="testimonial-card-item reveal-up">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "Our solid wood cane bed and Chettinad-style living room have become the talk of all family gatherings in Hosur. Genuine craftsmanship and honest pricing."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">SM</div>
+              <div>
+                <strong>Senthil Murugan</strong>
+                <span>Independent Villa, Hosur</span>
               </div>
+            </div>
+          </div>
 
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Our solid wood cane bed and Chettinad-style living room have become the talk of all family gatherings in Hosur. Genuine craftsmanship and honest pricing."
-                </p>
-                <div class="reviewer">
-                  <strong>Senthil Murugan</strong>
-                  <span>Independent Villa, Hosur</span>
-                </div>
-              </div>
-
-              <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                  "Delivered in exactly 42 days! Zero cost escalations, genuine BWP plywood, and smooth Blum hinges. Gopinathan sir personally inspected the site regularly."
-                </p>
-                <div class="reviewer">
-                  <strong>Ananya & Karthik Rao</strong>
-                  <span>Whitefield, Bengaluru</span>
-                </div>
+          <div class="testimonial-card-item reveal-up">
+            <div>
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-text">
+                "Delivered in exactly 42 days! Zero cost escalations, genuine BWP plywood, and smooth Blum hinges. Gopinathan sir personally inspected the site regularly."
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="testimonial-avatar">AR</div>
+              <div>
+                <strong>Ananya & Karthik Rao</strong>
+                <span>Whitefield, Bengaluru</span>
               </div>
             </div>
           </div>
@@ -816,26 +589,29 @@
       </div>
     </section>
 
-    <!-- Bottom CTA Banner -->
-    <section class="section">
+    <!-- SECTION 11: COFFEE CONSULTATION INVITE BANNER -->
+    <section class="coffee-invite-banner reveal-up">
+      <div class="coffee-bg-overlay"></div>
       <div class="container">
-        <div class="cta-banner">
-          <div>
-            <h2>Ready to plan your dream space?</h2>
-            <p>Schedule a complimentary site visit and 8K 3D consultation in Bengaluru or Hosur.</p>
-          </div>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="contact.html" class="btn btn-gold">Book Free Consultation ↗</a>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20my%20interior." class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <div class="coffee-content-wrap">
+          <span class="eyebrow" style="color: #dfba73; margin-bottom: 12px; display: inline-block;">Complimentary Studio Visit</span>
+          <h2>Meet us over coffee at our studio to discuss your home interiors.</h2>
+          <p>
+            Bring your architectural floor plan. Sit down with our senior interior architects to review spatial layouts, material swatches, and itemized transparent costing.
+          </p>
+          <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-terracotta">Book Studio Visit ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20visit%20your%20studio%20for%20a%20coffee%20consultation." class="btn btn-whatsapp" target="_blank" rel="noopener">
               Chat on WhatsApp ↗
             </a>
           </div>
         </div>
       </div>
     </section>
+
   </main>
 
-  <!-- Site Footer -->
+  <!-- SECTION 12: SITE FOOTER -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -844,7 +620,7 @@
             <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
           </a>
           <p>
-            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+            Luxury residential interiors, factory-modular kitchens, and turnkey interior design in Bengaluru and Hosur.
           </p>
         </div>
 
@@ -853,7 +629,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">3D Portfolio</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="referral.html">Offers & Refer</a></li>
             <li><a href="about.html">About</a></li>
@@ -895,12 +670,12 @@
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
-        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+        <span>Bengaluru & Hosur | Founder: Gopinathan K</span>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Contact Action Icons (Right Side with Float Animation) -->
+  <!-- Floating Contact Action Icons -->
   <aside class="floating-contact-dock" aria-label="Quick Contact">
     <a href="tel:+919791272166" class="floating-fab fab-call" aria-label="Call Art Homes Studio" title="Call +91 97912 72166">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -915,7 +690,10 @@
   </aside>
 
   <script>
+    // Update footer copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile navigation toggle
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
@@ -923,67 +701,25 @@
       menuToggle.textContent = open ? '✕' : '☰';
     });
 
-    // Seamless Smooth Crossfade Video Loop (PC / Desktop Only)
-    const v1 = document.getElementById('heroVideo1');
-    const v2 = document.getElementById('heroVideo2');
-    if (v1 && v2) {
-      function checkVideoPlayback() {
-        if (window.innerWidth <= 768) {
-          v1.pause();
-          v2.pause();
-        } else {
-          if (v1.paused && v2.paused) {
-            v1.play().catch(() => {});
-          }
-        }
-      }
-      checkVideoPlayback();
-      window.addEventListener('resize', checkVideoPlayback);
+    // Lead Capture Form -> WhatsApp Direct Integration
+    const leadForm = document.getElementById('heroLeadForm');
+    if (leadForm) {
+      leadForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const name = document.getElementById('leadName').value.trim();
+        const phone = document.getElementById('leadPhone').value.trim();
+        const location = document.getElementById('leadLocation').value.trim();
+        const bhk = document.getElementById('leadBhk').value;
 
-      let activeVideo = v1;
-      let nextVideo = v2;
-      const fadeDuration = 1.4; // seconds of smooth cinematic cross-dissolve before video ends
-      let isFading = false;
+        const message = `Hi Art Homes! I would like a free interior design consultation and estimate.%0A%0A` +
+          `*Name:* ${encodeURIComponent(name)}%0A` +
+          `*Phone:* ${encodeURIComponent(phone)}%0A` +
+          `*Location:* ${encodeURIComponent(location)}%0A` +
+          `*Requirement:* ${encodeURIComponent(bhk)}`;
 
-      function triggerCrossfade() {
-        if (isFading || window.innerWidth <= 768) return;
-        isFading = true;
-
-        nextVideo.currentTime = 0;
-        nextVideo.play().then(() => {
-          nextVideo.style.opacity = '1';
-          activeVideo.style.opacity = '0';
-
-          setTimeout(() => {
-            activeVideo.pause();
-            const temp = activeVideo;
-            activeVideo = nextVideo;
-            nextVideo = temp;
-            isFading = false;
-          }, fadeDuration * 1000);
-        }).catch(() => {
-          isFading = false;
-        });
-      }
-
-      function onTimeUpdate(e) {
-        const vid = e.target;
-        if (vid !== activeVideo) return;
-        if (vid.duration && (vid.duration - vid.currentTime <= fadeDuration)) {
-          triggerCrossfade();
-        }
-      }
-
-      function onEnded(e) {
-        if (e.target === activeVideo) {
-          triggerCrossfade();
-        }
-      }
-
-      v1.addEventListener('timeupdate', onTimeUpdate);
-      v2.addEventListener('timeupdate', onTimeUpdate);
-      v1.addEventListener('ended', onEnded);
-      v2.addEventListener('ended', onEnded);
+        const whatsappUrl = `https://wa.me/919791272166?text=${message}`;
+        window.open(whatsappUrl, '_blank');
+      });
     }
   </script>
   <script src="animations.js"></script>

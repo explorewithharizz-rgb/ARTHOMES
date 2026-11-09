@@ -3,133 +3,433 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brochure & Execution Gallery | Art Homes Interior Studio</title>
-  <meta name="description" content="Authentic client catalog and completed projects from the official Art Homes Interior Studio brochure. Modular kitchens, wardrobes, partitions, TV units, and pooja corners in Bengaluru & Hosur.">
+  <title>Gallery | Art Homes Interior Studio | Bangalore, Karur & Rasipuram</title>
+  <meta name="description" content="Explore real completed turnkey home interior executions in Bangalore, Karur, and Rasipuram by Art Homes Interior Studio. Modular kitchens, designer wardrobes, living rooms, and pooja mandirs.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    .filter-bar {
+    /* Hero Header Banner with Uploaded Interior Background */
+    .gallery-hero-banner {
+      position: relative;
+      min-height: 520px;
+      height: 540px;
       display: flex;
-      gap: 8px;
+      align-items: center;
       justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 34px;
+      text-align: center;
+      overflow: hidden;
+      color: #ffffff;
+      background: #0e1410;
+      border-bottom: 1px solid rgba(197, 160, 89, 0.25);
     }
-    .filter-btn {
-      background: var(--bg-cream);
-      border: 1px solid var(--line);
-      padding: 7px 16px;
-      border-radius: 30px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink-soft);
-      cursor: pointer;
-      transition: var(--transition);
+    .gallery-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(
+        to bottom,
+        rgba(14, 20, 16, 0.38) 0%,
+        rgba(14, 20, 16, 0.25) 50%,
+        rgba(14, 20, 16, 0.52) 100%
+      ), url('assets/gallery-hero.jpg');
+      background-size: cover;
+      background-position: center 36%;
+      background-repeat: no-repeat;
+      display: block;
+      transform: scale(1.02);
     }
-    .filter-btn.active {
-      background: var(--forest);
-      color: #fff;
-      border-color: var(--forest);
+    .gallery-hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    /* Fade down motion animation in center align */
+    @keyframes fadeDownMotion {
+      0% {
+        opacity: 0;
+        transform: translateY(-45px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .gallery-title-banner {
+      font-family: 'Outfit', 'Plus Jakarta Sans', 'DM Sans', -apple-system, sans-serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      margin: 0;
+      line-height: 1.15;
+      text-align: center;
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4);
+      animation: fadeDownMotion 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      display: inline-block;
     }
 
+    /* 4-Column Clean Square Photo Grid */
+    .gallery-content-section {
+      background: #ffffff;
+      padding: 10px 0 70px;
+    }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
     .gallery-card {
-      background: #fff;
-      border-radius: var(--radius-sm);
+      position: relative;
+      aspect-ratio: 1 / 1;
+      border-radius: 4px;
       overflow: hidden;
-      border: 1px solid var(--line);
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
+      background: #f5f5f5;
+      cursor: pointer;
+      border: none !important;
+      box-shadow: none !important;
+      display: block;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .gallery-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
     }
     .gallery-card-img {
       position: relative;
-      aspect-ratio: 4/3;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1 / 1;
       overflow: hidden;
-      background: #111;
+      background: #eee;
     }
     .gallery-card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.4s ease;
+      display: block;
+      transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
     }
     .gallery-card:hover .gallery-card-img img {
-      transform: scale(1.03);
+      transform: scale(1.07);
+    }
+    .card-badge {
+      display: none !important; /* Keep photos clean */
     }
     .gallery-caption {
-      padding: 12px 14px;
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 16px 14px;
+      background: linear-gradient(to top, rgba(15, 36, 29, 0.88) 0%, rgba(15, 36, 29, 0.35) 70%, transparent 100%);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #fff;
-      border-top: 1px solid var(--line);
       gap: 8px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 2;
+    }
+    .gallery-card:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
     }
     .gallery-caption strong {
       font-size: 13px;
-      color: var(--forest-dark);
+      color: #ffffff;
       font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
     .gallery-wa-btn {
       font-size: 11px;
       font-weight: 700;
-      color: #25D366;
-      background: #eaf8ef;
-      border: 1px solid rgba(37, 211, 102, 0.35);
-      padding: 4px 9px;
+      color: #ffffff;
+      background: #25D366;
+      padding: 4px 10px;
       border-radius: 4px;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 3px;
-      transition: var(--transition);
       white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
     .gallery-wa-btn:hover {
-      background: #25D366;
-      color: #fff;
+      background: #1eb956;
+    }
+
+    /* Gallery Picture Animated Fade Motion */
+    @keyframes galleryPicFadeMotion {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.98);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .gallery-card.pic-fade-in {
+      animation: galleryPicFadeMotion 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Pagination Bar */
+    .gallery-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin: 48px 0 20px;
+      flex-wrap: wrap;
+    }
+    .pagination-btn {
+      min-width: 42px;
+      height: 42px;
+      padding: 0 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      color: #333333;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 6px;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    .pagination-btn:hover:not(:disabled) {
+      border-color: #c2714f;
+      color: #c2714f;
+      background: #fff8f5;
+      transform: translateY(-1px);
+    }
+    .pagination-btn.active {
+      background: #c2714f !important;
+      border-color: #c2714f !important;
+      color: #ffffff !important;
+      font-weight: 700;
+      box-shadow: 0 4px 14px rgba(194, 113, 79, 0.32);
+      cursor: default;
+    }
+    .pagination-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      border-color: #e2e8f0;
+      background: #f8f9fa;
+    }
+    .pagination-arrow {
+      font-size: 13.5px;
+      font-weight: 600;
+    }
+    .pagination-info {
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      color: #777777;
+      margin-top: 12px;
+      font-family: 'DM Sans', sans-serif;
     }
 
     @media (max-width: 1080px) {
       .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
     }
     @media (max-width: 768px) {
+      .gallery-hero-banner { min-height: 280px; min-height: 36vh; } .gallery-title-banner { font-size: 40px; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .pagination-btn { min-width: 38px; height: 38px; padding: 0 10px; font-size: 13.5px; }
     }
-    @media (max-width: 440px) {
-      .gallery-grid { grid-template-columns: 1fr; }
+    @media (max-width: 480px) {
+      .gallery-grid { grid-template-columns: 1fr; gap: 14px; }
+    }
+  
+    .coffee-btn-hotspot:hover {
+      background: rgba(255, 255, 255, 0.16) !important;
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.3) !important;
+    }
+
+    /* ==========================================
+       COFFEE CONSULTATION BANNER MOTION FADE EFFECTS
+       ========================================== */
+    .coffee-consultation-section {
+      padding: 30px 0 75px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+    .coffee-consultation-banner {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.22);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      background-image: linear-gradient(rgba(14, 20, 16, 0.28), rgba(14, 20, 16, 0.38)), url('assets/coffee-consultation-bg.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      padding: 68px 36px;
+      text-align: center;
+      
+      /* Outer Banner Motion Fade-Up & Soft Scale In */
+      opacity: 0;
+      transform: translateY(40px) scale(0.98);
+      filter: blur(6px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.4s ease;
+      will-change: opacity, transform, filter;
+    }
+    .coffee-consultation-banner.is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) scale(1) !important;
+      filter: blur(0) !important;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Inner Content Container */
+    .coffee-banner-content {
+      position: relative;
+      z-index: 2;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Staggered Motion Fade Elements */
+    .coffee-fade-item {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform, filter;
+    }
+    .coffee-consultation-banner.is-visible .coffee-fade-item,
+    .coffee-fade-item.is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      filter: blur(0) !important;
+    }
+
+    /* 1. Eyebrow badge: Slides smoothly down and fades */
+    .coffee-eyebrow {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: #cf7152;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+      transform: translateY(-16px);
+      transition-delay: 0.14s;
+    }
+    .coffee-consultation-banner.is-visible .coffee-eyebrow {
+      transition-delay: 0.14s;
+      transform: translateY(0) !important;
+    }
+
+    /* 2. Main Headline: Elegant fade up */
+    .coffee-title {
+      font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+      font-size: clamp(28px, 3.4vw, 44px);
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 16px 0;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+      transition-delay: 0.28s;
+    }
+    .coffee-consultation-banner.is-visible .coffee-title {
+      transition-delay: 0.28s;
+    }
+
+    /* 3. Description: Smooth fade up */
+    .coffee-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15.5px;
+      color: #f0ede6;
+      line-height: 1.65;
+      margin: 0 auto 30px;
+      max-width: 580px;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+      transition-delay: 0.42s;
+    }
+    .coffee-consultation-banner.is-visible .coffee-desc {
+      transition-delay: 0.42s;
+    }
+
+    /* 4. Action Buttons: Smooth fade up & interactive hover elevation */
+    .coffee-btn-group {
+      display: inline-flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      transition-delay: 0.56s;
+    }
+    .coffee-consultation-banner.is-visible .coffee-btn-group {
+      transition-delay: 0.56s;
+    }
+
+    .coffee-btn-primary {
+      padding: 13px 28px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: #cf7152;
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(207, 113, 82, 0.45);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .coffee-btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 26px rgba(207, 113, 82, 0.65);
+      background: #d97858;
+    }
+
+    .coffee-btn-whatsapp {
+      padding: 13px 26px;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 6px;
+      background: #25D366;
+      color: #ffffff;
+      box-shadow: 0 4px 18px rgba(37, 211, 102, 0.35);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .coffee-btn-whatsapp:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 26px rgba(37, 211, 102, 0.55);
+      background: #1eb956;
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <aside class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-info">
-        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
-        <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
-      </div>
-      <div class="topbar-info">
-        <span>📞 <a href="tel:+919791272166" class="topbar-highlight">+91 97912 72166</a></span>
-        <span>✉️ <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a></span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -141,7 +441,6 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="services.html">Services</a>
-        <a href="portfolio.html">3D Portfolio</a>
         <a href="gallery.html" class="active">Gallery</a>
         <a href="referral.html">Offers & Refer</a>
         <a href="about.html">About</a>
@@ -155,222 +454,850 @@
     </div>
   </header>
 
-  <!-- Page Header Banner -->
-  <section class="page-header-banner">
-    <div class="container">
-      <span class="page-eyebrow">Authentic Client Catalog</span>
-      <h1 class="page-title">From Our Studio Brochure</h1>
-      <p class="page-subtitle">Real design executions and client selections across modular kitchens, wardrobes, partitions, and living spaces.</p>
+  <!-- Hero Header Banner with Background Image & Centered Fade-Down 'Gallery' Title -->
+  <section class="gallery-hero-banner" id="gallery-hero-top">
+    <div class="gallery-hero-bg"></div>
+    <div class="container gallery-hero-content">
+      <h1 class="gallery-title-banner">Gallery</h1>
     </div>
   </section>
 
-  <!-- Main Gallery Section -->
-  <main class="section">
+  <!-- Main Gallery Section (12 Images Per Page with Pagination) -->
+  <main class="gallery-content-section" id="gallery-grid-start">
     <div class="container">
 
-      <!-- Category Filter Buttons -->
-      <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterBrochure('all', this)">All Designs</button>
-        <button class="filter-btn" onclick="filterBrochure('kitchen', this)">Modular Kitchens</button>
-        <button class="filter-btn" onclick="filterBrochure('wardrobe', this)">Wardrobes</button>
-        <button class="filter-btn" onclick="filterBrochure('partition', this)">Partitions</button>
-        <button class="filter-btn" onclick="filterBrochure('tv', this)">TV Units</button>
-        <button class="filter-btn" onclick="filterBrochure('pooja', this)">Pooja Units</button>
-        <button class="filter-btn" onclick="filterBrochure('kids', this)">Kids' Rooms</button>
-      </div>
+      <!-- Gallery Grid (12 Visible Cards per Page) -->
+      <div class="gallery-grid" id="galleryContainer">
 
-      <!-- Gallery Grid -->
-      <div class="gallery-grid" id="brochureContainer">
-
-        <!-- 1: Kitchen Warm Wood -->
-        <article class="gallery-card" data-cat="kitchen">
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-21.jpg', 'Bangalore 3 BHK · Corridor & Passage Lighting', '3 BHK Bangalore · Executed', 'Linear ceiling profile lights illuminating the bedroom hallway corridor.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-01.webp" alt="Kitchen Warm Wood Art Homes brochure" loading="lazy">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-21.jpg" alt="Bangalore 3 BHK · Corridor & Passage Lighting" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Corridor & Passage Lighting</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Corridor%20%26%20Passage%20Lighting%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-22.jpg', 'Bangalore 3 BHK · Living Ceiling Detail & Trim', '3 BHK Bangalore · Executed', 'Precision edge-banding and smooth gypsum pop ceiling details.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-22.jpg" alt="Bangalore 3 BHK · Living Ceiling Detail & Trim" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Living Ceiling Detail & Trim</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Living%20Ceiling%20Detail%20%26%20Trim%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-23.jpg', 'Bangalore 3 BHK · Master Bed Acoustic Accent Wall', '3 BHK Bangalore · Executed', 'Cushioned fabric acoustic wall paneling behind master king-size bed.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-23.jpg" alt="Bangalore 3 BHK · Master Bed Acoustic Accent Wall" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Bed Acoustic Accent Wall</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Master%20Bed%20Acoustic%20Accent%20Wall%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-24.jpg', 'Bangalore 3 BHK · Kitchen Blum Hardware Drawers', '3 BHK Bangalore · Executed', 'Smooth European soft-close cutlery, cup-saucer, and thali tandem pull-outs.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-24.jpg" alt="Bangalore 3 BHK · Kitchen Blum Hardware Drawers" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kitchen Blum Hardware Drawers</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Kitchen%20Blum%20Hardware%20Drawers%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-25.jpg', 'Bangalore 3 BHK · Foyer Accent Wall & Niche', '3 BHK Bangalore · Executed', 'Decorative display niche with warm spotlighting for art and artifacts.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-25.jpg" alt="Bangalore 3 BHK · Foyer Accent Wall & Niche" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Foyer Accent Wall & Niche</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Foyer%20Accent%20Wall%20%26%20Niche%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-26.jpg', 'Bangalore 3 BHK · Complete Living Room Perspective', '3 BHK Bangalore · Executed', 'Full wide-angle view of the completed 3 BHK living and dining execution.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-26.jpg" alt="Bangalore 3 BHK · Complete Living Room Perspective" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Complete Living Room Perspective</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Complete%20Living%20Room%20Perspective%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-27.jpg', 'Bangalore 3 BHK · Bathroom Vanity & Mirror', '3 BHK Bangalore · Executed', 'Water-resistant marine ply vanity counter with ceramic undercounter sink.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-27.jpg" alt="Bangalore 3 BHK · Bathroom Vanity & Mirror" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Bathroom Vanity & Mirror</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Bathroom%20Vanity%20%26%20Mirror%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-28.jpg', 'Bangalore 3 BHK · Turnkey Handover Finished Perspective', '3 BHK Bangalore · Executed', 'Final quality-checked turnkey interior ready for homeowner move-in.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-28.jpg" alt="Bangalore 3 BHK · Turnkey Handover Finished Perspective" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Turnkey Handover Finished Perspective</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Turnkey%20Handover%20Finished%20Perspective%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="karur" data-room="kitchen" onclick="openLightbox('assets/projects/karur/karur-kitchen-01.jpg', 'Karur 3 BHK · Modular Kitchen Full View', '3 BHK Karur · Modular Kitchen', 'Dual-tone factory finished acrylic overhead cabinets and warm wood base storage.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Karur · Kitchen Execution</span>
+            <img src="assets/projects/karur/karur-kitchen-01.jpg" alt="Karur 3 BHK · Modular Kitchen Full View" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Modular Kitchen Full View</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Karur%203%20BHK%20%C2%B7%20Modular%20Kitchen%20Full%20View%20from%20your%20Karur%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="karur" data-room="kitchen" onclick="openLightbox('assets/projects/karur/karur-kitchen-02.jpg', 'Karur 3 BHK · Quartz Countertop & Sink Zone', '3 BHK Karur · Modular Kitchen', 'Seamless quartz countertop with stainless steel under-mount sink and splashback.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Karur · Kitchen Execution</span>
+            <img src="assets/projects/karur/karur-kitchen-02.jpg" alt="Karur 3 BHK · Quartz Countertop & Sink Zone" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Quartz Countertop & Sink Zone</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Karur%203%20BHK%20%C2%B7%20Quartz%20Countertop%20%26%20Sink%20Zone%20from%20your%20Karur%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="karur" data-room="kitchen" onclick="openLightbox('assets/projects/karur/karur-kitchen-03.jpg', 'Karur 3 BHK · Modular Corner Pantry Unit', '3 BHK Karur · Modular Kitchen', 'Corner tandem storage system and integrated pull-out bottle racks.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Karur · Kitchen Execution</span>
+            <img src="assets/projects/karur/karur-kitchen-03.jpg" alt="Karur 3 BHK · Modular Corner Pantry Unit" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Modular Corner Pantry Unit</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Karur%203%20BHK%20%C2%B7%20Modular%20Corner%20Pantry%20Unit%20from%20your%20Karur%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="karur" data-room="kitchen" onclick="openLightbox('assets/projects/karur/karur-kitchen-04.jpg', 'Karur 3 BHK · Kitchen Panorama & LED Profiles', '3 BHK Karur · Modular Kitchen', 'Wide-angle view showing concealed under-cabinet warm profile LEDs.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Karur · Kitchen Execution</span>
+            <img src="assets/projects/karur/karur-kitchen-04.jpg" alt="Karur 3 BHK · Kitchen Panorama & LED Profiles" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kitchen Panorama & LED Profiles</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Karur%203%20BHK%20%C2%B7%20Kitchen%20Panorama%20%26%20LED%20Profiles%20from%20your%20Karur%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-09.jpg', 'Bangalore 3 BHK · Master Bedroom Sliding Wardrobe', '3 BHK Bangalore · Executed', 'Full-height floor-to-ceiling sliding wardrobe with premium hardware and loft.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-09.jpg" alt="Bangalore 3 BHK · Master Bedroom Sliding Wardrobe" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Bedroom Sliding Wardrobe</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Master%20Bedroom%20Sliding%20Wardrobe%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-10.jpg', 'Bangalore 3 BHK · Master Wardrobe Glass Inset Details', '3 BHK Bangalore · Executed', 'Tinted glass insets and internal profile sensor LED strip lighting.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-10.jpg" alt="Bangalore 3 BHK · Master Wardrobe Glass Inset Details" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Wardrobe Glass Inset Details</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Master%20Wardrobe%20Glass%20Inset%20Details%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-11.jpg', 'Bangalore 3 BHK · Master Vanity & Dresser Unit', '3 BHK Bangalore · Executed', 'Dedicated dresser console with LED backlit mirror and cosmetics drawer.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-11.jpg" alt="Bangalore 3 BHK · Master Vanity & Dresser Unit" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Vanity & Dresser Unit</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Master%20Vanity%20%26%20Dresser%20Unit%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-12.jpg', 'Bangalore 3 BHK · Second Bedroom 3-Door Wardrobe', '3 BHK Bangalore · Executed', 'Contemporary textured laminate wardrobe with brushed gold long profile handles.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-12.jpg" alt="Bangalore 3 BHK · Second Bedroom 3-Door Wardrobe" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Second Bedroom 3-Door Wardrobe</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Second%20Bedroom%203-Door%20Wardrobe%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-13.jpg', 'Bangalore 3 BHK · Second Bedroom Loft & Open Shelves', '3 BHK Bangalore · Executed', 'Overhead loft storage and open display corner shelves for decor.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-13.jpg" alt="Bangalore 3 BHK · Second Bedroom Loft & Open Shelves" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Second Bedroom Loft & Open Shelves</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Second%20Bedroom%20Loft%20%26%20Open%20Shelves%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-14.jpg', 'Bangalore 3 BHK · Kids / Study Room Desk Unit', '3 BHK Bangalore · Executed', 'Integrated ergonomic study desk with overhead book cabinets and task lights.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-14.jpg" alt="Bangalore 3 BHK · Kids / Study Room Desk Unit" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kids / Study Room Desk Unit</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Kids%20%2F%20Study%20Room%20Desk%20Unit%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-15.jpg', 'Bangalore 3 BHK · Kids Bedroom Wardrobe & Storage', '3 BHK Bangalore · Executed', 'Scratch-resistant acrylic finish wardrobe designed for kids bedroom.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-15.jpg" alt="Bangalore 3 BHK · Kids Bedroom Wardrobe & Storage" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kids Bedroom Wardrobe & Storage</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Kids%20Bedroom%20Wardrobe%20%26%20Storage%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="wardrobe" onclick="openLightbox('assets/projects/bangalore/bangalore-16.jpg', 'Bangalore 3 BHK · Third Bedroom Wardrobe Suite', '3 BHK Bangalore · Executed', 'Clean minimalist 3-door wardrobe with integrated soft-close hinges.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-16.jpg" alt="Bangalore 3 BHK · Third Bedroom Wardrobe Suite" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Third Bedroom Wardrobe Suite</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Third%20Bedroom%20Wardrobe%20Suite%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="pooja" onclick="openLightbox('assets/projects/bangalore/bangalore-17.jpg', 'Bangalore 3 BHK · Laser-Cut CNC Pooja Mandir', '3 BHK Bangalore · Executed', 'Artistic pooja unit with backlit laser-cut om/floral jali panel.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-17.jpg" alt="Bangalore 3 BHK · Laser-Cut CNC Pooja Mandir" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Laser-Cut CNC Pooja Mandir</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Laser-Cut%20CNC%20Pooja%20Mandir%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="pooja" onclick="openLightbox('assets/projects/bangalore/bangalore-18.jpg', 'Bangalore 3 BHK · Pooja Bells & Brass Inlays', '3 BHK Bangalore · Executed', 'Traditional solid wood framing with hanging brass bells and storage drawers.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-18.jpg" alt="Bangalore 3 BHK · Pooja Bells & Brass Inlays" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Pooja Bells & Brass Inlays</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Pooja%20Bells%20%26%20Brass%20Inlays%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="partition" onclick="openLightbox('assets/projects/bangalore/bangalore-19.jpg', 'Bangalore 3 BHK · Living Room Wooden Partition', '3 BHK Bangalore · Executed', 'Sleek vertical wooden louver partition dividing foyer and living areas.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-19.jpg" alt="Bangalore 3 BHK · Living Room Wooden Partition" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Living Room Wooden Partition</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Living%20Room%20Wooden%20Partition%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-20.jpg', 'Bangalore 3 BHK · Utility & Balcony Storage Units', '3 BHK Bangalore · Executed', 'Weather-resistant BWP marine ply storage cabinets in utility balcony.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-20.jpg" alt="Bangalore 3 BHK · Utility & Balcony Storage Units" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Utility & Balcony Storage Units</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Utility%20%26%20Balcony%20Storage%20Units%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-01.jpg', 'Bangalore 3 BHK · Living Room & False Ceiling', '3 BHK Bangalore · Executed', 'Warm ambient cove lighting, designer ceiling rafters, and turnkey electrical finishing.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-01.jpg" alt="Bangalore 3 BHK · Living Room & False Ceiling" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Living Room & False Ceiling</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Living%20Room%20%26%20False%20Ceiling%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-02.jpg', 'Bangalore 3 BHK · Foyer & Entry Shoe Console', '3 BHK Bangalore · Executed', 'Integrated foyer shoe rack with cushioned bench seating and ambient accent panel.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-02.jpg" alt="Bangalore 3 BHK · Foyer & Entry Shoe Console" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Foyer & Entry Shoe Console</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Foyer%20%26%20Entry%20Shoe%20Console%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-03.jpg', 'Bangalore 3 BHK · Designer TV Unit & Wall Paneling', '3 BHK Bangalore · Executed', 'TV console with acoustic fluted back-slats, floating drawers, and warm profile LEDs.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-03.jpg" alt="Bangalore 3 BHK · Designer TV Unit & Wall Paneling" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Designer TV Unit & Wall Paneling</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Designer%20TV%20Unit%20%26%20Wall%20Paneling%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="living" onclick="openLightbox('assets/projects/bangalore/bangalore-04.jpg', 'Bangalore 3 BHK · Dining Space & Chandelier Ceiling', '3 BHK Bangalore · Executed', 'Spacious dining layout with customized ceiling drop and ambient modern lighting.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-04.jpg" alt="Bangalore 3 BHK · Dining Space & Chandelier Ceiling" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Dining Space & Chandelier Ceiling</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Dining%20Space%20%26%20Chandelier%20Ceiling%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-05.jpg', 'Bangalore 3 BHK · Modular Kitchen Execution', '3 BHK Bangalore · Executed', 'Factory-finished dual-tone modular kitchen cabinets with soft-close tandem boxes.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-05.jpg" alt="Bangalore 3 BHK · Modular Kitchen Execution" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Modular Kitchen Execution</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Modular%20Kitchen%20Execution%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-06.jpg', 'Bangalore 3 BHK · Parallel Kitchen & Chimney Zone', '3 BHK Bangalore · Executed', 'Ergonomic kitchen layout featuring high-suction chimney wall and tiled backsplash.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-06.jpg" alt="Bangalore 3 BHK · Parallel Kitchen & Chimney Zone" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Parallel Kitchen & Chimney Zone</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Parallel%20Kitchen%20%26%20Chimney%20Zone%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-07.jpg', 'Bangalore 3 BHK · Kitchen Loft & Overhead Storage', '3 BHK Bangalore · Executed', 'Full-height ceiling loft storage maximizing utility space for large cookware.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-07.jpg" alt="Bangalore 3 BHK · Kitchen Loft & Overhead Storage" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kitchen Loft & Overhead Storage</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Kitchen%20Loft%20%26%20Overhead%20Storage%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="bangalore" data-room="kitchen" onclick="openLightbox('assets/projects/bangalore/bangalore-08.jpg', 'Bangalore 3 BHK · Kitchen Counter & Breakfast Bar', '3 BHK Bangalore · Executed', 'Seamless polished quartz countertop with integrated breakfast bar counter.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Bangalore · Real Execution</span>
+            <img src="assets/projects/bangalore/bangalore-08.jpg" alt="Bangalore 3 BHK · Kitchen Counter & Breakfast Bar" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Kitchen Counter & Breakfast Bar</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Bangalore%203%20BHK%20%C2%B7%20Kitchen%20Counter%20%26%20Breakfast%20Bar%20from%20your%20Bangalore%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="living" onclick="openLightbox('assets/projects/rasipuram/rasipuram-living-01.png', 'Rasipuram 3 BHK · Contemporary Living Room Panorama', '3 BHK Rasipuram · Interior Works', 'Architectural open-plan living with fluted acoustic paneling and custom L-sectional.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-living-01.png" alt="Rasipuram 3 BHK · Contemporary Living Room Panorama" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Contemporary Living Room Panorama</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Contemporary%20Living%20Room%20Panorama%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="living" onclick="openLightbox('assets/projects/rasipuram/rasipuram-living-02.png', 'Rasipuram 3 BHK · Living Lounge & Accent Seating', '3 BHK Rasipuram · Interior Works', 'Plush fabric armchairs, marble center coffee table, and layered lighting.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-living-02.png" alt="Rasipuram 3 BHK · Living Lounge & Accent Seating" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Living Lounge & Accent Seating</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Living%20Lounge%20%26%20Accent%20Seating%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="partition" onclick="openLightbox('assets/projects/rasipuram/rasipuram-living-03.png', 'Rasipuram 3 BHK · Foyer Entry & Geometric Partition', '3 BHK Rasipuram · Interior Works', 'Custom wooden geometric divider creating private living zoning from the entrance.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-living-03.png" alt="Rasipuram 3 BHK · Foyer Entry & Geometric Partition" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Foyer Entry & Geometric Partition</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Foyer%20Entry%20%26%20Geometric%20Partition%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="living" onclick="openLightbox('assets/projects/rasipuram/rasipuram-tv-unit.png', 'Rasipuram 3 BHK · Fluted Wall Floating TV Unit', '3 BHK Rasipuram · Interior Works', 'Floor-to-ceiling vertical fluted wall with floating marble shelf and cove LED backlighting.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-tv-unit.png" alt="Rasipuram 3 BHK · Fluted Wall Floating TV Unit" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Fluted Wall Floating TV Unit</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Fluted%20Wall%20Floating%20TV%20Unit%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="kitchen" onclick="openLightbox('assets/projects/rasipuram/rasipuram-kitchen-01.png', 'Rasipuram 3 BHK · Parallel Modular Kitchen Suite', '3 BHK Rasipuram · Interior Works', 'Modern parallel layout with pristine quartz breakfast island and handleless cabinets.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-kitchen-01.png" alt="Rasipuram 3 BHK · Parallel Modular Kitchen Suite" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Parallel Modular Kitchen Suite</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Parallel%20Modular%20Kitchen%20Suite%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="kitchen" onclick="openLightbox('assets/projects/rasipuram/rasipuram-kitchen-02.png', 'Rasipuram 3 BHK · Breakfast Counter & Glass Display', '3 BHK Rasipuram · Interior Works', 'Fluted glass display units with internal warm spotlights and modern bar seating.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-kitchen-02.png" alt="Rasipuram 3 BHK · Breakfast Counter & Glass Display" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Breakfast Counter & Glass Display</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Breakfast%20Counter%20%26%20Glass%20Display%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="kitchen" onclick="openLightbox('assets/projects/rasipuram/rasipuram-kitchen-03.png', 'Rasipuram 3 BHK · Appliance Wall & High-Gloss Chimney', '3 BHK Rasipuram · Interior Works', 'Integrated microwave oven tall unit and high-efficiency chimney workspace.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-kitchen-03.png" alt="Rasipuram 3 BHK · Appliance Wall & High-Gloss Chimney" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Appliance Wall & High-Gloss Chimney</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Appliance%20Wall%20%26%20High-Gloss%20Chimney%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-master-bedroom-01.png', 'Rasipuram 3 BHK · Master Bedroom & Headboard Panel', '3 BHK Rasipuram · Interior Works', 'Custom floor-to-ceiling channel-tufted upholstered headboard with bedside pendant sconces.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-master-bedroom-01.png" alt="Rasipuram 3 BHK · Master Bedroom & Headboard Panel" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Bedroom & Headboard Panel</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Master%20Bedroom%20%26%20Headboard%20Panel%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-master-bedroom-02.png', 'Rasipuram 3 BHK · Master Wardrobe & Vanity Counter', '3 BHK Rasipuram · Interior Works', 'Floor-to-ceiling sliding wardrobe with tinted glass doors and matching vanity console.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-master-bedroom-02.png" alt="Rasipuram 3 BHK · Master Wardrobe & Vanity Counter" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Master Wardrobe & Vanity Counter</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Master%20Wardrobe%20%26%20Vanity%20Counter%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-bedroom-01.png', 'Rasipuram 3 BHK · Second Bedroom Suite View', '3 BHK Rasipuram · Interior Works', 'Contemporary wooden laminate paneling and concealed atmospheric cove illumination.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-bedroom-01.png" alt="Rasipuram 3 BHK · Second Bedroom Suite View" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Second Bedroom Suite View</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Second%20Bedroom%20Suite%20View%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-bedroom-02.png', 'Rasipuram 3 BHK · Study Workstation & Wardrobe', '3 BHK Rasipuram · Interior Works', 'Ergonomic home office workstation integrated seamlessly with bedroom wardrobe.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-bedroom-02.png" alt="Rasipuram 3 BHK · Study Workstation & Wardrobe" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Study Workstation & Wardrobe</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Study%20Workstation%20%26%20Wardrobe%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-bedroom-03.png', 'Rasipuram 3 BHK · Third Bedroom Suite', '3 BHK Rasipuram · Interior Works', 'Dual-tone functional bedroom cabinetry designed for comfort and extensive storage.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-bedroom-03.png" alt="Rasipuram 3 BHK · Third Bedroom Suite" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Third Bedroom Suite</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Third%20Bedroom%20Suite%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-guest-bedroom-01.png', 'Rasipuram 3 BHK · Guest Bedroom Wardrobe', '3 BHK Rasipuram · Interior Works', 'Satin-finish hinged wardrobe with integrated loft storage and minimal black hardware.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-guest-bedroom-01.png" alt="Rasipuram 3 BHK · Guest Bedroom Wardrobe" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Guest Bedroom Wardrobe</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Guest%20Bedroom%20Wardrobe%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="rasipuram" data-room="wardrobe" onclick="openLightbox('assets/projects/rasipuram/rasipuram-guest-bedroom-02.png', 'Rasipuram 3 BHK · Guest Bedroom Accent Wall', '3 BHK Rasipuram · Interior Works', 'Warm neutral wall styling with matching wooden bedside tables.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📍 Rasipuram · 3 BHK</span>
+            <img src="assets/projects/rasipuram/rasipuram-guest-bedroom-02.png" alt="Rasipuram 3 BHK · Guest Bedroom Accent Wall" loading="lazy">
+          </div>
+          <div class="gallery-caption">
+            <strong>Guest Bedroom Accent Wall</strong>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rasipuram%203%20BHK%20%C2%B7%20Guest%20Bedroom%20Accent%20Wall%20from%20your%20Rasipuram%20project." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-project="brochure" data-room="kitchen" onclick="openLightbox('assets/gallery-01.webp', 'Kitchen · Warm Wood', 'Studio Catalog', 'Warm natural timber veneer modular kitchen cabinetry with quartz countertop.')">
+          <div class="gallery-card-img">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-01.webp" alt="Kitchen · Warm Wood" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Kitchen · Warm Wood</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Warm%20Wood%20Modular%20Kitchen%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Kitchen%20%C2%B7%20Warm%20Wood%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 2: Kitchen Burgundy -->
-        <article class="gallery-card" data-cat="kitchen">
+        <article class="gallery-card" data-project="brochure" data-room="kitchen" onclick="openLightbox('assets/gallery-02.webp', 'Kitchen · Burgundy Gloss', 'Studio Catalog', 'High-gloss deep burgundy finish modular kitchen with tandem drawers.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-02.webp" alt="Kitchen Burgundy Gloss Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-02.webp" alt="Kitchen · Burgundy Gloss" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Kitchen · Burgundy Gloss</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Burgundy%20Gloss%20Kitchen%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Kitchen%20%C2%B7%20Burgundy%20Gloss%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 3: Kitchen Sage -->
-        <article class="gallery-card" data-cat="kitchen">
+        <article class="gallery-card" data-project="brochure" data-room="kitchen" onclick="openLightbox('assets/gallery-03.webp', 'Kitchen · Sage Green', 'Studio Catalog', 'Soft sage green matte acrylic kitchen cabinets with modern black handles.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-03.webp" alt="Kitchen Sage Green Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-03.webp" alt="Kitchen · Sage Green" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Kitchen · Sage Green</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Sage%20Green%20Kitchen%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Kitchen%20%C2%B7%20Sage%20Green%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 4: Kitchen Teal Full Execution -->
-        <article class="gallery-card" data-cat="kitchen">
+        <article class="gallery-card" data-project="brochure" data-room="kitchen" onclick="openLightbox('assets/kitchen-2.webp', 'Kitchen · Teal & Quartz', 'Studio Catalog', 'Full modular kitchen execution with teal overheads and white quartz island.')">
           <div class="gallery-card-img">
-            <img src="assets/kitchen-2.webp" alt="Kitchen Teal Cabinets Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/kitchen-2.webp" alt="Kitchen · Teal & Quartz" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Kitchen · Teal & Quartz</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Teal%20and%20Quartz%20Kitchen%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Kitchen%20%C2%B7%20Teal%20%26%20Quartz%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 5: Wardrobe Rose Gold -->
-        <article class="gallery-card" data-cat="wardrobe">
+        <article class="gallery-card" data-project="brochure" data-room="wardrobe" onclick="openLightbox('assets/gallery-04.webp', 'Wardrobe · Rose Gold', 'Studio Catalog', 'Rose gold tinted reflective glass wardrobe with internal LED strips.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-04.webp" alt="Wardrobe Rose Gold Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-04.webp" alt="Wardrobe · Rose Gold" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Wardrobe · Rose Gold</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Rose%20Gold%20Wardrobe%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Wardrobe%20%C2%B7%20Rose%20Gold%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 6: Wardrobe Ivory -->
-        <article class="gallery-card" data-cat="wardrobe">
+        <article class="gallery-card" data-project="brochure" data-room="wardrobe" onclick="openLightbox('assets/gallery-05.webp', 'Wardrobe · Ivory Minimal', 'Studio Catalog', 'Floor-to-ceiling ivory minimal sliding wardrobe for modern bedrooms.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-05.webp" alt="Wardrobe Ivory Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-05.webp" alt="Wardrobe · Ivory Minimal" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Wardrobe · Ivory Minimal</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Ivory%20Minimal%20Wardrobe%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Wardrobe%20%C2%B7%20Ivory%20Minimal%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 7: Wardrobe Execution 2 -->
-        <article class="gallery-card" data-cat="wardrobe">
+        <article class="gallery-card" data-project="brochure" data-room="wardrobe" onclick="openLightbox('assets/wardrobe-2.webp', 'Wardrobe · Warm Oak', 'Studio Catalog', 'Rich grain warm oak wardrobe with soft-closing sliding track system.')">
           <div class="gallery-card-img">
-            <img src="assets/wardrobe-2.webp" alt="Warm Bedroom Sliding Wardrobe" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/wardrobe-2.webp" alt="Wardrobe · Warm Oak" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Wardrobe · Warm Oak</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Warm%20Oak%20Wardrobe%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Wardrobe%20%C2%B7%20Warm%20Oak%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 8: Partition Glass -->
-        <article class="gallery-card" data-cat="partition">
+        <article class="gallery-card" data-project="brochure" data-room="partition" onclick="openLightbox('assets/gallery-06.webp', 'Partition · Fluted Glass', 'Studio Catalog', 'Champagne metal frame fluted glass partition dividing living and dining.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-06.webp" alt="Partition Glass Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-06.webp" alt="Partition · Fluted Glass" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Partition · Fluted Glass</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Fluted%20Glass%20Partition%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Partition%20%C2%B7%20Fluted%20Glass%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 9: Partition Brass -->
-        <article class="gallery-card" data-cat="partition">
+        <article class="gallery-card" data-project="brochure" data-room="partition" onclick="openLightbox('assets/gallery-07.webp', 'Partition · Brass Screen', 'Studio Catalog', 'Geometric brass decorative screen inspired by Indo-modern aesthetics.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-07.webp" alt="Partition Brass Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-07.webp" alt="Partition · Brass Screen" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Partition · Brass Screen</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Brass%20Partition%20Screen%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Partition%20%C2%B7%20Brass%20Screen%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 10: Partition Execution 2 -->
-        <article class="gallery-card" data-cat="partition">
+        <article class="gallery-card" data-project="brochure" data-room="partition" onclick="openLightbox('assets/partition-2.webp', 'Partition · Timber Slats', 'Studio Catalog', 'Solid teak wood vertical slat partition offering privacy and light flow.')">
           <div class="gallery-card-img">
-            <img src="assets/partition-2.webp" alt="Timber Partition Art Homes" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/partition-2.webp" alt="Partition · Timber Slats" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Partition · Timber Slats</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Timber%20Slats%20Partition%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Partition%20%C2%B7%20Timber%20Slats%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 11: TV Unit Ochre -->
-        <article class="gallery-card" data-cat="tv">
+        <article class="gallery-card" data-project="brochure" data-room="living" onclick="openLightbox('assets/gallery-08.webp', 'TV Unit · Ochre Wall', 'Studio Catalog', 'Contemporary floating TV console with warm ochre textured acoustic wall.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-08.webp" alt="TV Unit Ochre Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-08.webp" alt="TV Unit · Ochre Wall" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>TV Unit · Ochre Wall</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Ochre%20TV%20Unit%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20TV%20Unit%20%C2%B7%20Ochre%20Wall%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 12: TV Unit Marble -->
-        <article class="gallery-card" data-cat="tv">
+        <article class="gallery-card" data-project="brochure" data-room="living" onclick="openLightbox('assets/gallery-09.webp', 'TV Unit · Statuario Marble', 'Studio Catalog', 'Italian statuario marble slab backdrop with low-profile wooden TV unit.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-09.webp" alt="TV Unit Modern Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-09.webp" alt="TV Unit · Statuario Marble" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>TV Unit · Statuario Marble</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Statuario%20Marble%20TV%20Unit%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20TV%20Unit%20%C2%B7%20Statuario%20Marble%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 13: TV Unit Execution 2 -->
-        <article class="gallery-card" data-cat="tv">
+        <article class="gallery-card" data-project="brochure" data-room="living" onclick="openLightbox('assets/tv-unit-2.webp', 'TV Unit · Low-Profile Wood', 'Studio Catalog', 'Clean horizontal wooden TV ledge with concealed cable management.')">
           <div class="gallery-card-img">
-            <img src="assets/tv-unit-2.webp" alt="TV Unit Wood Art Homes" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/tv-unit-2.webp" alt="TV Unit · Low-Profile Wood" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>TV Unit · Low-Profile Wood</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Low-Profile%20Wood%20TV%20Unit%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20TV%20Unit%20%C2%B7%20Low-Profile%20Wood%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 14: Pooja Blue -->
-        <article class="gallery-card" data-cat="pooja">
+        <article class="gallery-card" data-project="brochure" data-room="pooja" onclick="openLightbox('assets/gallery-10.webp', 'Pooja · Sapphire Blue', 'Studio Catalog', 'Artistic sapphire blue lacquer pooja mandir with brass bell accents.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-10.webp" alt="Pooja Blue Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-10.webp" alt="Pooja · Sapphire Blue" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Pooja · Sapphire Blue</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Sapphire%20Blue%20Pooja%20Mandir%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Pooja%20%C2%B7%20Sapphire%20Blue%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 15: Kids Room Mint -->
-        <article class="gallery-card" data-cat="kids">
+        <article class="gallery-card" data-project="brochure" data-room="kids" onclick="openLightbox('assets/gallery-11.webp', 'Kids Room · Mint Study', 'Studio Catalog', 'Playful mint and white theme study desk with open book cubbies.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-11.webp" alt="Kids Room Mint Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-11.webp" alt="Kids Room · Mint Study" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Kids Room · Mint Study</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Mint%20Study%20Kids%20Room%20design%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Kids%20Room%20%C2%B7%20Mint%20Study%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
-        <!-- 16: Kids Room Details -->
-        <article class="gallery-card" data-cat="kids">
+        <article class="gallery-card" data-project="brochure" data-room="kids" onclick="openLightbox('assets/gallery-12.webp', 'Custom Storage · Details', 'Studio Catalog', 'Bespoke bedroom pull-out drawers and corner organization solutions.')">
           <div class="gallery-card-img">
-            <img src="assets/gallery-12.webp" alt="Kids Room Details Art Homes brochure" loading="lazy">
+            <span class="card-badge">📖 Studio Catalog</span>
+            <img src="assets/gallery-12.webp" alt="Custom Storage · Details" loading="lazy">
           </div>
           <div class="gallery-caption">
             <strong>Custom Storage · Details</strong>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Custom%20Storage%20details%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener">Inquire ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20like%20the%20Custom%20Storage%20%C2%B7%20Details%20from%20your%20gallery." class="gallery-wa-btn" target="_blank" rel="noopener" onclick="event.stopPropagation()">Inquire ↗</a>
           </div>
         </article>
 
       </div>
 
-      <!-- Bottom Consultation Strip -->
-      <div style="text-align:center; margin-top:54px; padding-top:28px; border-top:1px solid var(--line);">
-        <h3 style="font-size:22px; color:var(--forest-dark); margin-bottom:8px;">Liked any design from our brochure?</h3>
-        <p style="font-size:14px; color:var(--ink-muted); margin-bottom:18px;">We can customize any of these designs to match your apartment or villa floor plan.</p>
-        <a href="contact.html" class="btn btn-primary" style="padding:12px 28px;">Request Free Consultation & Quotation ↗</a>
-      </div>
+      <!-- Bottom Pagination (1, 2, 3, 4, 5, 6...) -->
+      <nav class="gallery-pagination" id="galleryPagination" aria-label="Gallery Page Navigation">
+        <!-- Rendered dynamically via JavaScript -->
+      </nav>
 
     </div>
   </main>
 
-  <!-- Site Footer -->
+  <!-- Full View Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Project Photo Viewer">
+    <div class="lightbox-dialog" id="lightboxDialog">
+      <div class="lightbox-close" onclick="closeLightbox()" title="Close (Esc)" aria-label="Close">✕</div>
+      
+      <!-- Full View Image Pane (Left Column) -->
+      <div class="lightbox-img-pane">
+        <button type="button" class="lightbox-nav-btn lightbox-prev-btn" onclick="prevLightbox(event)" title="Previous photo" aria-label="Previous photo">‹</button>
+        <button type="button" class="lightbox-nav-btn lightbox-next-btn" onclick="nextLightbox(event)" title="Next photo" aria-label="Next photo">›</button>
+        <button type="button" class="lightbox-expand-pill" onclick="toggleLightboxFullscreen(event)" title="Toggle 100% Full View">
+          <span id="expandIcon">⛶</span> <span id="expandText">Full View</span>
+        </button>
+        <img src="" id="lightboxImg" alt="Interior Photo Enlarged" onclick="toggleLightboxFullscreen(event)" title="Click to toggle Full View">
+      </div>
+
+      <!-- Info Sidebar (Right Column) -->
+      <div class="lightbox-info-pane">
+        <div>
+          <span class="lightbox-cat" id="lightboxCategory">3 BHK Bangalore · Executed</span>
+          <span class="lightbox-counter-badge" id="lightboxCounter">Photo 1 of 66</span>
+          <h3 class="lightbox-title" id="lightboxTitle">Living Room & False Ceiling</h3>
+          <p class="lightbox-desc" id="lightboxDesc">Warm ambient cove lighting, designer ceiling rafters, and turnkey electrical finishing.</p>
+        </div>
+        
+        <div class="lightbox-actions-wrap">
+          <a href="#" id="lightboxWa" class="btn btn-whatsapp" style="width:100%; text-align:center; justify-content:center; padding: 13px;" target="_blank" rel="noopener">
+            Inquire on WhatsApp ↗
+          </a>
+          <a href="contact.html" class="btn btn-terracotta" style="width:100%; text-align:center; justify-content:center; padding: 13px; margin-top: 8px;">
+            Book Free Consultation ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- WhatsApp Floating Widget -->
+  <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20viewing%20your%20Gallery%20and%20would%20like%20a%20quote." 
+     class="wa-float" 
+     target="_blank" 
+     rel="noopener" 
+     aria-label="Chat on WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.275.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12 0 2.164.577 4.195 1.583 5.952l-1.683 6.292 6.435-1.688c1.705.932 3.659 1.444 5.665 1.444 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/>
+    </svg>
+  </a>
+
+  <!-- Phone Call Float -->
+  <a href="tel:+919791272166" class="phone-float" aria-label="Call Art Homes Founder">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
+      <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+    </svg>
+  </a>
+
+  <!-- Bottom Coffee Consultation Banner (Using 2nd Picture as Background with Motion Fade Effects) -->
+  <section class="coffee-consultation-section" id="coffeeConsultation">
+    <div class="container">
+      <div class="coffee-consultation-banner" id="coffeeConsultationBanner">
+        
+        <div class="coffee-banner-content">
+          <span class="coffee-fade-item coffee-eyebrow">
+            COMPLIMENTARY STUDIO CONSULTATION
+          </span>
+
+          <h2 class="coffee-fade-item coffee-title">
+            Let's Plan Your Interior Over Coffee
+          </h2>
+
+          <p class="coffee-fade-item coffee-desc">
+            Bring your architectural floor plan. Walk away with clear spatial layouts and an itemized cost estimate.
+          </p>
+
+          <div class="coffee-fade-item coffee-btn-group">
+            <a href="contact.html" class="coffee-btn-primary">
+              BOOK FREE CONSULTATION ↗
+            </a>
+
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20studio%20consultation." target="_blank" rel="noopener" class="coffee-btn-whatsapp">
+              Chat on WhatsApp ↗
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Edge-to-Edge Panoramic Studio Location Map Strip (Exact Reference Size) -->
+  <section class="studio-map-panoramic-section reveal-up" id="studioMapSection">
+    <div class="google-map-panoramic-strip">
+      <!-- Floating Google Maps Location Card (Top-Left) -->
+      <div class="gmap-floating-card">
+        <div class="gmap-card-body">
+          <h3 class="gmap-card-title">Art Homes Interior Studio</h3>
+          <p class="gmap-card-address">
+            No. 27/4, 1st Cross, Abbaiah Reddy Layout, CV Raman Nagar, Bengaluru, Karnataka 560093
+          </p>
+          <div class="gmap-card-rating">
+            <span class="gmap-rating-num">4.9</span>
+            <span class="gmap-rating-star">★</span>
+            <a href="https://maps.google.com/?q=No.+27/4,+1st+Cross,+Cross+Rd,+Abbaiah+Reddy+Layout,+8th+A,+CV+Raman+Nagar,+Bengaluru,+Karnataka+560093" target="_blank" rel="noopener" class="gmap-rating-count">(184)</a>
+            <span class="gmap-info-icon" title="Verified Google Business Profile">ⓘ</span>
+          </div>
+        </div>
+        <div class="gmap-card-footer">
+          <a href="https://maps.google.com/?q=No.+27/4,+1st+Cross,+Cross+Rd,+Abbaiah+Reddy+Layout,+8th+A,+CV+Raman+Nagar,+Bengaluru,+Karnataka+560093" target="_blank" rel="noopener" class="gmap-btn-open">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
+            </svg>
+            Open in Maps
+          </a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=No.+27/4,+1st+Cross,+Cross+Rd,+Abbaiah+Reddy+Layout,+8th+A,+CV+Raman+Nagar,+Bengaluru,+Karnataka+560093" target="_blank" rel="noopener" class="gmap-btn-directions" title="Get Directions">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#ffffff">
+              <path d="M21.71 11.29l-9-9a.996.996 0 00-1.41 0l-9 9a.996.996 0 000 1.41l9 9c.39.39 1.02.39 1.41 0l9-9a.996.996 0 000-1.41zm-10.71 6.71l-7-7 7-7 7 7-7 7zm2.5-10.5h-2v4h-3v2h5v-6z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Interactive Google Map Embed Frame -->
+      <iframe
+        class="gmap-panoramic-iframe"
+        title="Art Homes Interior Studio Map"
+        src="https://maps.google.com/maps?q=No.+27/4,+1st+Cross,+Cross+Rd,+Abbaiah+Reddy+Layout,+8th+A,+CV+Raman+Nagar,+Bengaluru,+Karnataka+560093&t=&z=15&ie=UTF8&iwloc=&output=embed"
+        width="100%"
+        height="100%"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Site Footer (Matching Services & Home Page) -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
@@ -379,7 +1306,7 @@
             <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
           </a>
           <p>
-            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+            Luxury residential interiors, modular kitchens, and turnkey interior design in Bengaluru and Hosur.
           </p>
         </div>
 
@@ -388,7 +1315,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">3D Portfolio</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="referral.html">Offers & Refer</a></li>
             <li><a href="about.html">About</a></li>
@@ -430,24 +1356,14 @@
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
-        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+        <div class="footer-badges">
+          <span class="badge">10-Year Warranty</span>
+          <span class="badge">Factory Precision</span>
+          <span class="badge">Turnkey Delivery</span>
+        </div>
       </div>
     </div>
   </footer>
-
-  <!-- Floating Contact Action Icons (Right Side with Float Animation) -->
-  <aside class="floating-contact-dock" aria-label="Quick Contact">
-    <a href="tel:+919791272166" class="floating-fab fab-call" aria-label="Call Art Homes Studio" title="Call +91 97912 72166">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-      </svg>
-    </a>
-    <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20my%20interior%20project." class="floating-fab fab-whatsapp" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="WhatsApp Chat">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2zm.01 18.06c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.106 8.106 0 01-1.25-4.29c0-4.5 3.66-8.15 8.16-8.15 2.18 0 4.22.85 5.76 2.39 1.54 1.54 2.39 3.58 2.39 5.76 0 4.5-3.66 8.14-8.17 8.14zm4.47-6.11c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.17.25-.64.8-.79.97-.14.17-.29.19-.53.07-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.35-.77-1.85c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.12.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.43.53.6.19 1.15.16 1.58.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.47-.31z"/>
-      </svg>
-    </a>
-  </aside>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
@@ -457,18 +1373,224 @@
       navLinks.classList.toggle('open');
     });
 
-    function filterBrochure(cat, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+    // ==========================================
+    // 12-IMAGE PAGINATION ENGINE
+    // ==========================================
+    const ITEMS_PER_PAGE = 12;
+    let currentPage = 1;
+    let allCards = [];
+    let totalPages = 1;
 
-      document.querySelectorAll('.gallery-card').forEach(card => {
-        if (cat === 'all' || card.dataset.cat === cat) {
-          card.style.display = 'flex';
+    function initPagination() {
+      allCards = Array.from(document.querySelectorAll('.gallery-card'));
+      totalPages = Math.ceil(allCards.length / ITEMS_PER_PAGE) || 1;
+      
+      // Check URL query param (e.g. ?page=2) or hash
+      const urlParams = new URLSearchParams(window.location.search);
+      const pageParam = parseInt(urlParams.get('page'), 10);
+      if (pageParam && pageParam >= 1 && pageParam <= totalPages) {
+        currentPage = pageParam;
+      }
+
+      renderPage(currentPage, false);
+    }
+
+    function renderPage(pageNum, shouldScroll = true) {
+      if (pageNum < 1) pageNum = 1;
+      if (pageNum > totalPages) pageNum = totalPages;
+      currentPage = pageNum;
+
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+
+      allCards.forEach((card, idx) => {
+        if (idx >= startIndex && idx < endIndex) {
+          card.style.display = 'block';
+          card.classList.remove('pic-fade-in');
+          const cardOffset = idx - startIndex;
+          card.style.animationDelay = (cardOffset * 0.038) + 's';
+          void card.offsetWidth;
+          card.classList.add('pic-fade-in');
         } else {
           card.style.display = 'none';
+          card.classList.remove('pic-fade-in');
+          card.style.animationDelay = '';
         }
       });
+
+      renderPaginationControls();
+
+      // Update URL query without full page reload
+      const newUrl = window.location.pathname + '?page=' + currentPage;
+      window.history.replaceState({ page: currentPage }, '', newUrl);
+
+      // Smooth scroll back to top of gallery on user page switch
+      if (shouldScroll) {
+        const targetEl = document.getElementById('gallery-grid-start');
+        if (targetEl) {
+          const navOffset = 80;
+          const targetY = targetEl.getBoundingClientRect().top + window.pageYOffset - navOffset;
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        }
+      }
     }
+
+    function renderPaginationControls() {
+      const container = document.getElementById('galleryPagination');
+      if (!container) return;
+
+      let html = '';
+
+      // Previous button
+      const prevDisabled = currentPage === 1 ? 'disabled' : '';
+      html += `<button class="pagination-btn pagination-arrow" onclick="goToPage(${currentPage - 1})" ${prevDisabled} aria-label="Previous Page">‹ Prev</button>`;
+
+      // Page numbers: 1, 2, 3, 4, 5, 6...
+      for (let p = 1; p <= totalPages; p++) {
+        const isActive = p === currentPage ? 'active' : '';
+        html += `<button class="pagination-btn ${isActive}" onclick="goToPage(${p})" aria-label="Page ${p}">${p}</button>`;
+      }
+
+      // Next button
+      const nextDisabled = currentPage === totalPages ? 'disabled' : '';
+      html += `<button class="pagination-btn pagination-arrow" onclick="goToPage(${currentPage + 1})" ${nextDisabled} aria-label="Next Page">Next ›</button>`;
+
+      // Helper text
+      const startItem = (currentPage - 1) * ITEMS_PER_PAGE + 1;
+      const endItem = Math.min(currentPage * ITEMS_PER_PAGE, allCards.length);
+      html += `<div class="pagination-info">Showing ${startItem}–${endItem} of ${allCards.length} Executed Photos (Page ${currentPage} of ${totalPages})</div>`;
+
+      container.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      if (p >= 1 && p <= totalPages && p !== currentPage) {
+        renderPage(p, true);
+      }
+    }
+
+    // ==========================================
+    // LIGHTBOX ENGINE (Supports ALL 66 photos)
+    // ==========================================
+    let currentLightboxIdx = 0;
+
+    function openLightbox(src, title, cat, desc) {
+      const foundIdx = allCards.findIndex(card => {
+        const img = card.querySelector('img');
+        return img && (img.getAttribute('src') === src || img.src.includes(src));
+      });
+      currentLightboxIdx = foundIdx >= 0 ? foundIdx : 0;
+
+      updateLightboxDisplay(src, title, cat, desc);
+      document.getElementById('lightboxModal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function updateLightboxDisplay(src, title, cat, desc) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightboxTitle').textContent = title;
+      document.getElementById('lightboxCategory').textContent = cat || 'Executed Project';
+      document.getElementById('lightboxDesc').textContent = desc || 'Turnkey interior execution by Art Homes Interior Studio.';
+      const counterEl = document.getElementById('lightboxCounter');
+      if (counterEl) {
+        counterEl.textContent = 'Photo ' + (currentLightboxIdx + 1) + ' of ' + allCards.length;
+      }
+      document.getElementById('lightboxWa').href = 'https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20the%20' + encodeURIComponent(title) + '%20from%20your%20gallery.';
+    }
+
+    function showLightboxIndex(idx) {
+      if (!allCards.length) allCards = Array.from(document.querySelectorAll('.gallery-card'));
+      if (idx < 0) idx = allCards.length - 1;
+      if (idx >= allCards.length) idx = 0;
+      currentLightboxIdx = idx;
+
+      const card = allCards[currentLightboxIdx];
+      if (!card) return;
+
+      const onclickAttr = card.getAttribute('onclick') || '';
+      const match = onclickAttr.match(/openLightbox\((['"])(.*?)\1,\s*(['"])(.*?)\3,\s*(['"])(.*?)\5,\s*(['"])(.*?)\7\)/);
+      if (match) {
+        updateLightboxDisplay(match[2], match[4], match[6], match[8]);
+      } else {
+        const img = card.querySelector('img');
+        const strongEl = card.querySelector('.gallery-caption strong');
+        const title = strongEl ? strongEl.textContent : 'Interior Execution';
+        if (img) updateLightboxDisplay(img.getAttribute('src') || img.src, title, 'Art Homes Execution', '');
+      }
+    }
+
+    function prevLightbox(e) {
+      if (e) e.stopPropagation();
+      showLightboxIndex(currentLightboxIdx - 1);
+    }
+
+    function nextLightbox(e) {
+      if (e) e.stopPropagation();
+      showLightboxIndex(currentLightboxIdx + 1);
+    }
+
+    function toggleLightboxFullscreen(e) {
+      if (e) e.stopPropagation();
+      const dlg = document.getElementById('lightboxDialog');
+      const isFull = dlg.classList.toggle('is-fullscreen');
+      const expandText = document.getElementById('expandText');
+      if (expandText) {
+        expandText.textContent = isFull ? 'Split View' : 'Full View';
+      }
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightboxModal').classList.remove('active');
+      const dlg = document.getElementById('lightboxDialog');
+      if (dlg) dlg.classList.remove('is-fullscreen');
+      const expandText = document.getElementById('expandText');
+      if (expandText) expandText.textContent = 'Full View';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightboxModal').addEventListener('click', (e) => {
+      if (e.target === document.getElementById('lightboxModal')) closeLightbox();
+    });
+
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal || !modal.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') prevLightbox(e);
+      if (e.key === 'ArrowRight') nextLightbox(e);
+      if (e.key === 'f' || e.key === 'F') toggleLightboxFullscreen(e);
+    });
+
+    // Initialize Pagination on Page Load
+    window.addEventListener('DOMContentLoaded', initPagination);
+  </script>
+  <script>
+    // Coffee Consultation Banner Dedicated Scroll-Triggered Motion Fade Observer
+    (function initCoffeeBannerObserver() {
+      const banner = document.getElementById('coffeeConsultationBanner');
+      if (!banner) return;
+
+      if ('IntersectionObserver' in window) {
+        const obs = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              banner.classList.add('is-visible');
+              const items = banner.querySelectorAll('.coffee-fade-item');
+              items.forEach(item => item.classList.add('is-visible'));
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+        obs.observe(banner);
+      } else {
+        banner.classList.add('is-visible');
+        const items = banner.querySelectorAll('.coffee-fade-item');
+        items.forEach(item => item.classList.add('is-visible'));
+      }
+    })();
   </script>
   <script src="animations.js"></script>
 </body>

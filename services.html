@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Interior Services | Modular Kitchens, Wardrobes & Partitions | Art Homes Studio</title>
-  <meta name="description" content="Explore turnkey interior design services by Art Homes: Modular Kitchens, Designer Wardrobes, Living Room Partitions, TV Units, Pooja Mandirs, and Kids Rooms in Bengaluru and Hosur.">
+  <title>Interior Design Services & Turnkey Solutions | Art Homes Studio | Bengaluru & Hosur</title>
+  <meta name="description" content="Explore turnkey interior design services by Art Homes: German modular kitchens, bespoke sliding wardrobes, fluted living partitions, TV entertainment walls, and traditional pooja mandirs in Bengaluru and Hosur.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,103 +15,106 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 30px;
+      gap: 32px;
     }
     .service-card {
-      background: #fff;
+      background: #ffffff;
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 1px solid var(--line);
-      box-shadow: var(--shadow-sm);
+      box-shadow: 0 4px 18px rgba(15, 36, 29, 0.05);
       display: flex;
       flex-direction: column;
-      transition: var(--transition);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--gold);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(15, 36, 29, 0.12);
+      border-color: var(--terracotta);
     }
     .service-media-duo {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      height: 230px;
+      grid-template-columns: 1.35fr 1fr;
+      height: 240px;
       background: #111;
+      overflow: hidden;
     }
     .service-media-duo img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-media-duo img {
+      transform: scale(1.06);
     }
     .service-media-duo img:last-child {
-      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      border-left: 1.5px solid rgba(255, 255, 255, 0.2);
     }
     .service-content {
-      padding: 24px 26px;
+      padding: 28px 28px 24px;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
     }
-    .service-cat {
-      font-size: 10.5px;
-      font-weight: 700;
-      color: var(--gold-dark);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 6px;
-    }
-    .service-content h3 {
-      font-size: 21px;
-      color: var(--forest-dark);
+    .service-meta-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       margin-bottom: 8px;
     }
+    .service-cat {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+    .service-price-tag {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--forest-dark);
+      background: rgba(210, 105, 71, 0.1);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .service-content h3 {
+      font-size: 22px;
+      color: var(--forest-dark);
+      margin-bottom: 10px;
+    }
     .service-content p {
-      font-size: 13.5px;
+      font-size: 14px;
       color: var(--ink-soft);
-      line-height: 1.6;
-      margin-bottom: 16px;
+      line-height: 1.65;
+      margin-bottom: 18px;
       flex-grow: 1;
     }
     .service-bullets {
       list-style: none;
-      margin-bottom: 20px;
-      padding-top: 12px;
+      margin-bottom: 22px;
+      padding-top: 14px;
       border-top: 1px solid var(--line);
     }
     .service-bullets li {
-      font-size: 12.5px;
+      font-size: 13px;
       color: var(--forest-dark);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 9px;
     }
     .service-bullets li::before {
       content: '✓';
-      color: var(--gold-dark);
+      color: var(--terracotta);
       font-weight: 800;
     }
-
     @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Top Announcement Bar -->
-  <aside class="topbar">
-    <div class="container topbar-inner">
-      <div class="topbar-info">
-        <span>📍 <strong>Studio:</strong> CV Raman Nagar, Bengaluru & Hosur</span>
-        <span>🕒 Mon – Sat: 9:30 AM – 7:30 PM</span>
-      </div>
-      <div class="topbar-info">
-        <span>📞 <a href="tel:+919791272166" class="topbar-highlight">+91 97912 72166</a></span>
-        <span>✉️ <a href="mailto:arthomes.studio@gmail.com">arthomes.studio@gmail.com</a></span>
-      </div>
-    </div>
-  </aside>
 
   <!-- Sticky Navbar -->
   <header class="navbar">
@@ -123,7 +126,6 @@
       <nav class="nav-links" id="navLinks">
         <a href="index.html">Home</a>
         <a href="services.html" class="active">Services</a>
-        <a href="portfolio.html">3D Portfolio</a>
         <a href="gallery.html">Gallery</a>
         <a href="referral.html">Offers & Refer</a>
         <a href="about.html">About</a>
@@ -131,156 +133,422 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="contact.html" class="btn btn-primary">Free Consultation ↗</a>
+        <a href="#whyChooseUs" class="btn btn-terracotta">Why Choose Us ↓</a>
         <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">☰</button>
       </div>
     </div>
   </header>
 
-  <!-- Page Header Banner -->
-  <section class="page-header-banner">
-    <div class="container">
-      <span class="page-eyebrow">End-to-End Capabilities</span>
+  <!-- Services Hero Header Banner with Modern Bedroom Background -->
+  <section class="page-header-banner services-header-banner">
+    <div class="services-hero-bg"></div>
+    <div class="container services-hero-content">
       <h1 class="page-title">Turnkey Interior Design Services</h1>
-      <p class="page-subtitle">Precision factory-finished modular furniture, bespoke architectural woodwork, and turnkey site installation in Bengaluru & Hosur.</p>
+      <p class="page-subtitle">
+        Factory-modular precision, 10-year durability, and bespoke architectural craftsmanship engineered for homes across Bengaluru and Hosur.
+      </p>
+      <div class="services-hero-actions">
+        <a href="#whyChooseUs" class="btn btn-terracotta">Why Choose Us ↓</a>
+        <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20inquire%20about%20your%20interior%20services." class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp Quick Quote ↗</a>
+      </div>
     </div>
   </section>
 
-  <!-- Services Grid -->
+  <!-- WHAT WE OFFER - 4-COLUMN CHECKERBOARD SHOWCASE (SECTION 2) -->
+  <section class="what-we-offer-section reveal-up" id="whatWeOffer">
+    <div class="container">
+      
+      <!-- Section Header with Faint Outline Watermark & Fade Pop Animation -->
+      <div class="offer-header-wrap reveal-fade-pop">
+        <div class="offer-watermark" aria-hidden="true">Services</div>
+        <div class="offer-header-content">
+          <div class="offer-circle-icon"></div>
+          <span class="offer-eyebrow fade-pop">WHAT WE OFFER</span>
+          <h2 class="offer-title fade-pop">Discover the harmony of colors,<br>textures, and patterns.</h2>
+        </div>
+      </div>
+
+      <!-- 4-Column Mosaic Checkerboard Grid -->
+      <div class="offer-mosaic-grid">
+        
+        <!-- Row 1 - Col 1: Photo 1 (Family House) -->
+        <div class="offer-mosaic-tile offer-tile-image reveal-left">
+          <img src="assets/about-living.jpg" alt="Family House Living Lounge" loading="lazy">
+        </div>
+
+        <!-- Row 1 - Col 2: Card 1 (Family House) -->
+        <div class="offer-mosaic-tile offer-tile-card reveal-down">
+          <div class="offer-card-inner">
+            <h3 class="offer-card-title">Family house</h3>
+            <p class="offer-card-desc">
+              Bespoke residential interior transformations tailored for villas and duplex homes with handcrafted millwork.
+            </p>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20interested%20in%20Family%20House%20interior%20design." class="btn-offer-outline" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <!-- Row 1 - Col 3: Photo 2 (Interior Commercial) -->
+        <div class="offer-mosaic-tile offer-tile-image reveal-up">
+          <img src="assets/workflow-dining.jpg" alt="Commercial Interior Design" loading="lazy">
+        </div>
+
+        <!-- Row 1 - Col 4: Card 2 (Interior Commercial) -->
+        <div class="offer-mosaic-tile offer-tile-card reveal-right">
+          <div class="offer-card-inner">
+            <h3 class="offer-card-title">Interior Commercial</h3>
+            <p class="offer-card-desc">
+              High-traffic retail, boutique cafes, and executive studios engineered for customer engagement and aesthetic flow.
+            </p>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20interested%20in%20Commercial%20Interior%20design." class="btn-offer-outline" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <!-- Row 2 - Col 1: Card 3 (Interior Apartment) -->
+        <div class="offer-mosaic-tile offer-tile-card reveal-left">
+          <div class="offer-card-inner">
+            <h3 class="offer-card-title">Interior Apartment</h3>
+            <p class="offer-card-desc">
+              Space-optimized smart modular interiors for 2 BHK & 3 BHK apartments with custom storage and warm cove lighting.
+            </p>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20interested%20in%20Apartment%20Interior%20design." class="btn-offer-outline" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <!-- Row 2 - Col 2: Photo 3 (Interior Apartment) -->
+        <div class="offer-mosaic-tile offer-tile-image reveal-up">
+          <img src="assets/projects/bangalore/bangalore-09.jpg" alt="Apartment Master Suite" loading="lazy">
+        </div>
+
+        <!-- Row 2 - Col 3: Card 4 (Interior Office) -->
+        <div class="offer-mosaic-tile offer-tile-card reveal-down">
+          <div class="offer-card-inner">
+            <h3 class="offer-card-title">Interior Office</h3>
+            <p class="offer-card-desc">
+              Ergonomic modern corporate workspaces, conference rooms, and home studios balancing acoustics and productivity.
+            </p>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20interested%20in%20Office%20Workspace%20interior%20design." class="btn-offer-outline" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <!-- Row 2 - Col 4: Photo 4 (Interior Office) -->
+        <div class="offer-mosaic-tile offer-tile-image reveal-right">
+          <img src="assets/projects/bangalore/bangalore-03.jpg" alt="Corporate Office & Media Wall" loading="lazy">
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content -->
   <main class="section">
     <div class="container">
 
-      <div class="services-grid">
+      <!-- Elementor-Style Filter Tabs -->
+      <div class="filter-tabs-wrap reveal-down">
+        <button class="tab-pill active" data-filter="all">All Services (6)</button>
+        <button class="tab-pill" data-filter="kitchen">Modular Kitchens</button>
+        <button class="tab-pill" data-filter="wardrobe">Designer Wardrobes</button>
+        <button class="tab-pill" data-filter="partition">Partitions & Screens</button>
+        <button class="tab-pill" data-filter="living">Living & TV Units</button>
+        <button class="tab-pill" data-filter="pooja">Pooja Mandirs</button>
+        <button class="tab-pill" data-filter="kids">Kids & Study Rooms</button>
+      </div>
+
+      <!-- Services Grid (Staggered Animation) -->
+      <div class="services-grid stagger-cards">
 
         <!-- Service 1: Modular Kitchens -->
-        <article class="service-card">
+        <article class="service-card reveal-left" data-category="kitchen">
           <div class="service-media-duo">
-            <img src="assets/portfolio/3d-project-p28-1.png" alt="Modular Kitchen 3D Render">
-            <img src="assets/kitchen.webp" alt="Modular Kitchen Execution">
+            <img src="assets/projects/karur/karur-kitchen-01.jpg" alt="Modular Kitchen Karur Real Execution" loading="lazy">
+            <img src="assets/projects/bangalore/bangalore-06.jpg" alt="Modular Kitchen Bangalore Real Execution" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Modular Precision</span>
+            <div class="service-meta-bar">
+              <span class="service-cat">Modular Precision</span>
+              <span class="service-price-tag">Starting @ ₹1.1 Lac*</span>
+            </div>
             <h3>Modular Kitchens</h3>
-            <p>Ergonomically designed L-shaped, U-shaped, and island kitchens crafted with boiling water-proof BWP marine ply and Blum soft-close hardware.</p>
+            <p>
+              Ergonomically designed parallel, L-shaped, and island kitchens crafted with boiling waterproof BWP marine ply, German Blum soft-close hardware, and scratch-resistant finishes.
+            </p>
             <ul class="service-bullets">
-              <li>High-gloss acrylic & PU lacquered finishes</li>
-              <li>Quartz & Granite heat-resistant countertops</li>
-              <li>Tandem drawer organizers & spice pull-outs</li>
-              <li>10-Year anti-termite warranty</li>
+              <li>High-gloss anti-fingerprint acrylic & PU finishes</li>
+              <li>Engineered quartz & polished granite countertops</li>
+              <li>Blum Tandembox drawer organizers & cutlery trays</li>
+              <li>10-Year anti-termite and boiling waterproof warranty</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20looking%20for%20a%20modular%20kitchen." class="btn btn-outline" target="_blank" rel="noopener">Inquire Kitchen on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20looking%20for%20a%20modular%20kitchen%20design." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get Kitchen Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
         <!-- Service 2: Designer Wardrobes -->
-        <article class="service-card">
+        <article class="service-card reveal-right" data-category="wardrobe">
           <div class="service-media-duo">
-            <img src="assets/portfolio/3d-project-p42-1.png" alt="Champagne Glass Wardrobe 3D Render">
-            <img src="assets/wardrobe.webp" alt="Bedroom Wardrobe Execution">
+            <img src="assets/projects/bangalore/bangalore-14.jpg" alt="Master Bedroom Sliding Wardrobe Bangalore" loading="lazy">
+            <img src="assets/wardrobe.webp" alt="Designer Wardrobe Finish" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Bedroom Storage</span>
+            <div class="service-meta-bar">
+              <span class="service-cat">Bedroom Storage</span>
+              <span class="service-price-tag">Starting @ ₹85,000*</span>
+            </div>
             <h3>Designer Wardrobes</h3>
-            <p>Floor-to-ceiling sliding, hinged, and walk-in wardrobe configurations customized to maximize your bedroom's vertical space.</p>
+            <p>
+              Floor-to-ceiling sliding, openable, and walk-in wardrobe configurations customized to maximize your bedroom's vertical storage with integrated warm lighting.
+            </p>
             <ul class="service-bullets">
-              <li>Champagne aluminum profile with tinted fluted glass</li>
-              <li>Interior sensor LED lighting strips</li>
-              <li>Built-in accessory trays & jewelry drawers</li>
-              <li>Integrated dressing vanity shelf & mirror</li>
+              <li>Champagne slim aluminum profile with tinted fluted glass</li>
+              <li>Concealed sensor profile LED interior illumination</li>
+              <li>Dedicated velvet watch, belt, and jewelry drawer organizers</li>
+              <li>Integrated dressing vanity mirror and cosmetic counter</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20looking%20for%20bedroom%20wardrobes." class="btn btn-outline" target="_blank" rel="noopener">Inquire Wardrobe on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20am%20looking%20for%20custom%20bedroom%20wardrobes." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get Wardrobe Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
-        <!-- Service 3: Living Partitions & CNC Louvers -->
-        <article class="service-card">
+        <!-- Service 3: Living Room Partitions & CNC Screens -->
+        <article class="service-card reveal-left" data-category="partition">
           <div class="service-media-duo">
-            <img src="assets/portfolio/3d-project-p46-1.png" alt="CNC Divider 3D Render">
-            <img src="assets/partition.webp" alt="Living Partition Execution">
+            <img src="assets/projects/bangalore/bangalore-02.jpg" alt="Foyer Partition Screen Bangalore" loading="lazy">
+            <img src="assets/partition.webp" alt="Living Partition Screen" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Spatial Division</span>
-            <h3>Living Room Partitions & CNC</h3>
-            <p>Define living, dining, and foyer zones without blocking light or ventilation, using architectural screens and decorative louvers.</p>
+            <div class="service-meta-bar">
+              <span class="service-cat">Spatial Division</span>
+              <span class="service-price-tag">Starting @ ₹45,000*</span>
+            </div>
+            <h3>Living Partitions & Foyer Dividers</h3>
+            <p>
+              Define your foyer, living, and dining zones without obstructing natural airflow or light, utilizing architectural wood louvers, metal screens, and fluted glass.
+            </p>
             <ul class="service-bullets">
-              <li>Custom geometric laser-cut CNC panels</li>
-              <li>Acoustic wood slatted louvers & brass inlays</li>
-              <li>Sliding fluted glass metal frames</li>
-              <li>Integrated plant shelves & display niches</li>
+              <li>Laser-cut geometric & floral CNC wooden panels</li>
+              <li>Solid Teak and acoustic fluted louvers with brass inlays</li>
+              <li>Sliding tinted fluted glass metal partition dividers</li>
+              <li>Integrated shoe consoles and foyer seating ledges</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20living%20room%20partition%20divider." class="btn btn-outline" target="_blank" rel="noopener">Inquire Partition on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20living%20room%20partition%20divider." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get Partition Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
-        <!-- Service 4: TV Units & Media Consoles -->
-        <article class="service-card">
+        <!-- Service 4: TV Entertainment Units & Lounges -->
+        <article class="service-card reveal-right" data-category="living">
           <div class="service-media-duo">
-            <img src="assets/portfolio/3d-project-p34-1.png" alt="TV Media Console 3D Render">
-            <img src="assets/tv-unit.webp" alt="TV Unit Execution">
+            <img src="assets/projects/bangalore/bangalore-01.jpg" alt="Acoustic Fluted TV Lounge Bangalore" loading="lazy">
+            <img src="assets/tv-unit.webp" alt="Modern TV Media Unit" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Entertainment Walls</span>
+            <div class="service-meta-bar">
+              <span class="service-cat">Entertainment Walls</span>
+              <span class="service-price-tag">Starting @ ₹55,000*</span>
+            </div>
             <h3>TV Units & Media Centers</h3>
-            <p>Minimalist floating consoles and grand wall-to-wall entertainment centers with concealed wire management and warm backlighting.</p>
+            <p>
+              Minimalist floating consoles and grand wall-to-wall entertainment centers with concealed wire management, acoustic paneling, and warm cove backlighting.
+            </p>
             <ul class="service-bullets">
-              <li>Italian marble & stone composite textures</li>
-              <li>Acoustic slatted wooden fluting</li>
-              <li>Hidden AV equipment conduits</li>
-              <li>Floating open shelving with brass highlights</li>
+              <li>Italian marble and stone composite backdrop textures</li>
+              <li>Acoustic vertical wood fluting for enhanced home theatre sound</li>
+              <li>Hidden AV equipment conduits and flush cable grommets</li>
+              <li>Suspended floating open shelving with brass highlights</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20TV%20media%20unit." class="btn btn-outline" target="_blank" rel="noopener">Inquire TV Unit on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20TV%20media%20wall%20design." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get TV Unit Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
-        <!-- Service 5: Sacred Pooja Units -->
-        <article class="service-card">
+        <!-- Service 5: Sacred Pooja Mandirs -->
+        <article class="service-card reveal-left" data-category="pooja">
           <div class="service-media-duo">
-            <img src="assets/pooja.webp" alt="Pooja Mandir Photo 1">
-            <img src="assets/gallery-10.webp" alt="Pooja Mandir Photo 2">
+            <img src="assets/projects/bangalore/bangalore-05.jpg" alt="Sacred Pooja Mandir Bangalore" loading="lazy">
+            <img src="assets/pooja.webp" alt="Pooja Mandir Wood Carving" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Prayer Spaces</span>
+            <div class="service-meta-bar">
+              <span class="service-cat">Sacred Architecture</span>
+              <span class="service-price-tag">Starting @ ₹40,000*</span>
+            </div>
             <h3>Sacred Pooja Mandirs</h3>
-            <p>Serene, spiritually uplifting prayer corners balancing traditional vastu geometry with modern architectural refinement.</p>
+            <p>
+              Serene, spiritually uplifting prayer corners balancing traditional Vastu geometry with modern architectural refinement and handcrafted wooden details.
+            </p>
             <ul class="service-bullets">
-              <li>Backlit CNC jali screens & warm onyx panels</li>
-              <li>Solid Teak and Sheesham wood accents</li>
-              <li>Pull-out prasad trays & hidden brass storage</li>
-              <li>Concealed electrical wiring for diyas & bells</li>
+              <li>Backlit CNC jaali screens with warm golden onyx backdrops</li>
+              <li>Solid Teak and Sheesham wood turned pillars and brass bells</li>
+              <li>Pull-out marble prasad trays and hidden incense drawers</li>
+              <li>Concealed electrical wiring for warm focus spotlights</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20custom%20pooja%20mandir." class="btn btn-outline" target="_blank" rel="noopener">Inquire Pooja Mandir on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20custom%20pooja%20mandir." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get Mandir Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
-        <!-- Service 6: Kids & Study Rooms -->
-        <article class="service-card">
+        <!-- Service 6: Kids Bedrooms & Study Spaces -->
+        <article class="service-card reveal-right" data-category="kids">
           <div class="service-media-duo">
-            <img src="assets/kids-room.webp" alt="Kids Room Photo 1">
-            <img src="assets/gallery-11.webp" alt="Kids Room Photo 2">
+            <img src="assets/kids-room.webp" alt="Kids Bedroom Design" loading="lazy">
+            <img src="assets/gallery-11.webp" alt="Study Desk Space" loading="lazy">
           </div>
           <div class="service-content">
-            <span class="service-cat">Adaptable Spaces</span>
+            <div class="service-meta-bar">
+              <span class="service-cat">Adaptable Living</span>
+              <span class="service-price-tag">Starting @ ₹65,000*</span>
+            </div>
             <h3>Kids' Rooms & Study Suites</h3>
-            <p>Playful, ergonomic spaces that adapt as your child grows, featuring safe rounded edges, study desks, and ample storage.</p>
+            <p>
+              Playful, ergonomic spaces that adapt as your child grows, featuring safe rounded edges, integrated study desks, modular storage, and non-toxic finishes.
+            </p>
             <ul class="service-bullets">
-              <li>Integrated study stations with pin-up boards</li>
-              <li>Modular bunk bed & wardrobe combinations</li>
-              <li>Zero-toxin, low-VOC child-safe paints</li>
-              <li>Vibrant yet soothing pastel palettes</li>
+              <li>Ergonomic study desks with pin-up boards and cable raceways</li>
+              <li>Custom modular bunk beds with built-in storage stairs</li>
+              <li>Zero-VOC, child-safe water-based paints and rounded profiles</li>
+              <li>Vibrant yet soothing pastel laminates with chalkboard walls</li>
             </ul>
-            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20kids%20room%20and%20study." class="btn btn-outline" target="_blank" rel="noopener">Inquire Kids Room on WhatsApp ↗</a>
+            <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20need%20a%20kids%20room%20and%20study%20unit." class="btn btn-terracotta" target="_blank" rel="noopener">
+              Get Kids Room Quote on WhatsApp ↗
+            </a>
           </div>
         </article>
 
       </div>
 
-      <!-- Clean Bottom CTA Banner -->
-      <div style="margin-top: 48px; background: var(--bg-cream); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 32px; text-align: center;">
-        <h3 style="font-size: 22px; color: var(--forest-dark); margin-bottom: 8px;">Looking for a custom turnkey package?</h3>
-        <p style="font-size: 14px; color: var(--ink-muted); margin-bottom: 20px;">We offer free on-site laser audits and comprehensive 3D design concepts for apartments and villas.</p>
-        <div style="display: inline-flex; gap: 12px; flex-wrap: wrap; justify-content: center;">
-          <a href="contact.html" class="btn btn-primary">Schedule Free Consultation ↗</a>
-          <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20discuss%20services." class="btn btn-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
+      <!-- WHY CHOOSE US - BENEFITS SECTION (REPLACED COST ESTIMATOR) -->
+      <section class="benefits-section reveal-up" id="whyChooseUs">
+        
+        <!-- Header with Faint Outline Watermark & Fade Pop Animation -->
+        <div class="benefit-header-wrap reveal-fade-pop">
+          <div class="benefit-watermark" aria-hidden="true">Benefit</div>
+          <div class="benefit-header-content">
+            <span class="benefit-eyebrow fade-pop">WHY CHOOSE US</span>
+            <h2 class="benefit-title fade-pop">Inspire your space through art and<br>design.</h2>
+          </div>
+        </div>
+
+        <!-- 2x2 Benefits Grid with Directional Animations (Fade Left, Fade Right) -->
+        <div class="benefits-grid">
+          
+          <!-- Benefit 1: Professional Designer (Fade Left) -->
+          <div class="benefit-card benefit-card-1 motion-fade-left">
+            <h3 class="benefit-card-title">Professional Designer</h3>
+            <p class="benefit-card-desc">
+              Turpis dignissim in ad parturient donec. Platea sed facilisi lacus orci tincidunt morbi fermentum phasellus dui massa euismod. Curae erat risus ultrices integer lorem adipiscing mauris dictum consequat.
+            </p>
+          </div>
+
+          <!-- Benefit 2: Free Consultations (Fade Right) -->
+          <div class="benefit-card benefit-card-2 motion-fade-right">
+            <h3 class="benefit-card-title">Free Consultations</h3>
+            <p class="benefit-card-desc">
+              Turpis dignissim in ad parturient donec. Platea sed facilisi lacus orci tincidunt morbi fermentum phasellus dui massa euismod. Curae erat risus ultrices integer lorem adipiscing mauris dictum consequat.
+            </p>
+          </div>
+
+          <!-- Benefit 3: Base on your budget (Fade Left) -->
+          <div class="benefit-card benefit-card-3 motion-fade-left">
+            <h3 class="benefit-card-title">Base on your budget</h3>
+            <p class="benefit-card-desc">
+              Turpis dignissim in ad parturient donec. Platea sed facilisi lacus orci tincidunt morbi fermentum phasellus dui massa euismod. Curae erat risus ultrices integer lorem adipiscing mauris dictum consequat.
+            </p>
+          </div>
+
+          <!-- Benefit 4: 24/7 Premium support (Fade Right) -->
+          <div class="benefit-card benefit-card-4 motion-fade-right">
+            <h3 class="benefit-card-title">24/7 Premium support</h3>
+            <p class="benefit-card-desc">
+              Turpis dignissim in ad parturient donec. Platea sed facilisi lacus orci tincidunt morbi fermentum phasellus dui massa euismod. Curae erat risus ultrices integer lorem adipiscing mauris dictum consequat.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- FREQUENTLY ASKED QUESTIONS ACCORDION -->
+      <section class="faq-section" style="border-radius: var(--radius-lg); margin-top: 50px;">
+        <div class="section-header center reveal-down">
+          <span class="eyebrow">Everything You Need To Know</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Common queries from homeowners regarding our turnkey design and execution process.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <!-- FAQ 1 -->
+          <div class="faq-item active reveal-left">
+            <div class="faq-question">
+              <span>How does the 45-day handover guarantee work?</span>
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Once design drawings and material specifications are approved, our 6,000 sq.ft factory cuts and edge-bands all modular panels simultaneously while civil, electrical, and ceiling work finishes on-site. This parallel workflow enables a guaranteed handover in 45 working days.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item reveal-right">
+            <div class="faq-question">
+              <span>What grade of plywood is used in your modular kitchens?</span>
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              We exclusively use IS:710 certified BWP (Boiling Waterproof) marine grade plywood from Greenply and CenturyPly for all wet areas and kitchen carcasses. This ensures zero swelling or warping even under prolonged water contact.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item reveal-left">
+            <div class="faq-question">
+              <span>Do you provide design walkthroughs before we commit?</span>
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Yes! Every project begins with millimeter-accurate spatial planning and photorealistic design views so you can visualize lighting, color palettes, and circulation before any carpentry begins.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item reveal-right">
+            <div class="faq-question">
+              <span>What hardware brands do you install in wardrobes and drawers?</span>
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              All drawers and cabinets feature European hardware from Blum (Austria) and Hettich (Germany) with soft-close tandem runners tested for 100,000+ open-close cycles.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item reveal-left">
+            <div class="faq-question">
+              <span>Are there any hidden costs after the final BOQ is signed?</span>
+              <span class="faq-toggle-icon">+</span>
+            </div>
+            <div class="faq-answer">
+              Zero surprises. Our Bill of Quantities (BOQ) is 100% itemized by square footage, material brands, and hardware models. The price quoted upon final design sign-off is the exact price you pay at handover.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bottom Coffee Consultation Banner -->
+      <div class="coffee-consultation-banner reveal-up" style="margin-top: 60px; background: var(--charcoal-deep); color: #fff; border-radius: var(--radius-md); padding: 48px; text-align: center; border: 1px solid rgba(197, 160, 89, 0.3);">
+        <span class="eyebrow" style="color: var(--terracotta); margin-bottom: 8px; display: inline-block;">Complimentary Studio Consultation</span>
+        <h3 style="font-size: clamp(24px, 3vw, 36px); color: #ffffff; margin-bottom: 12px;">Let's Plan Your Interior Over Coffee</h3>
+        <p style="font-size: 15px; color: #cad8ce; max-width: 600px; margin: 0 auto 24px;">
+          Bring your architectural floor plan. Walk away with clear spatial layouts and an itemized cost estimate.
+        </p>
+        <div style="display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center;">
+          <a href="contact.html" class="btn btn-terracotta">Book Free Consultation ↗</a>
+          <a href="https://wa.me/919791272166?text=Hi%20Art%20Homes%2C%20I%20would%20like%20to%20schedule%20a%20studio%20consultation." class="btn btn-whatsapp" target="_blank" rel="noopener">Chat on WhatsApp ↗</a>
         </div>
       </div>
 
@@ -296,7 +564,7 @@
             <img src="assets/logo-transparent.png" alt="Art Homes Interior Studio" class="brand-logo footer-logo">
           </a>
           <p>
-            Luxury residential interiors and 8K photorealistic 3D visualization in Bengaluru and Hosur.
+            Luxury residential interiors, modular kitchens, and turnkey interior design in Bengaluru and Hosur.
           </p>
         </div>
 
@@ -305,7 +573,6 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">3D Portfolio</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="referral.html">Offers & Refer</a></li>
             <li><a href="about.html">About</a></li>
@@ -347,12 +614,12 @@
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> Art Homes Interior Studio. All rights reserved.</span>
-        <span>CV Raman Nagar, Bengaluru & Hosur | Founder: Gopinathan K (B.E., MBA.)</span>
+        <span>Bengaluru & Hosur | Founder: Gopinathan K</span>
       </div>
     </div>
   </footer>
 
-  <!-- Floating Contact Action Icons (Right Side with Float Animation) -->
+  <!-- Floating Contact Action Icons -->
   <aside class="floating-contact-dock" aria-label="Quick Contact">
     <a href="tel:+919791272166" class="floating-fab fab-call" aria-label="Call Art Homes Studio" title="Call +91 97912 72166">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -371,7 +638,8 @@
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      const open = navLinks.classList.toggle('open');
+      menuToggle.textContent = open ? '✕' : '☰';
     });
   </script>
   <script src="animations.js"></script>

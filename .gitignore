@@ -3,3 +3,11 @@
 *.bak
 *step*.html
 test_logo_display.html
+test_font.html
+*.zip
+*.pdf
+*.mp4
+art-homes-wordpress-build-kit/
+art-homes-elementor-templates/
+assets/projects/
+assets/portfolio/
