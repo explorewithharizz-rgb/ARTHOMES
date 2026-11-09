@@ -8,8 +8,7 @@ server.js
 *.mp4
 art-homes-wordpress-build-kit/
 art-homes-elementor-templates/
-assets/projects/
-assets/portfolio/
+assets_raw_backup/
 assets/referral-hero.jpg
 assets/referral-hero.png
 assets/referral-tribe-hero.png

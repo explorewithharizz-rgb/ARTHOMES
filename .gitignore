@@ -9,5 +9,6 @@ test_font.html
 *.mp4
 art-homes-wordpress-build-kit/
 art-homes-elementor-templates/
+assets_raw_backup/
 assets/projects/
 assets/portfolio/
