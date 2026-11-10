@@ -20,11 +20,11 @@
   <link rel="preload" as="image" href="assets/hero-home.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
 
   <!-- Asynchronous Google Web Fonts with font-display: swap -->
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"></noscript>
 
   <!-- Non-blocking minified stylesheet -->
-  <link rel="preload" href="styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet" href="styles.min.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="styles.min.css"></noscript>
 
   <style>
@@ -240,7 +240,7 @@
   <header class="navbar">
     <div class="container nav-inner">
       <a href="index.html" class="brand" aria-label="Art Homes Interior Studio">
-        <img src="assets/logo-light.webp" alt="Art Homes Interior Studio" class="brand-logo" width="175" height="52">
+        <img src="assets/logo-light.webp" alt="Art Homes Interior Studio" class="brand-logo" width="175" height="52" fetchpriority="low" decoding="async">
       </a>
 
       <nav class="nav-links" id="navLinks">
