@@ -5397,21 +5397,20 @@ html, body {
 .referral-visual-img {
   width: 100%;
   height: auto;
-  max-height: none;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
   transform: none !important;
   transition: none !important;
 }
 
 .referral-visual-overlay {
-  position: absolute;
-  bottom: 18px;
-  left: 0;
-  right: 0;
+  position: relative;
+  width: 100%;
+  padding: 16px 16px 20px;
   display: flex;
   justify-content: center;
+  background: #fbf9f5;
   z-index: 3;
 }
 
