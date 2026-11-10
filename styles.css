@@ -5365,76 +5365,103 @@ html, body {
 }
 
 /* ========================================================
-   FULL VISUAL SHOWCASE HERO (100% FULL PAGE EDGE-TO-EDGE)
+   FULL VISUAL SHOWCASE HERO WITH 3D OFFERS & REFERRAL BACKGROUND
    ======================================================== */
 .referral-showcase-hero {
   position: relative;
-  background: #fbf9f5;
   width: 100%;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
-  padding: 0;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
+  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=1') no-repeat center center;
+  background-size: cover;
 }
 
-.referral-visual-container {
-  position: relative;
+.referral-hero-bg-wrap {
   width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
+  min-height: 520px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  border-radius: 0;
-  border: none;
-  box-shadow: none;
-  background: transparent;
+  justify-content: center;
+  padding: 60px 24px;
+  text-align: center;
 }
 
-.referral-visual-img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  object-position: center top;
-  transform: none !important;
-  transition: none !important;
-}
-
-.referral-visual-overlay {
+.referral-hero-content-center {
+  max-width: 680px;
+  margin: 0 auto;
   position: relative;
-  width: 100%;
-  padding: 16px 16px 20px;
-  display: flex;
-  justify-content: center;
-  background: #fbf9f5;
-  z-index: 3;
+  z-index: 2;
 }
 
-.referral-visual-cta-wrap {
+.referral-badge-pill {
+  display: inline-block;
+  background: rgba(200, 110, 68, 0.12);
+  color: var(--terracotta);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+  border: 1px solid rgba(200, 110, 68, 0.25);
+  box-shadow: 0 4px 12px rgba(200, 110, 68, 0.08);
+}
+
+.referral-hero-title {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  color: var(--forest-dark);
+  line-height: 1.2;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.referral-hero-subtitle {
+  font-size: clamp(14.5px, 1.4vw, 17px);
+  color: #3b4d45;
+  line-height: 1.65;
+  margin: 0 auto 30px;
+  max-width: 580px;
+  font-weight: 500;
+}
+
+.referral-hero-actions {
   display: flex;
+  gap: 14px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .referral-cta-btn {
   font-weight: 700 !important;
-  padding: 12px 28px !important;
-  font-size: 14.5px !important;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28) !important;
-  backdrop-filter: blur(4px);
+  padding: 13px 30px !important;
+  font-size: 15px !important;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.referral-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24) !important;
 }
 
 @media (max-width: 768px) {
-  .referral-visual-overlay {
-    position: static;
-    padding: 14px 16px 20px;
-    background: #fbf9f5;
+  .referral-hero-bg-wrap {
+    min-height: 440px;
+    padding: 50px 18px;
+    background: rgba(251, 249, 245, 0.65);
+    backdrop-filter: blur(2px);
   }
   .referral-cta-btn {
-    padding: 10px 18px !important;
-    font-size: 13px !important;
+    padding: 11px 22px !important;
+    font-size: 13.5px !important;
+    width: 100%;
+    justify-content: center;
   }
 }
