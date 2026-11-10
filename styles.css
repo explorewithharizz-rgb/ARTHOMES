@@ -3815,6 +3815,42 @@ span.pc-only { display: inline; }
   filter: blur(0);
 }
 
+/* Explicit Motion Animations: fade-right, fade-left, fade-in, fade-pop */
+.fade-right {
+  opacity: 0;
+  transform: translateX(-40px);
+  filter: blur(3px);
+  will-change: opacity, transform, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-left {
+  opacity: 0;
+  transform: translateX(40px);
+  filter: blur(3px);
+  will-change: opacity, transform, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(2px);
+  will-change: opacity, transform, filter;
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fade-right.is-visible,
+.fade-left.is-visible,
+.fade-in.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+  filter: blur(0) !important;
+}
+
 /* Orchestrated entrance on .offer-header-wrap.is-visible or .what-we-offer-section.is-visible */
 .offer-header-wrap .offer-watermark,
 .offer-header-wrap .offer-circle-icon,

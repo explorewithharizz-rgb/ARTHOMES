@@ -57,7 +57,7 @@ function initScrollReveal() {
     '.quote-banner-section, ' +
     '.estimator-card, .compact-contact-layout, .compact-action-row, ' +
     '.myna-pill-card, .offer-card, .step-card, .about-lead-wrap, .standards-grid, ' +
-    '.what-we-offer-section, .offer-header-wrap, .benefits-section, .benefits-row, .benefit-header-wrap, .benefit-card, .fade-pop, .reveal-fade-pop, ' +
+    '.what-we-offer-section, .offer-header-wrap, .benefits-section, .benefits-row, .benefit-header-wrap, .benefit-card, .fade-pop, .reveal-fade-pop, .fade-right, .fade-left, .fade-in, ' +
     '.coffee-consultation-section, .coffee-consultation-banner, .coffee-fade-item'
   );
 
