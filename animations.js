@@ -21,6 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 7. Smooth Scroll for Anchor Links
   initSmoothScroll();
+
+  // 8. Mobile Menu Outside Dismiss & Keyboard Accessibility
+  initMobileMenuDismiss();
 });
 
 /* --------------------------------------------------------------------------
@@ -331,22 +334,59 @@ function initFilterTabs() {
 }
 
 /* --------------------------------------------------------------------------
-   7. Smooth Scroll for Anchor Links
+   7. Smooth Scroll for Anchor Links (Safe & Closes Mobile Nav)
    -------------------------------------------------------------------------- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      if (targetId === '#' || targetId === '#!') return;
-      const targetEl = document.querySelector(targetId);
-      if (targetEl) {
-        e.preventDefault();
-        targetEl.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+      const href = this.getAttribute('href');
+      if (!href || href === '#' || href === '#!') return;
+      try {
+        const id = href.replace(/^#/, '');
+        const targetEl = document.getElementById(id) || document.querySelector(href);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+          // Close mobile menu if open
+          const navLinks = document.getElementById('navLinks');
+          const menuToggle = document.getElementById('menuToggle');
+          if (navLinks && navLinks.classList.contains('open')) {
+            navLinks.classList.remove('open');
+            if (menuToggle) menuToggle.textContent = '☰';
+          }
+        }
+      } catch (err) {
+        // Graceful fallback
       }
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   8. Universal Mobile Menu Click-Outside & Keyboard Escape Handler
+   -------------------------------------------------------------------------- */
+function initMobileMenuDismiss() {
+  const navLinks = document.getElementById('navLinks');
+  const menuToggle = document.getElementById('menuToggle');
+  if (!navLinks || !menuToggle) return;
+
+  document.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('open')) {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('open');
+        menuToggle.textContent = '☰';
+      }
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+      navLinks.classList.remove('open');
+      menuToggle.textContent = '☰';
+    }
   });
 }
 

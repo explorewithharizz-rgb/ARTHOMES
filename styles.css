@@ -5424,9 +5424,6 @@ html, body {
 .referral-showcase-hero {
   position: relative;
   width: 100%;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   background: #fbf9f5 url('/assets/offers-referral-bg.webp?v=6') no-repeat center center;
@@ -5526,5 +5523,64 @@ html, body {
     font-size: 13.5px !important;
     width: 100%;
     justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   Mobile & PC Visual Polish & Error Prevention
+   ========================================================================== */
+.menu-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+.menu-toggle:active {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+/* iOS Safe Area Insets for Floating Action Dock */
+.floating-contact-dock {
+  bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  right: calc(20px + env(safe-area-inset-right, 0px));
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: inline-flex;
+  }
+  .floating-contact-dock {
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    right: calc(14px + env(safe-area-inset-right, 0px));
+  }
+  /* Soft legible backdrop for referral hero on narrow mobile screens */
+  .referral-hero-bg-wrap {
+    min-height: 440px;
+    padding: 32px 16px;
+  }
+  .referral-hero-content-center {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 22px 18px;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 6px 20px rgba(15, 36, 29, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+  }
+  .referral-hero-title {
+    font-size: 26px !important;
+  }
+  .referral-hero-subtitle {
+    font-size: 13.5px !important;
+    margin-bottom: 20px;
+  }
+  .benefit-card.motion-fade-left {
+    transform: translate3d(-18px, 0, 0) !important;
+  }
+  .benefit-card.motion-fade-right {
+    transform: translate3d(18px, 0, 0) !important;
   }
 }
