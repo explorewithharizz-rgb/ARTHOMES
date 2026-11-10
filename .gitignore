@@ -10,5 +10,5 @@ test_font.html
 art-homes-wordpress-build-kit/
 art-homes-elementor-templates/
 assets_raw_backup/
-assets/projects/
-assets/portfolio/
+# assets/projects/
+# assets/portfolio/
