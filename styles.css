@@ -5429,9 +5429,14 @@ html, body {
   margin-right: calc(-50vw + 50%);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=3') no-repeat center center;
+  background: #fbf9f5 url('/assets/offers-referral-bg.webp?v=6') no-repeat center center;
+  background-image: image-set(
+    url('/assets/offers-referral-bg.webp?v=6') type('image/webp'),
+    url('/assets/offers-referral-bg.jpg?v=6') type('image/jpeg')
+  );
   background-size: cover;
-  image-rendering: -webkit-optimize-contrast;
+  background-position: center center;
+  image-rendering: auto;
 }
 
 .referral-hero-bg-wrap {
