@@ -22,10 +22,14 @@
   <!-- Deferred Google Web Fonts (Loaded post-LCP so fonts never starve LCP image bandwidth) -->
   <script>
     window.addEventListener('load', function() {
-      var gf = document.createElement('link');
-      gf.rel = 'stylesheet';
-      gf.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap';
-      document.head.appendChild(gf);
+      requestAnimationFrame(function() {
+        var gf = document.createElement('link');
+        gf.rel = 'stylesheet';
+        gf.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap';
+        gf.media = 'print';
+        gf.onload = function() { this.media = 'all'; };
+        document.head.appendChild(gf);
+      });
     });
   </script>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"></noscript>
