@@ -317,10 +317,10 @@
 
           <div class="editorial-composition">
             <div class="editorial-comp-left anim-fade-down">
-              <img src="assets/about-living.webp" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/about-living.webp" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="editorial-comp-right anim-fade-left">
-              <img src="assets/about-tv.webp" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/about-tv.webp" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" width="1000" height="562" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -381,7 +381,7 @@
           <!-- Space 1: Modular Kitchens -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/karur/karur-kitchen-01.webp" alt="Modern Modular Kitchen by Art Homes" width="600" height="337" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 337'%3E%3C/svg%3E" data-src="assets/projects/karur/karur-kitchen-01.webp" alt="Modern Modular Kitchen by Art Homes" width="600" height="337" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -395,7 +395,7 @@
           <!-- Space 2: Living & Lounges -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-01.webp" alt="Luxury Living Room by Art Homes" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/projects/bangalore/bangalore-01.webp" alt="Luxury Living Room by Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -409,7 +409,7 @@
           <!-- Space 3: Designer Wardrobes -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-14.webp" alt="Floor to ceiling wardrobes Art Homes" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/projects/bangalore/bangalore-14.webp" alt="Floor to ceiling wardrobes Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -423,7 +423,7 @@
           <!-- Space 4: Dining & Crockery -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-04.webp" alt="Dining and Crockery Console Art Homes" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/projects/bangalore/bangalore-04.webp" alt="Dining and Crockery Console Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -437,7 +437,7 @@
           <!-- Space 5: Sacred Pooja Mandirs -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-05.webp" alt="Pooja Mandir with Jaali Carving Art Homes" width="1000" height="562" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 562'%3E%3C/svg%3E" data-src="assets/projects/bangalore/bangalore-05.webp" alt="Pooja Mandir with Jaali Carving Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -451,7 +451,7 @@
           <!-- Space 6: Foyers & Partitions -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-02.webp" alt="Foyer Partition and Shoe Storage Art Homes" width="985" height="706" loading="lazy" decoding="async">
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 985 706'%3E%3C/svg%3E" data-src="assets/projects/bangalore/bangalore-02.webp" alt="Foyer Partition and Shoe Storage Art Homes" width="985" height="706" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -640,5 +640,42 @@
 
   </script>
   <script src="animations.js" defer></script>
+
+  <!-- Non-blocking lazy image loader for below-the-fold assets -->
+  <script>
+    (function() {
+      function loadDeferredImages() {
+        var lazyImages = document.querySelectorAll('img[data-src]');
+        if ('IntersectionObserver' in window) {
+          var observer = new IntersectionObserver(function(entries, self) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                var img = entry.target;
+                if (img.dataset.src) {
+                  img.src = img.dataset.src;
+                  img.removeAttribute('data-src');
+                }
+                self.unobserve(img);
+              }
+            });
+          }, { rootMargin: '350px 0px' });
+          lazyImages.forEach(function(img) { observer.observe(img); });
+        } else {
+          lazyImages.forEach(function(img) {
+            if (img.dataset.src) {
+              img.src = img.dataset.src;
+              img.removeAttribute('data-src');
+            }
+          });
+        }
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadDeferredImages);
+      } else {
+        loadDeferredImages();
+      }
+    })();
+  </script>
 </body>
+
 </html>
