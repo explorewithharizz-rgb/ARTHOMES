@@ -2318,7 +2318,7 @@ span.pc-only { display: inline; }
   background-image: linear-gradient(
     rgba(15, 36, 29, 0.88),
     rgba(15, 36, 29, 0.94)
-  ), url('/assets/hero-home.jpg');
+  ), url('/assets/coffee-bg.webp');
   background-size: cover;
   background-position: center;
   opacity: 0.45;
@@ -4479,7 +4479,7 @@ html, body {
 }
 
 .coffee-title {
-  font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  font-family: var(--font-serif);
   font-size: clamp(28px, 3.4vw, 44px);
   color: #ffffff;
   font-weight: 700;
@@ -5583,4 +5583,15 @@ html, body {
   .benefit-card.motion-fade-right {
     transform: translate3d(18px, 0, 0) !important;
   }
+}
+
+/* Performance: Offscreen content visibility for instant mobile rendering */
+.editorial-about-section,
+.quote-banner-section,
+.spaces-section,
+.testimonials-section,
+.coffee-invite-banner,
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
 }
