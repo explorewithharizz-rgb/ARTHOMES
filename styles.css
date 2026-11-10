@@ -5391,17 +5391,14 @@ html, body {
 }
 
 .referral-hero-content-center {
-  max-width: 530px;
+  max-width: 540px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 20px;
-  padding: 32px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 36px rgba(15, 36, 29, 0.08);
+  background: transparent;
+  padding: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .referral-badge-pill {
@@ -5462,9 +5459,8 @@ html, body {
 @media (max-width: 768px) {
   .referral-hero-bg-wrap {
     min-height: 440px;
-    padding: 50px 18px;
-    background: rgba(251, 249, 245, 0.65);
-    backdrop-filter: blur(2px);
+    padding: 40px 16px;
+    background: transparent;
   }
   .referral-cta-btn {
     padding: 11px 22px !important;
