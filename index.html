@@ -221,6 +221,17 @@
       .hero h1 { font-size: clamp(28px, 6.5vw, 42px); }
       .hero-desc { font-size: 14.5px; line-height: 1.6; }
     }
+
+    /* Offscreen layout containment - prevents browser from downloading offscreen assets during initial paint */
+    .editorial-about-section,
+    .quote-banner-section,
+    .spaces-section,
+    .testimonials-section,
+    .coffee-invite-banner,
+    .site-footer {
+      content-visibility: auto;
+      contain-intrinsic-size: 1px 700px;
+    }
   </style>
 </head>
 <body>
@@ -256,7 +267,7 @@
             <picture class="hero-bg-picture">
         <source media="(max-width: 768px)" srcset="assets/hero-home-mobile.webp" type="image/webp">
         <source media="(min-width: 769px)" srcset="assets/hero-home.webp" type="image/webp">
-        <img src="assets/hero-home-mobile.webp" alt="Art Homes Luxury Living Room Turnkey Interiors" class="hero-bg-img" fetchpriority="high" decoding="async" width="1024" height="544">
+        <img src="assets/hero-home-mobile.webp" alt="Art Homes Luxury Living Room Turnkey Interiors" class="hero-bg-img" fetchpriority="high" decoding="async" width="768" height="408">
       </picture>
       <div class="hero-bg-overlay"></div>
 
@@ -306,10 +317,10 @@
 
           <div class="editorial-composition">
             <div class="editorial-comp-left anim-fade-down">
-              <img src="assets/about-living.webp" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" loading="lazy">
+              <img src="assets/about-living.webp" alt="Art Homes Contemporary Living Lounge with Acoustic Fluted Wall & Cove Lighting" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="editorial-comp-right anim-fade-left">
-              <img src="assets/about-tv.webp" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" loading="lazy">
+              <img src="assets/about-tv.webp" alt="Art Homes Modern Floating Backlit TV Wall Unit with Asymmetric Shelving" width="1000" height="562" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -370,7 +381,7 @@
           <!-- Space 1: Modular Kitchens -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/karur/karur-kitchen-01.webp" alt="Modern Modular Kitchen by Art Homes" loading="lazy">
+              <img src="assets/projects/karur/karur-kitchen-01.webp" alt="Modern Modular Kitchen by Art Homes" width="600" height="337" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -384,7 +395,7 @@
           <!-- Space 2: Living & Lounges -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-01.webp" alt="Luxury Living Room by Art Homes" loading="lazy">
+              <img src="assets/projects/bangalore/bangalore-01.webp" alt="Luxury Living Room by Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -398,7 +409,7 @@
           <!-- Space 3: Designer Wardrobes -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-14.webp" alt="Floor to ceiling wardrobes Art Homes" loading="lazy">
+              <img src="assets/projects/bangalore/bangalore-14.webp" alt="Floor to ceiling wardrobes Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -412,7 +423,7 @@
           <!-- Space 4: Dining & Crockery -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-04.webp" alt="Dining and Crockery Console Art Homes" loading="lazy">
+              <img src="assets/projects/bangalore/bangalore-04.webp" alt="Dining and Crockery Console Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -426,7 +437,7 @@
           <!-- Space 5: Sacred Pooja Mandirs -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-05.webp" alt="Pooja Mandir with Jaali Carving Art Homes" loading="lazy">
+              <img src="assets/projects/bangalore/bangalore-05.webp" alt="Pooja Mandir with Jaali Carving Art Homes" width="1000" height="562" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
@@ -440,7 +451,7 @@
           <!-- Space 6: Foyers & Partitions -->
           <article class="space-card reveal-up">
             <div class="space-media">
-              <img src="assets/projects/bangalore/bangalore-02.webp" alt="Foyer Partition and Shoe Storage Art Homes" loading="lazy">
+              <img src="assets/projects/bangalore/bangalore-02.webp" alt="Foyer Partition and Shoe Storage Art Homes" width="985" height="706" loading="lazy" decoding="async">
             </div>
             <div class="space-body">
               <div>
