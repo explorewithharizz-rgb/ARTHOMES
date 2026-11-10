@@ -375,14 +375,50 @@
       </div>
     </section>
 
-    <!-- SECTION 7: SPLIT LEAD CAPTURE FORM -->
+    <!-- SECTION 7: OFFERS & REFERRALS LEAD CAPTURE -->
     <section class="split-lead-section" id="lead-form">
       <div class="container">
+        
+        <!-- Section Header -->
+        <div class="section-header center reveal-up" style="margin-bottom: 30px;">
+          <span class="eyebrow" style="color: var(--terracotta);">Special Offers & Referral Program</span>
+          <h2 class="section-title">Exclusive Offers & Refer and Earn Rewards</h2>
+          <p class="section-subtitle">
+            Unlock flat 5% off on turnkey interiors for your upcoming home, or refer friends and family in Bengaluru &amp; Hosur to earn direct cash rewards.
+          </p>
+        </div>
+
+        <!-- Dual Reward Highlights Bar -->
+        <div class="myna-reward-pills-bar reveal-scale" style="margin-bottom: 35px;">
+          <div class="myna-pill-card">
+            <span class="pill-icon">💰</span>
+            <div class="pill-text">
+              <strong>₹15,000 – ₹25,000 Cash</strong>
+              <span>Direct Cash / UPI Transfer for You</span>
+            </div>
+          </div>
+          <div class="myna-pill-card">
+            <span class="pill-icon">🎁</span>
+            <div class="pill-text">
+              <strong>Worth ₹35,000 Free</strong>
+              <span>Design Concept &amp; Blum Soft-Close for Friend</span>
+            </div>
+          </div>
+          <div class="myna-pill-card">
+            <span class="pill-icon">🏷️</span>
+            <div class="pill-text">
+              <strong>Flat 5% Off Turnkey</strong>
+              <span>Possession Discount (Bengaluru &amp; Hosur)</span>
+            </div>
+          </div>
+        </div>
+
         <div class="split-lead-grid reveal-up">
           <div class="split-lead-form-wrap">
-            <h2>Create a home that defines who you are.</h2>
-            <p>
-              Get an instant itemized estimate and book a personalized design consultation for your upcoming flat or villa.
+            <span class="eyebrow" style="color: #dfba73; margin-bottom: 8px; display: inline-block;">Quick Claim / Referral</span>
+            <h2 style="font-size: clamp(24px, 2.6vw, 32px); margin-bottom: 10px;">Claim Offer or Refer a Friend</h2>
+            <p style="font-size: 14px; color: #c5cec8; margin-bottom: 22px;">
+              Submit your details below. We'll connect with you on WhatsApp with your offer voucher or referral confirmation.
             </p>
 
             <form id="heroLeadForm" class="split-form">
@@ -397,25 +433,39 @@
               </div>
               <div>
                 <select id="leadBhk" class="split-select" required>
-                  <option value="" disabled selected>Select Floor Plan Configuration *</option>
-                  <option value="2 BHK (Starting @ ₹2.5 Lac*)">2 BHK Apartment (Starting @ ₹2.5 Lac*)</option>
-                  <option value="3 BHK (Starting @ ₹3.5 Lac*)">3 BHK Apartment (Starting @ ₹3.5 Lac*)</option>
-                  <option value="4 BHK / Luxury Villa">4 BHK / Luxury Villa</option>
-                  <option value="Renovation & Remodeling">Renovation & Remodeling</option>
-                  <option value="Commercial / Studio Space">Commercial / Studio Space</option>
+                  <option value="" disabled selected>Select Offer or Referral *</option>
+                  <option value="Claim Flat 5% Off Turnkey Interior Offer">🎉 Claim Flat 5% Off Turnkey Interior Offer</option>
+                  <option value="Refer a Friend (Earn ₹15,000–₹25,000 Cash)">🤝 Refer a Friend (Earn ₹15,000–₹25,000 Cash)</option>
+                  <option value="2 BHK Turnkey Package (From ₹2.5 Lac*)">🏡 2 BHK Turnkey Package (From ₹2.5 Lac*)</option>
+                  <option value="3 BHK Turnkey Package (From ₹3.5 Lac*)">🏰 3 BHK Turnkey Package (From ₹3.5 Lac*)</option>
+                  <option value="4 BHK / Luxury Villa Design Consultation">✨ 4 BHK / Luxury Villa Design Consultation</option>
                 </select>
               </div>
-              <button type="submit" class="btn btn-terracotta" style="width: 100%; justify-content: center; margin-top: 8px;">
-                Get Free Estimate ↗
+              <button type="submit" class="btn btn-terracotta" style="width: 100%; justify-content: center; margin-top: 6px;">
+                Claim Offer / Submit Referral ↗
               </button>
-              <span style="font-size: 11.5px; color: #a4b2a8; text-align: center; display: block;">
-                🔒 Zero spam. We send quotes directly to your WhatsApp or call you.
+              <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+                <a href="referral.html" class="btn btn-gold" style="flex: 1; min-width: 150px; justify-content: center; font-size: 13px; padding: 11px 14px;">
+                  Explore All Offers →
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Hey!%20If%20you%20are%20planning%20interiors%20for%20your%20new%20home%20in%20Bengaluru%20or%20Hosur%2C%20check%20out%20Art%20Homes.%20They%20offer%20premium%20interior%20design%20and%20German%20modular%20finish%20with%20a%2010-year%20warranty.%20Get%20in%20touch:%20https://wa.me/919791272166" class="btn btn-whatsapp" style="flex: 1; min-width: 150px; justify-content: center; font-size: 13px; padding: 11px 14px;" target="_blank" rel="noopener">
+                  💬 WhatsApp Share ↗
+                </a>
+              </div>
+              <span style="font-size: 11.5px; color: #a4b2a8; text-align: center; display: block; margin-top: 6px;">
+                🔒 Zero spam. We send quotes &amp; voucher details directly to WhatsApp.
               </span>
             </form>
           </div>
 
-          <div class="split-lead-img-wrap">
-            <img src="assets/projects/bangalore/bangalore-04.jpg" alt="Art Homes Luxury Interior Handover" loading="lazy">
+          <div class="split-lead-img-wrap" style="position: relative; overflow: hidden; background: #fbf9f5; display: flex; align-items: center; justify-content: center;">
+            <a href="referral.html" style="display: block; width: 100%; height: 100%;">
+              <img src="assets/referral-hero.jpg?v=6" alt="Exclusive Offers &amp; Refer and Earn - Art Homes Interior Studio" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+            </a>
+            <div style="position: absolute; bottom: 16px; left: 16px; right: 16px; background: rgba(15, 36, 29, 0.88); backdrop-filter: blur(8px); padding: 12px 18px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; border: 1px solid rgba(255,255,255,0.15);">
+              <span style="color: #fff; font-size: 13px; font-weight: 600;">🎁 Up to ₹25,000 Cash Rewards</span>
+              <a href="referral.html" style="color: #dfba73; font-size: 12.5px; font-weight: 700; text-decoration: none;">View Details ↗</a>
+            </div>
           </div>
         </div>
       </div>
@@ -604,11 +654,11 @@
         const location = document.getElementById('leadLocation').value.trim();
         const bhk = document.getElementById('leadBhk').value;
 
-        const message = `Hi Art Homes! I would like a free interior design consultation and estimate.%0A%0A` +
+        const message = `Hi Art Homes! I would like to claim an offer / refer a friend for home interiors.%0A%0A` +
           `*Name:* ${encodeURIComponent(name)}%0A` +
           `*Phone:* ${encodeURIComponent(phone)}%0A` +
           `*Location:* ${encodeURIComponent(location)}%0A` +
-          `*Requirement:* ${encodeURIComponent(bhk)}`;
+          `*Offer / Referral:* ${encodeURIComponent(bhk)}`;
 
         const whatsappUrl = `https://wa.me/919791272166?text=${message}`;
         window.open(whatsappUrl, '_blank');
