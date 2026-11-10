@@ -5375,8 +5375,9 @@ html, body {
   margin-right: calc(-50vw + 50%);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=2') no-repeat center center;
+  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=3') no-repeat center center;
   background-size: cover;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .referral-hero-bg-wrap {
