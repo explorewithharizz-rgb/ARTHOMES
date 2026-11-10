@@ -1843,9 +1843,11 @@ span.pc-only { display: inline; }
   color: var(--terracotta);
   margin-bottom: 16px;
   opacity: 0;
-  transform: translateY(-24px) scale(0.65);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s,
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+  transform: scale(0.7) translateY(-20px);
+  filter: blur(4px);
+  transition: opacity 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s,
+              transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s,
+              filter 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.08s;
   will-change: opacity, transform;
 }
 .quote-banner-text {
@@ -1857,9 +1859,11 @@ span.pc-only { display: inline; }
   margin: 0 auto 28px;
   font-weight: 600;
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s,
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+  transform: scale(0.88) translateY(24px);
+  filter: blur(4px);
+  transition: opacity 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.18s,
+              transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.18s,
+              filter 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.18s;
   will-change: opacity, transform;
 }
 .quote-banner-sub {
@@ -1868,9 +1872,11 @@ span.pc-only { display: inline; }
   max-width: 600px;
   margin: 0 auto 36px;
   opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.34s,
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.34s;
+  transform: scale(0.9) translateY(20px);
+  filter: blur(3px);
+  transition: opacity 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.28s,
+              transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.28s,
+              filter 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) 0.28s;
   will-change: opacity, transform;
 }
 .quote-banner-section .btn {
@@ -1883,13 +1889,14 @@ span.pc-only { display: inline; }
   will-change: opacity, transform;
 }
 
-/* Quote Banner Visible / Triggered State */
+/* Quote Banner Visible / Triggered State (Fade Pop Spring Motion) */
 .quote-banner-section.is-visible .quote-mark-icon,
 .quote-banner-section.is-visible .quote-banner-text,
 .quote-banner-section.is-visible .quote-banner-sub,
 .quote-banner-section.is-visible .btn {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  filter: blur(0) !important;
 }
 
 /* 5. Floating Metrics Strip with Fade Down Entrance */
