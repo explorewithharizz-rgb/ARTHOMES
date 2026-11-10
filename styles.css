@@ -5375,7 +5375,7 @@ html, body {
   margin-right: calc(-50vw + 50%);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
-  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=1') no-repeat center center;
+  background: #fbf9f5 url('/assets/offers-referral-bg.jpg?v=2') no-repeat center center;
   background-size: cover;
 }
 
@@ -5385,15 +5385,22 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 60px 24px;
+  padding: 50px 20px;
   text-align: center;
 }
 
 .referral-hero-content-center {
-  max-width: 680px;
+  max-width: 530px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 32px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 12px 36px rgba(15, 36, 29, 0.08);
 }
 
 .referral-badge-pill {
