@@ -19,8 +19,15 @@
   <link rel="preload" as="image" href="assets/hero-home-mobile.webp" type="image/webp" media="(max-width: 768px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/hero-home.webp" type="image/webp" media="(min-width: 769px)" fetchpriority="high">
 
-  <!-- Asynchronous Google Web Fonts with font-display: swap -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+  <!-- Deferred Google Web Fonts (Loaded post-LCP so fonts never starve LCP image bandwidth) -->
+  <script>
+    window.addEventListener('load', function() {
+      var gf = document.createElement('link');
+      gf.rel = 'stylesheet';
+      gf.href = 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap';
+      document.head.appendChild(gf);
+    });
+  </script>
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap"></noscript>
 
   <!-- Non-blocking minified stylesheet -->
