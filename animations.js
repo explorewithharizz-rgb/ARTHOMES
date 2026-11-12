@@ -19,7 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. Interactive Filter Tabs (Services / Gallery)
   initFilterTabs();
 
-  // 7. Smooth Scroll for Anchor Links
+  // 7. Two-Stage Workflow Tabs (Design & Execution)
+  initWorkflowTabs();
+
+  // 8. Smooth Scroll for Anchor Links
   initSmoothScroll();
 
   // 8. Mobile Menu Outside Dismiss & Keyboard Accessibility
@@ -328,6 +331,38 @@ function initFilterTabs() {
         } else {
           card.style.display = 'none';
         }
+      });
+    });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   7. Two-Stage Workflow Tabs (Design & Execution)
+   -------------------------------------------------------------------------- */
+function initWorkflowTabs() {
+  const workflowSections = document.querySelectorAll('.workflow-tabs-section');
+  if (!workflowSections.length) return;
+
+  workflowSections.forEach(section => {
+    const buttons = section.querySelectorAll('.workflow-tab-btn[data-workflow-tab]');
+    const panels = section.querySelectorAll('.workflow-panel[data-workflow-panel]');
+    if (!buttons.length || !panels.length) return;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-workflow-tab');
+
+        buttons.forEach(b => {
+          const isTarget = b === btn;
+          b.classList.toggle('active', isTarget);
+          b.setAttribute('aria-selected', isTarget ? 'true' : 'false');
+        });
+
+        panels.forEach(panel => {
+          const isMatch = panel.getAttribute('data-workflow-panel') === targetTab;
+          panel.classList.toggle('active', isMatch);
+          panel.hidden = !isMatch;
+        });
       });
     });
   });

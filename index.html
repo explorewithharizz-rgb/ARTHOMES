@@ -236,6 +236,7 @@
     /* Offscreen layout containment - prevents browser from downloading offscreen assets during initial paint */
     .editorial-about-section,
     .quote-banner-section,
+    .workflow-tabs-section,
     .spaces-section,
     .testimonials-section,
     .coffee-invite-banner,
@@ -292,6 +293,9 @@
             </div>
             <div class="hero-price-pill pill-alt">
               <span>✨ 3BHK Starting @ ₹3.5 Lac*</span>
+            </div>
+            <div class="hero-price-pill">
+              <span>🏛️ 4BHK / Villa Starting @ ₹4.9 Lac*</span>
             </div>
           </div>
 
@@ -378,6 +382,110 @@
         </div>
       </div>
     </div>
+
+    <!-- SECTION 5B: TWO-STAGE SERVICE WORKFLOW (DESIGN & EXECUTION TABS) -->
+    <section class="workflow-tabs-section" id="service-workflow">
+      <div class="container">
+        <div class="section-header center reveal-up">
+          <span class="eyebrow">Turnkey Process</span>
+          <h2 class="section-title">How We Work: Design to Execution</h2>
+          <p class="section-subtitle">
+            From your initial requirement consultation and 3D layouts to 6,000 sq.ft factory-modular execution with a 10-year durability warranty.
+          </p>
+        </div>
+
+        <div class="workflow-tab-wrap">
+          <div class="workflow-tab-switch" role="tablist" aria-label="Service Workflow Stages">
+            <button type="button" class="workflow-tab-btn active" role="tab" aria-selected="true" aria-controls="workflow-panel-design" id="tab-design" data-workflow-tab="design">
+              <span class="workflow-tab-num">01</span>
+              <span>Design</span>
+            </button>
+            <button type="button" class="workflow-tab-btn" role="tab" aria-selected="false" aria-controls="workflow-panel-execution" id="tab-execution" data-workflow-tab="execution">
+              <span class="workflow-tab-num">02</span>
+              <span>Execution</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab 1: Design Phase -->
+        <div class="workflow-panel active" id="workflow-panel-design" role="tabpanel" aria-labelledby="tab-design" data-workflow-panel="design">
+          <div class="workflow-steps-grid">
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 01 · Consultation</span>
+              </div>
+              <h3>Initial Consultation &amp; Site Audit</h3>
+              <p>
+                We begin by understanding your family lifestyle, storage requirements, and background procedures—followed by a millimeter-accurate laser site audit.
+              </p>
+            </article>
+
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 02 · 3D Concepts</span>
+              </div>
+              <h3>3D Kitchen, Living &amp; Wardrobe Layouts</h3>
+              <p>
+                Imaginative architectural planning with photorealistic 3D interior views for modular kitchens, designer wardrobes, living lounges, and pooja units.
+              </p>
+            </article>
+
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 03 · Cost Lock</span>
+              </div>
+              <h3>Material Curation &amp; Itemized BOQ</h3>
+              <p>
+                Select BWP marine ply, acrylic shutters, quartz counters, and Austrian Blum hardware alongside a locked itemized BOQ starting from ₹2.5 Lac (2 BHK), ₹3.5 Lac (3 BHK), and ₹4.9 Lac (4 BHK / Villa).
+              </p>
+            </article>
+          </div>
+          <div class="workflow-phase-note">
+            <span><strong>Design Deliverables:</strong> Space floor plans, photorealistic 3D renders, electrical/ceiling markings, and zero-escalation BOQ.</span>
+            <a href="contact.html" class="space-link">Book Free Design Consultation →</a>
+          </div>
+        </div>
+
+        <!-- Tab 2: Execution Phase -->
+        <div class="workflow-panel" id="workflow-panel-execution" role="tabpanel" aria-labelledby="tab-execution" data-workflow-panel="execution" hidden>
+          <div class="workflow-steps-grid">
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 01 · Factory CNC</span>
+              </div>
+              <h3>Factory-Modular CNC Precision</h3>
+              <p>
+                Once designs are approved, our 6,000 sq.ft automated facility cuts and edge-bands modular carcasses and shutters while civil and electrical work runs in parallel.
+              </p>
+            </article>
+
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 02 · Site Fitment</span>
+              </div>
+              <h3>Artisan On-Site Installation</h3>
+              <p>
+                Dedicated site supervisors and master craftsmen install your modular kitchen, floor-to-ceiling wardrobes, partitions, and soft-close Blum hardware cleanly.
+              </p>
+            </article>
+
+            <article class="workflow-step-card">
+              <div class="workflow-step-head">
+                <span class="workflow-step-badge">Step 03 · Warranty</span>
+              </div>
+              <h3>45-Day Handover &amp; 10-Year Durability</h3>
+              <p>
+                Every home clears our 140-point quality audit before a guaranteed 45-working-day handover, complete with an official 10-year modular durability warranty.
+              </p>
+            </article>
+          </div>
+          <div class="workflow-phase-note">
+            <span><strong>Execution Guarantee:</strong> Factory precision, single-point accountability across Bengaluru &amp; Hosur, and on-time 45-day handover.</span>
+            <a href="gallery.html" class="space-link">Explore Executed Works →</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- SECTION 6: CURATED SPACES / DISCOVER THE HARMONY -->
     <section class="spaces-section">

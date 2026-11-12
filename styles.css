@@ -5585,9 +5585,197 @@ html, body {
   }
 }
 
+/* ==========================================================================
+   TWO-STAGE SERVICE WORKFLOW TABS (DESIGN & EXECUTION)
+   ========================================================================== */
+.workflow-tabs-section {
+  padding: 76px 0;
+  background: var(--bg-cream);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.workflow-tab-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1.5px solid var(--line);
+  padding: 6px;
+  border-radius: 999px;
+  margin: 0 auto 34px;
+  box-shadow: 0 4px 16px rgba(15, 36, 29, 0.05);
+}
+
+.workflow-tab-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.workflow-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--forest-dark);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.workflow-tab-btn:hover {
+  color: var(--terracotta);
+}
+
+.workflow-tab-btn.active {
+  background: var(--forest-dark);
+  color: #ffffff;
+  box-shadow: 0 6px 18px rgba(15, 36, 29, 0.2);
+}
+
+.workflow-tab-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(197, 160, 89, 0.22);
+  color: var(--gold-dark);
+}
+
+.workflow-tab-btn.active .workflow-tab-num {
+  background: var(--terracotta);
+  color: #ffffff;
+}
+
+.workflow-panel {
+  display: none;
+  animation: workflowFadeIn 0.32s ease forwards;
+}
+
+.workflow-panel.active {
+  display: block;
+}
+
+@keyframes workflowFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.workflow-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.workflow-step-card {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.workflow-step-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(197, 160, 89, 0.55);
+}
+
+.workflow-step-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.workflow-step-badge {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--terracotta);
+  background: rgba(207, 113, 82, 0.1);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.workflow-step-card h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--forest-dark);
+  margin-bottom: 10px;
+}
+
+.workflow-step-card p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.workflow-phase-note {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius-sm);
+  padding: 16px 22px;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.workflow-phase-note strong {
+  color: var(--forest-dark);
+}
+
+@media (max-width: 900px) {
+  .workflow-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 540px) {
+  .workflow-tabs-section {
+    padding: 54px 0;
+  }
+  .workflow-tab-switch {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .workflow-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+}
+
 /* Performance: Offscreen content visibility for instant mobile rendering */
 .editorial-about-section,
 .quote-banner-section,
+.workflow-tabs-section,
 .spaces-section,
 .testimonials-section,
 .coffee-invite-banner,
